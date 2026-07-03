@@ -130,6 +130,12 @@ flowchart LR
 
 </div>
 
+## ▶️ Demo Video & Wiki
+
+
+- [Watch Demo video](videos/demo-video.mp4)
+- [Capabilities - Screen monitor](videos/screen-monitor.mp4)
+
 
 
 ## 🔨 APK Builder
