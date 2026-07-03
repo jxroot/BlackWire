@@ -20,6 +20,11 @@
 **BlackWire** is a full-stack platform for remote management of multiple Android devices.  
 A headless agent runs on each phone and stays connected automatically — you control everything from a single web dashboard.
 
+<div align="center">
+<img src="https://raw.githubusercontent.com/jxroot/BlackWire/refs/heads/main/images/dashboard.png">
+</div>
+
+
 > 🔒 **Note:** This is commercial software. A valid license is required to use it.
 
 ---
@@ -119,6 +124,13 @@ flowchart LR
 
 
 ## 📸 Preview
+<div align="center">
+<img src="https://raw.githubusercontent.com/jxroot/BlackWire/refs/heads/main/images/devices.png">
+<img src="https://raw.githubusercontent.com/jxroot/BlackWire/refs/heads/main/images/device-detail.png">
+
+</div>
+
+
 
 ## 🔨 APK Builder
 
@@ -126,7 +138,7 @@ Configure the agent app and build a customized APK for installation — directly
 
 Open **Build** in the sidebar after signing in.
 
-![APK builder](docs/images/preview/build.png)
+
 
 ### App identity
 
