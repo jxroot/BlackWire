@@ -135,7 +135,7 @@ flowchart LR
 
 - [Watch Demo video](videos/demo-video.mp4)
 - [Capabilities - Screen monitor](videos/screen-monitor.mp4)
-
+https://github.com/jxroot/BlackWire/raw/main/videos/screen-monitor.mp4
 
 
 ## 🔨 APK Builder
