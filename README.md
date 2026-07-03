@@ -12,13 +12,6 @@
 
 **Web dashboard + powerful backend + headless Android agent**
 
-[Quick Start](#-quick-start) ·
-[Features](#-features) ·
-[Architecture](#️-architecture) ·
-[Docs](docs/DEVELOPMENT.md) ·
-[License](#-license)
-
----
 
 </div>
 
@@ -123,7 +116,7 @@ flowchart LR
 ---
 
 
----
+
 
 ## 📸 Preview
 
@@ -147,7 +140,6 @@ Contact us on Telegram:
 
 ---
 
-<div align="center">
 
 ## ⚠️ Legal & Ethical Disclaimer
 
