@@ -133,9 +133,9 @@ flowchart LR
 ## ▶️ Demo Video & Wiki
 
 
-- [Watch Demo video](videos/demo-video.mp4)
+- [Watch Demo video](videos/demo.mp4)
 - [Capabilities - Screen monitor](videos/screen-monitor.mp4)
-
+- [Capabilities - Microphone](videos/microphone.mp4)
 
 ## 🔨 APK Builder
 
