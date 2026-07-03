@@ -120,7 +120,84 @@ flowchart LR
 
 ## 📸 Preview
 
+## 🔨 APK Builder
 
+Configure the agent app and build a customized APK for installation — directly from the dashboard, no Android Studio required.
+
+Open **Build** in the sidebar after signing in.
+
+![APK builder](docs/images/preview/build.png)
+
+### App identity
+
+| Option | Description |
+|:--|:--|
+| **App name** | Display name shown in notifications and system settings (default: `Device Agent`) |
+| **Package name** | Unique application ID Android uses to identify the installed app (default: `com.devicemanager.agent`) |
+| **App icon** | Optional square PNG, JPG, or WebP up to 1 MB |
+| **Server URL** | Backend address the agent connects to (e.g. `http://192.168.1.100:8000`) |
+
+### Permissions at install
+
+Choose whether the APK requests permissions on first launch, or leaves everything for the device **Permissions** panel later.
+
+#### Minimal install *(recommended)*
+
+Smaller APK without SMS, camera, location, and other optional features in the manifest. You can choose which of **Notifications** and **Battery optimization** to request on first launch. For more permissions, switch to **Custom on install**.
+
+#### Custom on install
+
+Full-featured APK. Request any selected permissions when the app is opened for the first time. Anything not selected can still be granted later from the panel.
+
+### First-launch permissions
+
+In **minimal** mode, only **Notifications** and **Battery optimization** are available. Switch to **Custom** for SMS, camera, location, and more.
+
+| Permission | Purpose | Minimal | Custom |
+|:--|:--|:--:|:--:|
+| **All Files Access** | File manager and storage browsing | — | ✓ |
+| **Battery Optimization** | Keeps the agent connected in the background | ✓ | ✓ |
+| **Photos** | Wallpaper and media access on Android 13+ | — | ✓ |
+| **Notifications** | Foreground service notification on Android 13+ | ✓ | ✓ |
+| **SMS** | Read and send SMS messages | — | ✓ |
+| **Contacts** | Read the contacts list | — | ✓ |
+| **Call Log** | Read phone call history | — | ✓ |
+| **Location** | GPS location tracking | — | ✓ |
+| **Microphone** | Record and stream audio | — | ✓ |
+| **Camera** | Capture photos and live preview | — | ✓ |
+| **Accessibility** | Screen control and remote taps | — | ✓ |
+| **Notification Access** | Track notifications from other apps | — | ✓ |
+
+### Advanced options
+
+| Option | Description |
+|:--|:--|
+| **Heartbeat interval** | Seconds between agent heartbeats (default: `15`) |
+| **Fake APK size (MB)** | Pads the APK with extra data at build time. Use `0` to disable |
+| **Hide app after install** | Removes the launcher icon after the agent starts. The app keeps running in the background. The icon hides after the agent runs once, not at install time. On Xiaomi/Samsung devices it may take a few seconds or a launcher restart |
+| **Device Admin** | Includes device administrator support in the APK. Must be enabled here before building — it cannot be added later from the panel. On first launch the app prompts to activate; status appears under **Permissions**. The user can revoke it from Android settings |
+
+### Security
+
+| Option | Description |
+|:--|:--|
+| **Require HTTPS** | Blocks plain HTTP and WebSocket connections in the agent |
+| **Allow HTTP (local dev only)** | Permits `http://` server URLs for LAN testing. Keep disabled in production |
+| **Certificate pinning** | Automatically enabled for valid HTTPS hosts; disabled for ngrok and plain HTTP |
+| **Anti-root detection** | Exits the agent when root access is detected |
+| **Anti-emulator detection** | Exits the agent when running on an emulator |
+| **Anti-debug detection** | Exits when a debugger is attached or the app is debuggable |
+
+### Build & download
+
+1. Click **Build APK** — the server runs Gradle in the background
+2. Wait for the build to finish (status: queued → building → ready)
+3. Download the APK and install it on your device
+4. View **build history** with version code, config fingerprint, and install-status tracking
+
+Once installed, the device connects over WebSocket and shows as **Online** in the dashboard.
+
+---
 
 ## 🔐 License
 
