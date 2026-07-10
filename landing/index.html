@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BlackWire — Remote Android device management. Bind agent into APK/XAPK, Python automation, Termux shell, Anti Kill, Device Admin, and a full web dashboard." />
+  <title>BlackWire — Silent link. Full control.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">BlackWire</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#demos">Demo</a></li>
+        <li><a href="#remote">Remote Control</a></li>
+        <li><a href="#automation">Automation</a></li>
+        <li><a href="#termux">Termux</a></li>
+        <li><a href="#builder">Build Center</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#stack">Tech Stack</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-sm btn-primary">Get License</a>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-badge reveal">
+          <span class="pulse-dot"></span>
+          Full-Stack Android RMM Platform
+        </div>
+        <h1 class="hero-title reveal">
+          <span class="gradient-text">Silent link.</span><br />
+          Full control.
+        </h1>
+        <p class="hero-desc reveal">
+          Web dashboard, FastAPI backend, and a headless Android agent.
+          Build standalone APKs or bind silently into host apps and XAPK bundles — automate fleets with Python tasks and event hooks.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#features" class="btn btn-primary btn-lg">
+            Explore Features
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost btn-lg">Contact for License</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="stat">
+            <span class="stat-value">APK / XAPK</span>
+            <span class="stat-label">Bind & Build</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-value">Headless</span>
+            <span class="stat-label">Auto-start Agent</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-value">Multi-device</span>
+            <span class="stat-label">Single Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard mockup -->
+      <div class="hero-visual container reveal">
+        <div class="dashboard-frame">
+          <div class="frame-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="frame-title">BlackWire Dashboard</span>
+          </div>
+          <div class="frame-body">
+            <aside class="mock-sidebar">
+              <div class="mock-logo">⚡</div>
+              <div class="mock-nav-item active"></div>
+              <div class="mock-nav-item"></div>
+              <div class="mock-nav-item"></div>
+              <div class="mock-nav-item"></div>
+            </aside>
+            <div class="mock-main">
+              <div class="mock-header">
+                <div class="mock-search"></div>
+                <div class="mock-badge online">● 12 Online</div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card">
+                  <div class="mock-card-icon">📱</div>
+                  <div class="mock-card-lines">
+                    <div class="line w80"></div>
+                    <div class="line w50"></div>
+                  </div>
+                  <div class="mock-status online"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-card-icon">📱</div>
+                  <div class="mock-card-lines">
+                    <div class="line w80"></div>
+                    <div class="line w50"></div>
+                  </div>
+                  <div class="mock-status online"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-card-icon">📱</div>
+                  <div class="mock-card-lines">
+                    <div class="line w80"></div>
+                    <div class="line w50"></div>
+                  </div>
+                  <div class="mock-status offline"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-card-icon">📱</div>
+                  <div class="mock-card-lines">
+                    <div class="line w80"></div>
+                    <div class="line w50"></div>
+                  </div>
+                  <div class="mock-status online"></div>
+                </div>
+              </div>
+              <div class="mock-chart">
+                <div class="chart-bar" style="--h: 40%"></div>
+                <div class="chart-bar" style="--h: 65%"></div>
+                <div class="chart-bar" style="--h: 45%"></div>
+                <div class="chart-bar" style="--h: 80%"></div>
+                <div class="chart-bar" style="--h: 55%"></div>
+                <div class="chart-bar" style="--h: 70%"></div>
+                <div class="chart-bar" style="--h: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="floating-chip chip-1">
+          <span>🔋</span> Battery 87%
+        </div>
+        <div class="floating-chip chip-2">
+          <span>📍</span> GPS Live
+        </div>
+        <div class="floating-chip chip-3">
+          <span>🖥️</span> Screen Mirror
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Video -->
+    <section class="section section-alt" id="demos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Platform Demo</span>
+          <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
+          <p>Full platform walkthrough — dashboard, remote control, automation, Termux, Build Center bind, and more.</p>
+        </div>
+
+        <div class="demo-showcase reveal">
+          <div class="video-frame video-frame-lg">
+            <video class="demo-video" poster="https://raw.githubusercontent.com/jxroot/BlackWire/refs/heads/main/images/dashboard.png" controls preload="none">
+              <source src="videos/demo.mp4" type="video/mp4" />
+            </video>
+            <div class="video-placeholder">
+              <button type="button" class="video-play" aria-label="Play platform demo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Dashboard & Management</span>
+          <h2>Smart management<br /><span class="gradient-text">all devices at a glance</span></h2>
+          <p>Live status, advanced search, and hardware metrics — everything in real time.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon">📊</div>
+            <h3>Online / Offline Status</h3>
+            <p>Live connection status for every device via WebSocket updates.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🔍</div>
+            <h3>Advanced Search & Filters</h3>
+            <p>Quickly find devices among hundreds of phones with smart filters.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">⚡</div>
+            <h3>Real-time Updates</h3>
+            <p>No page refresh — changes appear instantly on the dashboard.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📈</div>
+            <h3>Hardware Metrics</h3>
+            <p>Battery, RAM, and storage for each device at a glance.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🧩</div>
+            <h3>Toggleable Modules</h3>
+            <p>Enable or disable 20+ data-collection modules globally or per device.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🏷️</div>
+            <h3>Tags & Groups</h3>
+            <p>Organize fleets with labels and groups — filter devices instantly from the dashboard.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🗺️</div>
+            <h3>World Map</h3>
+            <p>See device distribution by country with live online/offline status on the map.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📜</div>
+            <h3>Activity Timeline</h3>
+            <p>Unified log of SMS, calls, input, files, shell, tasks, hooks, and more.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Remote Control -->
+    <section class="section section-alt" id="remote">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Remote Control</span>
+          <h2>Full control<br /><span class="gradient-text">from anywhere</span></h2>
+          <p>Everything you need on the device — without being physically near the phone.</p>
+        </div>
+        <div class="remote-grid">
+          <div class="remote-card reveal" data-accent="cyan">
+            <div class="remote-visual">
+              <div class="screen-mock">
+                <div class="screen-content">
+                  <div class="screen-app"></div>
+                  <div class="screen-app"></div>
+                  <div class="screen-app"></div>
+                  <div class="screen-app"></div>
+                </div>
+                <div class="screen-cursor"></div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>🖥️ Screen Monitoring</h3>
+              <p>Live screen view and remote control via Accessibility.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="violet">
+            <div class="remote-visual">
+              <div class="terminal-mock">
+                <div class="term-line"><span class="prompt">$</span> ls /sdcard/</div>
+                <div class="term-line">DCIM  Download  Documents</div>
+                <div class="term-line"><span class="prompt">$</span> pm list packages</div>
+                <div class="term-line typing">com.android...</div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>💻 Terminal & File Manager</h3>
+              <p>Remote shell, Termux Linux terminal, file transfer, and app control.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="emerald">
+            <div class="remote-visual">
+              <div class="media-mock">
+                <div class="cam-preview">
+                  <div class="cam-lens"></div>
+                  <div class="rec-dot"></div>
+                </div>
+                <div class="wave-bars">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>📷 Camera & Microphone</h3>
+              <p>Record and stream audio and video in real time.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="amber">
+            <div class="remote-visual">
+              <div class="map-mock">
+                <div class="map-grid"></div>
+                <div class="map-pin"></div>
+                <div class="map-pulse"></div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>📍 GPS Tracking</h3>
+              <p>Live device location on the map.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="rose">
+            <div class="remote-visual">
+              <div class="ui-tree-mock">
+                <div class="ui-node root">FrameLayout</div>
+                <div class="ui-node child">TextView — Login</div>
+                <div class="ui-node child active">EditText — password</div>
+                <div class="ui-node child">Button — Sign in</div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>👁️ Screen Reader</h3>
+              <p>Stream live UI structure and remote taps via Accessibility.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="lime">
+            <div class="remote-visual">
+              <div class="apps-mock">
+                <div class="app-icon"></div>
+                <div class="app-icon"></div>
+                <div class="app-icon"></div>
+                <div class="app-icon"></div>
+                <div class="app-icon"></div>
+                <div class="app-icon"></div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>📦 Applications</h3>
+              <p>List, launch, and manage installed apps remotely.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="teal">
+            <div class="remote-visual">
+              <div class="controls-mock">
+                <div class="ctrl-toggle on"><span></span> Wi-Fi</div>
+                <div class="ctrl-toggle"><span></span> Airplane</div>
+                <div class="ctrl-toggle on"><span></span> Mobile Data</div>
+                <div class="ctrl-slider"><span>Brightness</span><div class="slider-track"><div class="slider-fill"></div></div></div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>🎛️ Quick Controls</h3>
+              <p>Toggle airplane mode, Wi-Fi, brightness, volume, and lock screen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Communications -->
+    <section class="section" id="comms">
+      <div class="container">
+        <div class="split-layout">
+          <div class="split-content reveal">
+            <span class="section-tag">Communications & Data</span>
+            <h2>Data & communications<br /><span class="gradient-text">under your control</span></h2>
+            <ul class="check-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>SMS</strong>
+                  <span>Read and send text messages</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Contacts & Calls</strong>
+                  <span>Contact list and call history</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Notification Logging</strong>
+                  <span>Track notifications from other apps</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Activity Timeline</strong>
+                  <span>Complete user activity history</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Toggleable Modules</strong>
+                  <span>Enable or disable data collection per module</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Input Tracker</strong>
+                  <span>Capture keystrokes, taps, and field changes</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Clipboard Hook</strong>
+                  <span>Monitor clipboard copy events on the device</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>App Switch Tracking</strong>
+                  <span>Log foreground app and screen changes</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Screenshot Capture</strong>
+                  <span>Remote screenshots logged to the timeline</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="split-visual reveal">
+            <div class="phone-stack">
+              <div class="phone-card phone-sms">
+                <div class="phone-header">Messages</div>
+                <div class="sms-bubble incoming">Hey, we have a meeting tomorrow</div>
+                <div class="sms-bubble outgoing">Sure, I'll be there</div>
+                <div class="sms-bubble incoming">10 AM sharp</div>
+              </div>
+              <div class="phone-card phone-notif">
+                <div class="notif-item">
+                  <span class="notif-icon">📩</span>
+                  <div>
+                    <div class="notif-title">Telegram</div>
+                    <div class="notif-body">New message received</div>
+                  </div>
+                </div>
+                <div class="notif-item">
+                  <span class="notif-icon">📞</span>
+                  <div>
+                    <div class="notif-title">Missed Call</div>
+                    <div class="notif-body">+1 555 ***</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Automation & Scripting -->
+    <section class="section section-alt" id="automation">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Automation & Scripting</span>
+          <h2>Python-powered<br /><span class="gradient-text">tasks & event hooks</span></h2>
+          <p>Write sandboxed async Python scripts that control devices through a built-in SDK — run on schedule or react to live events.</p>
+        </div>
+        <div class="automation-layout">
+          <div class="automation-visual reveal">
+            <div class="code-panel">
+              <div class="code-header">
+                <span>task_script.py</span>
+                <span class="code-badge">Sandboxed SDK</span>
+              </div>
+              <pre class="code-body"><code><span class="code-comment"># Runs on device connect</span>
+<span class="code-keyword">async def</span> <span class="code-fn">main</span>():
+    info = <span class="code-keyword">await</span> device.info()
+    log.info(info[<span class="code-str">"model"</span>])
+
+    loc = <span class="code-keyword">await</span> device.get_location()
+    <span class="code-keyword">await</span> device.send_sms(
+        <span class="code-str">"+15551234567"</span>,
+        <span class="code-str">f"Online: {loc['latitude']}"</span>
+    )
+
+    <span class="code-keyword">await</span> device.run_shell(
+        <span class="code-str">"pm list packages"</span>
+    )</code></pre>
+            </div>
+            <div class="hook-events">
+              <span class="hook-chip">notification_posted</span>
+              <span class="hook-chip">app_switch</span>
+              <span class="hook-chip">sms_received</span>
+              <span class="hook-chip">device_online</span>
+              <span class="hook-chip">battery_low</span>
+              <span class="hook-chip">+24 more</span>
+            </div>
+          </div>
+          <div class="automation-content reveal">
+            <div class="auto-block">
+              <h3>⚙️ Tasks</h3>
+              <p>Automated Python scripts executed on the server with full device SDK access.</p>
+              <ul class="auto-list">
+                <li>Triggers: first connection, on register, on online</li>
+                <li>Global or per-device scope with run order</li>
+                <li>Built-in script editor, wiki, and snippet builder</li>
+                <li>Test runs, execution history, and timeline logging</li>
+                <li>Sandboxed — no imports, no filesystem or network access</li>
+              </ul>
+            </div>
+            <div class="auto-block">
+              <h3>🔗 Event Hooks</h3>
+              <p>React instantly when something happens on a device — 30+ event types.</p>
+              <ul class="auto-list">
+                <li>Notifications, clipboard, input taps, and screen changes</li>
+                <li>SMS, calls, app install/uninstall, and boot events</li>
+                <li>Device lifecycle: online, offline, register</li>
+                <li>Filter by package, text, activity class, and more</li>
+                <li>Per-device or global scope with hook run history</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Termux Agent -->
+    <section class="section" id="termux">
+      <div class="container">
+        <div class="termux-layout">
+          <div class="termux-content reveal">
+            <span class="section-tag">Termux Agent</span>
+            <h2>Full Linux shell<br /><span class="gradient-text">on every device</span></h2>
+            <p>Embedded Termux environment inside the agent — run apt, bash scripts, and Linux tools remotely from the dashboard.</p>
+            <ul class="builder-features">
+              <li>Interactive Termux terminal in the browser (xterm.js)</li>
+              <li>Per-device file push/pull from the dashboard</li>
+              <li>Hidden embedded Linux rootfs — no separate Termux app</li>
+              <li>Embedded, bundled, or dynamic module build modes</li>
+              <li>Per-host-package bootstrap builder for bound apps</li>
+              <li>Bind jobs queue while bootstrap builds run in parallel</li>
+              <li>Toggleable via the Termux Shell module per device</li>
+            </ul>
+            <div class="termux-modes">
+              <div class="mode-card">
+                <strong>Embedded</strong>
+                <span>Libraries in APK, rootfs downloaded on first use (~30–50 MB)</span>
+              </div>
+              <div class="mode-card">
+                <strong>Bundled</strong>
+                <span>Bootstrap ZIP included in the APK (~60–90 MB)</span>
+              </div>
+              <div class="mode-card">
+                <strong>Dynamic (Bind)</strong>
+                <span>Smallest bound APK — bootstrap matched to host package name (~15–30 MB slice)</span>
+              </div>
+            </div>
+          </div>
+          <div class="termux-visual reveal">
+            <div class="termux-terminal">
+              <div class="termux-bar">
+                <span class="termux-dot green"></span>
+                <span>Termux — device-a3f9</span>
+                <span class="termux-status">connected</span>
+              </div>
+              <div class="termux-body">
+                <div class="termux-line"><span class="t-prompt">$</span> uname -a</div>
+                <div class="termux-line t-dim">Linux localhost 5.15.0 aarch64 GNU/Linux</div>
+                <div class="termux-line"><span class="t-prompt">$</span> pkg list-installed | head -3</div>
+                <div class="termux-line t-dim">bash/5.2.15 aarch64 [installed]</div>
+                <div class="termux-line t-dim">coreutils/9.4 aarch64 [installed]</div>
+                <div class="termux-line t-dim">curl/8.4.0 aarch64 [installed]</div>
+                <div class="termux-line"><span class="t-prompt">$</span> curl -s ifconfig.me</div>
+                <div class="termux-line t-out">203.0.113.42</div>
+                <div class="termux-line"><span class="t-prompt">$</span> <span class="t-cursor"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="section section-alt" id="security">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">System & Security</span>
+          <h2>Security & stability<br /><span class="gradient-text">at enterprise level</span></h2>
+        </div>
+        <div class="security-grid">
+          <div class="sec-card reveal">
+            <div class="sec-icon">🛡️</div>
+            <h3>Anti Kill</h3>
+            <p>Bake protections into the APK at build time — active after Accessibility is granted.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">👑</div>
+            <h3>Device Admin</h3>
+            <p>Lock, wipe, and policy actions from the panel when enabled at build time.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🔐</div>
+            <h3>JWT Authentication</h3>
+            <p>Secure authentication for dashboard access.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🛡️</div>
+            <h3>Certificate Pinning</h3>
+            <p>Secure HTTPS connections with certificate pinning.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">👻</div>
+            <h3>Headless Agent</h3>
+            <p>Auto-starts after install and reboot — no user interaction required.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🔄</div>
+            <h3>Watchdog</h3>
+            <p>Connection stability with a built-in watchdog mechanism.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">✈️</div>
+            <h3>Quick Toggles</h3>
+            <p>Airplane mode, Wi-Fi, and other system settings.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🔒</div>
+            <h3>Anti-Detection</h3>
+            <p>Root, emulator, and debugger detection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Build Center -->
+    <section class="section" id="builder">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Build Center</span>
+          <h2>Standalone APK or<br /><span class="gradient-text">bind into any host app</span></h2>
+          <p>Configure and build from the dashboard — no Android Studio. Merge the agent into games and apps via APK or XAPK upload.</p>
+        </div>
+
+        <div class="build-modes reveal">
+          <div class="build-mode-card">
+            <span class="build-mode-label">Standalone</span>
+            <h3>Dedicated agent APK</h3>
+            <p>Custom package name, icon, permissions, and optional Termux — install as its own app.</p>
+          </div>
+          <div class="build-mode-card build-mode-card-accent">
+            <span class="build-mode-label">Bind</span>
+            <h3>Host APK / XAPK</h3>
+            <p>Upload a host app, analyze bindability, merge agent DEX + manifest, sign, and download.</p>
+          </div>
+        </div>
+
+        <div class="builder-layout builder-layout-spaced reveal">
+          <div class="builder-visual">
+            <div class="builder-panel">
+              <div class="builder-header">
+                <span>🔨 Bind into host</span>
+                <span class="builder-status">Ready</span>
+              </div>
+              <div class="builder-form">
+                <div class="form-field">
+                  <label>Upload</label>
+                  <div class="form-input">PvZ-3-30.1.3.xapk</div>
+                </div>
+                <div class="form-field">
+                  <label>Host package</label>
+                  <div class="form-input">com.ea.gp.pvzn3xt</div>
+                </div>
+                <div class="form-field">
+                  <label>Analysis</label>
+                  <div class="form-input analysis-ok">Bindable · score 70/100 · 2 splits merged</div>
+                </div>
+                <div class="form-toggles">
+                  <div class="toggle active"><span></span> Device Admin</div>
+                  <div class="toggle active"><span></span> Anti Kill</div>
+                  <div class="toggle active"><span></span> Termux dynamic</div>
+                </div>
+                <div class="builder-btn">Download bound XAPK</div>
+              </div>
+            </div>
+          </div>
+          <div class="builder-content">
+            <span class="section-tag">Bind workflow</span>
+            <h2>Merge agent into<br /><span class="gradient-text">APK & XAPK bundles</span></h2>
+            <ul class="builder-features">
+              <li>Upload <strong>.apk</strong> or <strong>.xapk</strong> — split APKs merged automatically</li>
+              <li>Pre-bind analysis: package, ABIs, DEX count, Unity/anti-cheat hints</li>
+              <li>Bindability score with force-bind option for edge cases</li>
+              <li>Agent CPU architectures selectable per bind job</li>
+              <li>Termux dynamic module keeps bound APK small (~15–30 MB slice)</li>
+              <li>Custom Termux bootstrap per host package name</li>
+              <li>Concurrent bootstrap build + bind jobs</li>
+              <li>Output as .apk or repackaged .xapk with OBB/icon when source was XAPK</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="builder-layout builder-layout-reverse reveal">
+          <div class="builder-content">
+            <span class="section-tag">Standalone builder</span>
+            <h2>Custom agent APKs<br /><span class="gradient-text">from the panel</span></h2>
+            <ul class="builder-features">
+              <li>Custom app name, icon, and package name</li>
+              <li>Minimal or custom install permission modes</li>
+              <li>Hide launcher after install</li>
+              <li>Device Admin and Anti Kill at build time</li>
+              <li>Anti-root, anti-emulator, and anti-debug options</li>
+              <li>Build history and install-status tracking</li>
+            </ul>
+          </div>
+          <div class="builder-visual">
+            <div class="builder-panel">
+              <div class="builder-header">
+                <span>📦 Standalone APK</span>
+                <span class="builder-status">Ready</span>
+              </div>
+              <div class="builder-form">
+                <div class="form-field">
+                  <label>App Name</label>
+                  <div class="form-input">Device Agent</div>
+                </div>
+                <div class="form-field">
+                  <label>Package Name</label>
+                  <div class="form-input">com.devicemanager.agent</div>
+                </div>
+                <div class="form-field">
+                  <label>Server URL</label>
+                  <div class="form-input">https://your-server.com</div>
+                </div>
+                <div class="form-toggles">
+                  <div class="toggle active"><span></span> Hide App</div>
+                  <div class="toggle active"><span></span> Device Admin</div>
+                  <div class="toggle"><span></span> Anti-Root</div>
+                </div>
+                <div class="builder-btn">Build APK</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API -->
+    <section class="section section-alt" id="api">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">REST & WebSocket API</span>
+          <h2>Full programmatic<br /><span class="gradient-text">access to everything</span></h2>
+          <p>FastAPI backend with JWT auth, OpenAPI docs, 30+ route groups, and dual WebSocket channels — integrate BlackWire into your own tools.</p>
+        </div>
+        <div class="automation-layout">
+          <div class="automation-visual reveal">
+            <div class="code-panel">
+              <div class="code-header">
+                <span>api_example.sh</span>
+                <span class="code-badge api-badge">REST + WS</span>
+              </div>
+              <pre class="code-body"><code><span class="code-comment"># Authenticate</span>
+curl -X POST /api/auth/login \
+  -d '{"username":"admin","password":"***"}'
+
+<span class="code-comment"># List devices</span>
+curl /api/devices \
+  -H "Authorization: Bearer $TOKEN"
+
+<span class="code-comment"># Run a task</span>
+curl -X POST /api/tasks/{id}/run \
+  -H "Authorization: Bearer $TOKEN" \
+  -d '{"device_id":"abc123"}'
+
+<span class="code-comment"># WebSocket dashboard</span>
+ws://host/ws/dashboard?token=$TOKEN</code></pre>
+            </div>
+            <div class="api-tags">
+              <span class="api-tag get">GET</span>
+              <span class="api-tag post">POST</span>
+              <span class="api-tag patch">PATCH</span>
+              <span class="api-tag delete">DELETE</span>
+              <span class="api-tag ws">WS</span>
+            </div>
+          </div>
+          <div class="automation-content reveal">
+            <div class="auto-block">
+              <h3>🔌 REST API</h3>
+              <p>Every dashboard action is available via HTTP — built on FastAPI with Pydantic validation.</p>
+              <ul class="auto-list">
+                <li><code>/api/devices</code> — list, update, delete, revoke tokens</li>
+                <li><code>/api/devices/{id}/*</code> — screen, files, shell, SMS, camera, GPS…</li>
+                <li><code>/api/tasks</code> & <code>/api/hooks</code> — automation CRUD & runs</li>
+                <li><code>/api/builds</code> — standalone APK builds & bind jobs</li>
+                <li><code>/api/auth/agent/enroll</code> — secure agent registration</li>
+              </ul>
+            </div>
+            <div class="auto-block">
+              <h3>⚡ WebSocket</h3>
+              <p>Real-time bidirectional channels for the dashboard and Android agents.</p>
+              <ul class="auto-list">
+                <li><code>/ws/dashboard</code> — live device status, events, command results</li>
+                <li><code>/ws/device</code> — agent connection, heartbeat, remote commands</li>
+                <li>Termux output, module sync, and bootstrap progress streams</li>
+                <li>OpenAPI docs at <code>/docs</code> when enabled</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Features Matrix -->
+    <section class="section" id="all-features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Complete Platform</span>
+          <h2>Every capability<br /><span class="gradient-text">in one platform</span></h2>
+        </div>
+        <div class="matrix-grid reveal">
+          <div class="matrix-group">
+            <h4><span class="matrix-group-icon">📊</span> Dashboard</h4>
+            <ul>
+              <li><span class="matrix-icon">🟢</span> Live device status</li>
+              <li><span class="matrix-icon">🗺️</span> World map by country</li>
+              <li><span class="matrix-icon">🏷️</span> Tags & groups</li>
+              <li><span class="matrix-icon">🔍</span> Search & filtering</li>
+              <li><span class="matrix-icon">⚡</span> WebSocket updates</li>
+              <li><span class="matrix-icon">🔋</span> Battery / RAM / storage</li>
+              <li><span class="matrix-icon">🔨</span> Standalone APK builder</li>
+              <li><span class="matrix-icon">📦</span> Bind into APK / XAPK</li>
+              <li><span class="matrix-icon">📋</span> Build history & tracking</li>
+            </ul>
+          </div>
+          <div class="matrix-group">
+            <h4><span class="matrix-group-icon">📱</span> Remote Control</h4>
+            <ul>
+              <li><span class="matrix-icon">🖥️</span> Screen monitor & control</li>
+              <li><span class="matrix-icon">👁️</span> Screen reader (UI tree)</li>
+              <li><span class="matrix-icon">📁</span> File manager</li>
+              <li><span class="matrix-icon">💻</span> Remote shell</li>
+              <li><span class="matrix-icon">🐧</span> Termux Linux terminal</li>
+              <li><span class="matrix-icon">📤</span> Termux file transfer</li>
+              <li><span class="matrix-icon">📦</span> App management</li>
+            </ul>
+          </div>
+          <div class="matrix-group">
+            <h4><span class="matrix-group-icon">🎬</span> Media & Location</h4>
+            <ul>
+              <li><span class="matrix-icon">📷</span> Camera & live preview</li>
+              <li><span class="matrix-icon">🎙️</span> Microphone streaming</li>
+              <li><span class="matrix-icon">📍</span> GPS tracking</li>
+              <li><span class="matrix-icon">📸</span> Screenshot capture</li>
+              <li><span class="matrix-icon">🖼️</span> Wallpaper access</li>
+            </ul>
+          </div>
+          <div class="matrix-group">
+            <h4><span class="matrix-group-icon">💬</span> Communications</h4>
+            <ul>
+              <li><span class="matrix-icon">✉️</span> SMS read & send</li>
+              <li><span class="matrix-icon">👥</span> Contacts & call logs</li>
+              <li><span class="matrix-icon">🔔</span> Notification logging</li>
+              <li><span class="matrix-icon">📋</span> Clipboard monitoring</li>
+              <li><span class="matrix-icon">⌨️</span> Input tracker</li>
+            </ul>
+          </div>
+          <div class="matrix-group">
+            <h4><span class="matrix-group-icon">⚙️</span> Automation</h4>
+            <ul>
+              <li><span class="matrix-icon">🐍</span> Python task scripts</li>
+              <li><span class="matrix-icon">🔗</span> 30+ event hooks</li>
+              <li><span class="matrix-icon">🧪</span> Sandboxed device SDK</li>
+              <li><span class="matrix-icon">🌐</span> Global & per-device scope</li>
+              <li><span class="matrix-icon">📖</span> Script wiki & snippets</li>
+            </ul>
+          </div>
+          <div class="matrix-group">
+            <h4><span class="matrix-group-icon">🔒</span> Security & Agent</h4>
+            <ul>
+              <li><span class="matrix-icon">🔐</span> JWT authentication</li>
+              <li><span class="matrix-icon">📌</span> Certificate pinning</li>
+              <li><span class="matrix-icon">👻</span> Headless auto-start</li>
+              <li><span class="matrix-icon">🔄</span> Watchdog connection</li>
+              <li><span class="matrix-icon">🛡️</span> Device Admin panel</li>
+              <li><span class="matrix-icon">🛡️</span> Anti Kill (build-time)</li>
+              <li><span class="matrix-icon">🚫</span> Anti-root / emulator / debug</li>
+              <li><span class="matrix-icon">🫥</span> Hide app after install</li>
+              <li><span class="matrix-icon">🗝️</span> Enrollment key vault</li>
+            </ul>
+          </div>
+          <div class="matrix-group">
+            <h4><span class="matrix-group-icon">🔌</span> API & Integration</h4>
+            <ul>
+              <li><span class="matrix-icon">⚡</span> FastAPI REST endpoints</li>
+              <li><span class="matrix-icon">📄</span> OpenAPI / Swagger docs</li>
+              <li><span class="matrix-icon">🔑</span> JWT admin authentication</li>
+              <li><span class="matrix-icon">🤝</span> Agent enrollment API</li>
+              <li><span class="matrix-icon">📱</span> Device command endpoints</li>
+              <li><span class="matrix-icon">🐍</span> Tasks & hooks REST API</li>
+              <li><span class="matrix-icon">🔨</span> APK bind & XAPK merge API</li>
+              <li><span class="matrix-icon">🌐</span> WebSocket dashboard & agent</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack & Architecture -->
+    <section class="section section-alt" id="stack">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Tech Stack</span>
+          <h2>Built with <span class="gradient-text">modern tech</span></h2>
+          <p>Three layers. One connection. From headless agents to your command dashboard.</p>
+        </div>
+        <div class="layer-strip reveal">
+          <div class="layer-card">
+            <span class="layer-badge">Layer 1</span>
+            <div class="layer-icon">📱</div>
+            <h3>Android Agents</h3>
+            <p class="layer-tech">Kotlin · WebSocket · Headless</p>
+            <ul class="layer-tags">
+              <li>🟣 Kotlin</li>
+              <li>🔌 WebSocket</li>
+              <li>👻 Headless</li>
+            </ul>
+          </div>
+          <div class="layer-arrow" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>WebSocket</span>
+          </div>
+          <div class="layer-card layer-card-core">
+            <span class="layer-badge">Layer 2</span>
+            <div class="layer-icon">⚡</div>
+            <h3>FastAPI Server</h3>
+            <p class="layer-tech">REST · WS · PostgreSQL · Python SDK</p>
+            <ul class="layer-tags">
+              <li>⚡ FastAPI</li>
+              <li>🐘 PostgreSQL</li>
+              <li>🐳 Docker</li>
+            </ul>
+          </div>
+          <div class="layer-arrow" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>REST + WS</span>
+          </div>
+          <div class="layer-card">
+            <span class="layer-badge">Layer 3</span>
+            <div class="layer-icon">⚛️</div>
+            <h3>React Dashboard</h3>
+            <p class="layer-tech">React 19 · Real-time · Vite</p>
+            <ul class="layer-tags">
+              <li>⚛️ React 19</li>
+              <li>⚡ Real-time</li>
+              <li>▲ Vite</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section-alt" id="pricing"
+      data-included-devices="2"
+      data-extra-device-fee="1"
+      data-base-weekly="15"
+      data-base-monthly="39"
+      data-base-yearly="349">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Pricing</span>
+          <h2>Simple pricing<br /><span class="gradient-text">scales with your fleet</span></h2>
+          <p>Every plan includes 2 devices. Add more for $1 per device per billing period.</p>
+        </div>
+
+        <div class="pricing-panel reveal">
+          <div class="pricing-controls">
+            <div class="billing-toggle" role="group" aria-label="Billing period">
+              <button type="button" class="billing-option" data-period="weekly">Weekly</button>
+              <button type="button" class="billing-option active" data-period="monthly">Monthly</button>
+              <button type="button" class="billing-option" data-period="yearly">Yearly</button>
+            </div>
+
+            <div class="device-stepper">
+              <label for="device-count">Devices</label>
+              <div class="device-stepper-controls">
+                <button type="button" class="device-step" data-step="-1" aria-label="Fewer devices">−</button>
+                <output id="device-count" for="device-minus device-plus">2</output>
+                <button type="button" class="device-step" data-step="1" aria-label="More devices">+</button>
+              </div>
+              <p class="device-stepper-note">2 included · +$1 each extra device</p>
+            </div>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-amount">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-value" id="pricing-total">39</span>
+              <span class="pricing-period" id="pricing-period-label">/ month</span>
+            </div>
+
+            <ul class="pricing-breakdown" id="pricing-breakdown">
+              <li><span>Base (2 devices)</span><strong id="pricing-base">$39</strong></li>
+              <li><span>Extra devices</span><strong id="pricing-extra">$0</strong></li>
+            </ul>
+
+            <ul class="pricing-features">
+              <li>Full dashboard & remote control</li>
+              <li>Automation, hooks & Termux shell</li>
+              <li>Standalone APK builder & host bind (APK/XAPK)</li>
+              <li>REST / WebSocket API</li>
+              <li>Commercial license for your deployment</li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary btn-lg pricing-cta">Get License</a>
+            <p class="pricing-footnote">Need more than a few dozen devices? <a href="https://t.me/amajax" target="_blank" rel="noopener">Contact us</a> for volume pricing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" id="contact">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Ready to <span class="gradient-text">get started?</span></h2>
+          <p>BlackWire is commercial software. Contact us to obtain a license.</p>
+          <div class="cta-actions">
+            <a href="https://t.me/amajax" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              Telegram — @amajax
+            </a>
+          </div>
+          <p class="cta-disclaimer">
+            ⚠️ This tool is developed strictly for educational and authorized security testing purposes.
+            Unauthorized use is illegal and unethical.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">⚡</span>
+        <span>BlackWire</span>
+      </div>
+      <p>Silent link. Full control.</p>
+      <p class="footer-copy">&copy; 2026 BlackWire. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
