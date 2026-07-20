@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="BlackWire — Remote Android device management. Shizuku shell, AI assistant, keyboard watcher, accessibility scripts, file tracker, command queue, environment scan, WebRTC, multi-user RBAC, APK/XAPK bind, Python automation, Termux or Device Shell, and a full web dashboard." />
+  <meta name="description" content="BlackWire — Remote Android device management. HVNC virtual display via Shizuku (H.264), full-screen WebView, FCM Sleep/Wake push, AI assistant with device admin, SMS, modules & anti-kill tools, keyboard watcher, accessibility scripts, APK/XAPK/APKM bind, Termux dynamic module, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
   <title>BlackWire — Silent link. Full control.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2089,12 +2089,12 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
         <li><a href="#demos">Demo</a></li>
-        <li><a href="#remote">Remote Control</a></li>
         <li><a href="#automation">Automation</a></li>
         <li><a href="#ai">AI</a></li>
-        <li><a href="#termux">Termux</a></li>
-        <li><a href="#shizuku">Shizuku</a></li>
+        <li><a href="#builder">Build Center</a></li>
         <li><a href="#api">API</a></li>
+        <li><a href="#organization">Teams</a></li>
+        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#stack">Tech Stack</a></li>
       </ul>
       <a href="#contact" class="btn btn-sm btn-primary">Get License</a>
@@ -2118,7 +2118,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         </h1>
         <p class="hero-desc reveal">
           Web dashboard, FastAPI backend, and a headless Android agent.
-          Build standalone APKs or bind into host apps and XAPK bundles — control devices with Shizuku shell, AI assistant, accessibility scripts, and Python automation.
+          Build standalone APKs or bind into host APK, XAPK, and APKM bundles —
+          push full-screen HTML/WebView pages to devices, run HVNC virtual displays over Shizuku, sleep agents to save battery and wake them with Firebase push, and operate fleets with an AI assistant, Device Admin, Termux, and Python automation.
         </p>
         <div class="hero-actions reveal">
           <a href="#features" class="btn btn-primary btn-lg">
@@ -2129,13 +2130,13 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         </div>
         <div class="hero-stats reveal">
           <div class="stat">
-            <span class="stat-value">APK / XAPK</span>
+            <span class="stat-value">APK · XAPK · APKM</span>
             <span class="stat-label">Bind & Build</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-value">Headless</span>
-            <span class="stat-label">Auto-start Agent</span>
+            <span class="stat-value">AI Operator</span>
+            <span class="stat-label">Device + Admin tools</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
@@ -2217,10 +2218,10 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <span>🔋</span> Battery 87%
         </div>
         <div class="floating-chip chip-2">
-          <span>📍</span> GPS Live
+          <span>🌐</span> WebView Live
         </div>
         <div class="floating-chip chip-3">
-          <span>🐚</span> Shizuku Shell
+          <span>🤖</span> AI Assistant
         </div>
       </div>
     </section>
@@ -2231,7 +2232,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="section-head reveal">
           <span class="section-tag">Platform Demo</span>
           <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
-          <p>Full platform walkthrough — dashboard, Shizuku shell, AI assistant, remote control, automation, Termux, Build Center bind, and more.</p>
+          <p>Full platform walkthrough — dashboard, AI operator, Shizuku HVNC, remote WebView, Sleep/Wake push, remote control, automation, Termux, Build Center bind (APK/XAPK/APKM), and more.</p>
         </div>
 
         <div class="demo-showcase reveal">
@@ -2287,7 +2288,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">🧩</div>
             <h3>Toggleable Modules</h3>
-            <p>Enable or disable 24 data-collection modules globally or per device.</p>
+            <p>Enable or disable 24 data-collection modules globally or per device — from the panel or AI chat.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🏷️</div>
@@ -2307,7 +2308,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">🤖</div>
             <h3>AI Assistant</h3>
-            <p>Device-scoped and admin LLM operator — checks permissions before actions and can request grants.</p>
+            <p>Device + admin LLM operator — screenshots, SMS, WebView, Device Admin, modules, anti-kill, system toggles, shell, and task creation.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">📋</div>
@@ -2429,7 +2430,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>🎛️ Quick Controls</h3>
-              <p>Toggle airplane mode, Wi-Fi, brightness, volume, and lock screen.</p>
+              <p>Toggle airplane, Wi-Fi, Bluetooth, mobile data, location, torch, hotspot — plus brightness, volume, and screen on/off. Available from the panel and AI tools.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="teal">
@@ -2443,7 +2444,23 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>🐚 Shizuku Shell</h3>
-              <p>Wireless ADB pairing for privileged shell — OLED blank, device mute, and confirm lock.</p>
+              <p>Wireless ADB pairing for privileged shell — OLED blank, device mute, confirm lock, and HVNC virtual display.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="rose">
+            <div class="remote-visual">
+              <div class="screen-mock">
+                <div class="screen-content" style="padding:8px;display:flex;flex-direction:column;gap:4px;">
+                  <div style="font-size:0.65rem;opacity:0.7;letter-spacing:0.04em;">HVNC · virtual display</div>
+                  <div style="flex:1;border-radius:6px;background:linear-gradient(160deg,rgba(244,63,94,0.35),rgba(139,92,246,0.3));display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🖥️</div>
+                  <div class="line w80" style="height:6px;background:rgba(255,255,255,0.18);border-radius:3px;"></div>
+                </div>
+                <div class="screen-cursor"></div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>🖥️ HVNC Virtual Display</h3>
+              <p>Hidden virtual display via Shizuku — stream H.264 to the dashboard, launch any app off the main screen, inject taps/keys, resize live. Optional timeline recording.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="violet">
@@ -2500,6 +2517,35 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             <div class="remote-info">
               <h3>📡 Environment Scan</h3>
               <p>Scan nearby Wi‑Fi, BLE, cell towers, GNSS, Chromecast, DLNA, printers, and IoT devices.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="cyan">
+            <div class="remote-visual">
+              <div class="screen-mock">
+                <div class="screen-content" style="padding:10px;display:flex;flex-direction:column;gap:6px;">
+                  <div class="line w80" style="height:8px;background:rgba(255,255,255,0.2);border-radius:4px;"></div>
+                  <div class="line w50" style="height:8px;background:rgba(255,255,255,0.12);border-radius:4px;"></div>
+                  <div style="flex:1;margin-top:8px;border-radius:6px;background:linear-gradient(135deg,rgba(59,130,246,0.35),rgba(6,182,212,0.25));display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🌐</div>
+                </div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>🌐 Full-screen WebView</h3>
+              <p>Push a URL or HTML page from the dashboard — opens silently full-screen on the device (JavaScript optional). Hide anytime; upload HTML for a temporary server URL.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="amber">
+            <div class="remote-visual">
+              <div class="controls-mock">
+                <div class="ctrl-toggle on"><span></span> Online</div>
+                <div class="ctrl-toggle"><span></span> Sleep</div>
+                <div class="ctrl-toggle on"><span></span> FCM Wake</div>
+                <div class="ctrl-slider"><span>Push token</span><div class="slider-track"><div class="slider-fill" style="width:100%"></div></div></div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>😴 Sleep &amp; Wake</h3>
+              <p>Hibernate the agent while online to cut battery and network use. Wake later with a silent FCM push — even when the process is fully stopped.</p>
             </div>
           </div>
         </div>
@@ -2688,7 +2734,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="auto-block">
               <h3>📋 Command Queue</h3>
-              <p>Queue one-time device actions — shell, SMS, screenshots, scripts, and 15+ action types.</p>
+              <p>Queue one-time device actions — shell, SMS, screenshots, WebView, scripts, and 15+ action types.</p>
               <ul class="auto-list">
                 <li>Auto-run while online or drain on reconnect</li>
                 <li>Reorder, delete, and run-queue-now from the dashboard</li>
@@ -2713,28 +2759,35 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
                 <span class="check-icon">✓</span>
                 <div>
                   <strong>Device-scoped chat</strong>
-                  <span>Per-device conversations with permission-aware actions</span>
+                  <span>Per-device conversations with permission-aware preflight and auto permission prompts</span>
                 </div>
               </li>
               <li>
                 <span class="check-icon">✓</span>
                 <div>
-                  <strong>Admin assistant</strong>
-                  <span>Fleet-wide operator from the dashboard sidebar</span>
+                  <strong>Admin fleet assistant</strong>
+                  <span>List devices, run nested device turns, create tasks & hooks, manage global module/anti-kill defaults</span>
                 </div>
               </li>
               <li>
                 <span class="check-icon">✓</span>
                 <div>
-                  <strong>Configurable LLM</strong>
-                  <span>OpenAI-compatible providers, model, base URL, and API key in settings</span>
+                  <strong>Live device actions</strong>
+                  <span>Screenshots, SMS send/read, full-screen WebView, Device Admin lock/wipe, system toggles, shell, camera, mic, GPS</span>
                 </div>
               </li>
               <li>
                 <span class="check-icon">✓</span>
                 <div>
-                  <strong>Timeline-aware</strong>
-                  <span>Summarize activity, analyze SMS, capture screenshots on request</span>
+                  <strong>Modules & Anti Kill</strong>
+                  <span>Patch data-collection modules and anti-kill capabilities from chat — per device or global defaults</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>OpenAI or Anthropic</strong>
+                  <span>Provider, model, base URL, and API key in Settings — master switch via <code>AI_ENABLED</code></span>
                 </div>
               </li>
             </ul>
@@ -2746,14 +2799,16 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
                 <span class="code-badge">LLM</span>
               </div>
               <pre class="code-body"><code><span class="code-comment">You:</span>
-Summarize the last hour of timeline
-and check for bank SMS.
+Lock the screen, disable Wi-Fi,
+and enable the SMS module.
 
 <span class="code-comment">Assistant:</span>
-Found 2 SMS from BankApp — both OTP codes.
-Captured screenshot of Messages.
-<span class="code-fn">→ timeline:sms</span> (2 entries)
-<span class="code-fn">→ device:capture_screenshot</span></code></pre>
+Device admin lock sent.
+Wi-Fi toggle set to off.
+sms_log enabled and pushed.
+<span class="code-fn">→ run_device_admin(lock_screen)</span>
+<span class="code-fn">→ set_system_toggle(wifi=false)</span>
+<span class="code-fn">→ update_device_modules</span></code></pre>
             </div>
           </div>
         </div>
@@ -2822,21 +2877,26 @@ Captured screenshot of Messages.
       <div class="container">
         <div class="termux-layout">
           <div class="termux-content reveal">
-            <span class="section-tag">Shizuku Privileged Shell</span>
-            <h2>Wireless ADB<br /><span class="gradient-text">uid=2000 shell access</span></h2>
-            <p>Embedded Shizuku client in the agent APK — pair wireless debugging once from the dashboard, then run privileged commands without repeated Allow dialogs.</p>
+            <span class="section-tag">Shizuku Privileged Shell + HVNC</span>
+            <h2>Wireless ADB<br /><span class="gradient-text">&amp; hidden virtual display</span></h2>
+            <p>Embedded Shizuku client in the agent APK — pair wireless debugging once from the dashboard, then run privileged commands and HVNC without repeated Allow dialogs.</p>
             <ul class="builder-features">
               <li>One-click wireless ADB pairing via Accessibility (reads pairing code from Settings)</li>
+              <li><strong>HVNC</strong> — virtual display stream (MediaCodec H.264 over WebSocket), remote input, live resize, launch apps off-screen</li>
               <li>OLED panel blank — scrcpy-style turn-screen-off while stream keeps running</li>
               <li>Device speaker mute with volume restore on unmute</li>
               <li>Detect lock type and open ConfirmLockPassword/Pattern via shell</li>
               <li>Optional build-time Shizuku slice for standalone and bind jobs</li>
-              <li>Toggleable <code>shizukuPrivileged</code> module per device</li>
+              <li>Toggleable <code>shizukuPrivileged</code> module per device · <code>hvncLog</code> timeline recording</li>
             </ul>
             <div class="termux-modes">
               <div class="mode-card">
                 <strong>Requirements</strong>
                 <span>Wi‑Fi, USB debugging, Accessibility enabled, Shizuku module on</span>
+              </div>
+              <div class="mode-card">
+                <strong>HVNC</strong>
+                <span>Hidden virtual display + H.264 frames to the dashboard viewer</span>
               </div>
               <div class="mode-card">
                 <strong>Wireless shell</strong>
@@ -2848,18 +2908,16 @@ Captured screenshot of Messages.
             <div class="termux-terminal">
               <div class="termux-bar">
                 <span class="termux-dot green"></span>
-                <span>Shizuku — device-a3f9</span>
-                <span class="termux-status">shell ready</span>
+                <span>Shizuku — HVNC</span>
+                <span class="termux-status">streaming</span>
               </div>
               <div class="termux-body">
-                <div class="termux-line"><span class="t-prompt">$</span> id</div>
-                <div class="termux-line t-out">uid=2000(shell) gid=2000(shell)</div>
+                <div class="termux-line"><span class="t-prompt">$</span> start_hvnc —package org.telegram.messenger</div>
+                <div class="termux-line t-out">displayId=2 · 1280×720 · H.264</div>
+                <div class="termux-line"><span class="t-prompt">$</span> hvnc_input tap 640 360</div>
+                <div class="termux-line t-dim">injected on virtual display</div>
                 <div class="termux-line"><span class="t-prompt">$</span> cmd display power off</div>
-                <div class="termux-line t-dim">OLED panel blanked</div>
-                <div class="termux-line"><span class="t-prompt">$</span> cmd audio set-stream-volume 3 0</div>
-                <div class="termux-line t-dim">Speakers muted</div>
-                <div class="termux-line"><span class="t-prompt">$</span> dumpsys lock_settings</div>
-                <div class="termux-line t-out">CredentialType: PASSWORD</div>
+                <div class="termux-line t-dim">OLED blank — HVNC keeps running</div>
                 <div class="termux-line"><span class="t-prompt">$</span> <span class="t-cursor"></span></div>
               </div>
             </div>
@@ -2879,12 +2937,12 @@ Captured screenshot of Messages.
           <div class="sec-card reveal">
             <div class="sec-icon">🛡️</div>
             <h3>Anti Kill</h3>
-            <p>Bake protections into the APK at build time — active after Accessibility is granted.</p>
+            <p>Build-time protections plus live capability toggles from the panel or AI — block uninstall, app info, and admin deactivation.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">👑</div>
             <h3>Device Admin</h3>
-            <p>Lock, wipe, and policy actions from the panel when enabled at build time.</p>
+            <p>Lock screen, wipe data, disable camera, and reset password from the panel or AI when admin is active on the device.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">🔐</div>
@@ -2907,14 +2965,24 @@ Captured screenshot of Messages.
             <p>Connection stability with a built-in watchdog mechanism.</p>
           </div>
           <div class="sec-card reveal">
+            <div class="sec-icon">😴</div>
+            <h3>Sleep &amp; Wake (FCM)</h3>
+            <p>Sleep the agent over WebSocket to stop runtime and save battery. Wake with a silent Firebase push — reconnects even when offline. Requires Push wake on the APK build and a server service account.</p>
+          </div>
+          <div class="sec-card reveal">
             <div class="sec-icon">✈️</div>
             <h3>Quick Toggles</h3>
-            <p>Airplane mode, Wi-Fi, and other system settings.</p>
+            <p>Airplane, Wi-Fi, Bluetooth, mobile data, location, torch, hotspot — plus volume, brightness, and screen controls.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">🐚</div>
             <h3>Shizuku Shell</h3>
-            <p>Wireless ADB privileged shell baked into the APK — OLED blank, mute, and lock helpers.</p>
+            <p>Wireless ADB privileged shell baked into the APK — OLED blank, mute, lock helpers, and HVNC virtual display.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🖥️</div>
+            <h3>HVNC</h3>
+            <p>Hidden virtual display over Shizuku — H.264 stream to the dashboard, remote taps/keys, launch apps off the physical screen, optional timeline video recording.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">📡</div>
@@ -2927,9 +2995,14 @@ Captured screenshot of Messages.
             <p>Root, emulator, and debugger detection.</p>
           </div>
           <div class="sec-card reveal">
+            <div class="sec-icon">🔗</div>
+            <h3>Restart Deeplink</h3>
+            <p>Optional custom URI (e.g. <code>deviceagent://restart</code>) baked into the APK so a web page can relaunch the agent.</p>
+          </div>
+          <div class="sec-card reveal">
             <div class="sec-icon">✅</div>
             <h3>APK Compatibility</h3>
-            <p>Submit host APK bind requests for admin review before merge jobs run.</p>
+            <p>Submit host package requests from Bind — admins approve or reject before merge jobs run on that package.</p>
           </div>
         </div>
       </div>
@@ -2941,7 +3014,7 @@ Captured screenshot of Messages.
         <div class="section-head reveal">
           <span class="section-tag">Build Center</span>
           <h2>Standalone APK or<br /><span class="gradient-text">bind into any host app</span></h2>
-          <p>Configure and build from the dashboard — no Android Studio. Merge the agent into games and apps via APK or XAPK upload.</p>
+          <p>Configure and build from the dashboard — no Android Studio. Merge the agent into games and apps via APK, XAPK, or APKM upload with cancelable uploads and background jobs.</p>
         </div>
 
         <div class="build-modes reveal">
@@ -2952,7 +3025,7 @@ Captured screenshot of Messages.
           </div>
           <div class="build-mode-card build-mode-card-accent">
             <span class="build-mode-label">Bind</span>
-            <h3>Host APK / XAPK</h3>
+            <h3>Host APK / XAPK / APKM</h3>
             <p>Upload a host app, analyze bindability, merge agent DEX + manifest, sign, and download.</p>
           </div>
         </div>
@@ -2981,27 +3054,32 @@ Captured screenshot of Messages.
                   <div class="toggle active"><span></span> Device Admin</div>
                   <div class="toggle active"><span></span> Anti Kill</div>
                   <div class="toggle active"><span></span> Termux dynamic</div>
+                  <div class="toggle"><span></span> Restart deeplink</div>
                   <div class="toggle"><span></span> Shizuku</div>
                   <div class="toggle"><span></span> WebRTC</div>
+                  <div class="toggle active"><span></span> Push wake</div>
                 </div>
-                <div class="builder-btn">Download bound XAPK</div>
+                <div class="builder-btn">Download bound APK / XAPK / APKM</div>
               </div>
             </div>
           </div>
           <div class="builder-content">
             <span class="section-tag">Bind workflow</span>
-            <h2>Merge agent into<br /><span class="gradient-text">APK & XAPK bundles</span></h2>
+            <h2>Merge agent into<br /><span class="gradient-text">APK · XAPK · APKM</span></h2>
             <ul class="builder-features">
-              <li>Upload <strong>.apk</strong> or <strong>.xapk</strong> — split APKs merged automatically</li>
+              <li>Upload <strong>.apk</strong>, <strong>.xapk</strong>, or <strong>.apkm</strong> — split bundles merged automatically</li>
               <li>Pre-bind analysis: package, ABIs, DEX count, Unity/anti-cheat hints</li>
               <li>Bindability score with force-bind option for edge cases</li>
+              <li>Cancelable upload with progress — mode switch locked while uploading</li>
+              <li>Background bind jobs with durable timers — leave and resume on the Bind tab</li>
               <li>Agent CPU architectures selectable per bind job</li>
               <li>Termux dynamic module keeps bound APK small (~15–30 MB slice)</li>
               <li>Custom Termux bootstrap per host package name</li>
               <li>Concurrent bootstrap build + bind jobs</li>
-              <li>Output as .apk or repackaged .xapk with OBB/icon when source was XAPK</li>
+              <li>Output as .apk, .xapk, or .apkm matching the host bundle format</li>
               <li>APK compatibility requests — submit for admin approve/reject before bind</li>
-              <li>Optional Shizuku privileged shell and WebRTC stream in bind output</li>
+              <li>Optional Device Admin, Anti Kill, Restart deeplink, Shizuku, and WebRTC in bind output</li>
+              <li>Optional Firebase Push wake (FCM) for Sleep / Wake from the dashboard</li>
             </ul>
           </div>
         </div>
@@ -3014,9 +3092,12 @@ Captured screenshot of Messages.
               <li>Custom app name, icon, and package name</li>
               <li>Minimal or custom install permission modes</li>
               <li>Hide launcher after install</li>
+              <li>Restart deeplink (<code>scheme://host</code>) to relaunch the agent from a web page</li>
               <li>Device Admin and Anti Kill at build time</li>
+              <li>Live anti-kill capability overrides after install</li>
               <li>Anti-root, anti-emulator, and anti-debug options</li>
               <li>Optional Shizuku shell and WebRTC H.264 screen stream (~8–12 MB each)</li>
+              <li>Background builds with durable elapsed timers</li>
               <li>Fake APK size padding for standalone builds</li>
               <li>Build history and install-status tracking</li>
             </ul>
@@ -3043,9 +3124,11 @@ Captured screenshot of Messages.
                 <div class="form-toggles">
                   <div class="toggle active"><span></span> Hide App</div>
                   <div class="toggle active"><span></span> Device Admin</div>
+                  <div class="toggle active"><span></span> Restart deeplink</div>
                   <div class="toggle"><span></span> Anti-Root</div>
                   <div class="toggle"><span></span> Shizuku</div>
                   <div class="toggle"><span></span> WebRTC</div>
+                  <div class="toggle active"><span></span> Push wake</div>
                 </div>
                 <div class="builder-btn">Build APK</div>
               </div>
@@ -3078,10 +3161,10 @@ curl -X POST /api/auth/login \
 curl /api/devices \
   -H "Authorization: Bearer $TOKEN"
 
-<span class="code-comment"># Run a task</span>
-curl -X POST /api/tasks/{id}/run \
+<span class="code-comment"># Show full-screen WebView on device</span>
+curl -X POST /api/devices/{id}/webview/show \
   -H "Authorization: Bearer $TOKEN" \
-  -d '{"device_id":"abc123"}'
+  -d '{"url":"https://example.com"}'
 
 <span class="code-comment"># WebSocket dashboard</span>
 ws://host/ws/dashboard?token=$TOKEN</code></pre>
@@ -3100,7 +3183,10 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <p>Every dashboard action is available via HTTP — built on FastAPI with Pydantic validation.</p>
               <ul class="auto-list">
                 <li><code>/api/devices</code> — list, update, delete, revoke tokens</li>
-                <li><code>/api/devices/{id}/*</code> — screen, files, shell, SMS, camera, GPS…</li>
+                <li><code>/api/devices/{id}/*</code> — screen, files, shell, SMS, camera, GPS, WebView…</li>
+                <li><code>/api/devices/{id}/webview/*</code> — show / hide / state / HTML upload</li>
+                <li><code>/api/devices/{id}/actions/hibernate</code> — sleep agent until Wake</li>
+                <li><code>/api/devices/{id}/actions/wake</code> — FCM push to reconnect</li>
                 <li><code>/api/tasks</code> & <code>/api/hooks</code> — automation CRUD & runs</li>
                 <li><code>/api/builds</code> — standalone APK builds & bind jobs</li>
                 <li><code>/api/apk-requests</code> — host APK compatibility review workflow</li>
@@ -3109,7 +3195,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
                 <li><code>/api/dashboard-users</code> — multi-user RBAC, quotas & slots</li>
                 <li><code>/api/api-keys</code> — REST keys with endpoint permissions</li>
                 <li><code>/api/devices/{id}/file-tracker</code> — storage scan & progress</li>
-                <li><code>/api/devices/{id}/shizuku/*</code> — wireless shell, OLED, mute</li>
+                <li><code>/api/devices/{id}/shizuku/*</code> — wireless shell, OLED, mute, HVNC</li>
                 <li><code>/api/auth/agent/enroll</code> — secure agent registration</li>
               </ul>
             </div>
@@ -3148,10 +3234,11 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">⚡</span> WebSocket updates</li>
               <li><span class="matrix-icon">🔋</span> Battery / RAM / storage</li>
               <li><span class="matrix-icon">🔨</span> Standalone APK builder</li>
-              <li><span class="matrix-icon">📦</span> Bind into APK / XAPK</li>
+              <li><span class="matrix-icon">📦</span> Bind APK / XAPK / APKM</li>
+              <li><span class="matrix-icon">✅</span> APK compatibility requests</li>
               <li><span class="matrix-icon">📋</span> Build history & tracking</li>
               <li><span class="matrix-icon">📋</span> Command queue</li>
-              <li><span class="matrix-icon">🤖</span> AI assistant (device + admin)</li>
+              <li><span class="matrix-icon">🤖</span> AI assistant (50+ tools)</li>
             </ul>
           </div>
           <div class="matrix-group">
@@ -3159,6 +3246,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <ul>
               <li><span class="matrix-icon">🖥️</span> Screen monitor & control</li>
               <li><span class="matrix-icon">👁️</span> Screen reader (UI tree)</li>
+              <li><span class="matrix-icon">🌐</span> Full-screen WebView (URL / HTML)</li>
               <li><span class="matrix-icon">📁</span> File manager</li>
               <li><span class="matrix-icon">💻</span> Remote shell</li>
               <li><span class="matrix-icon">💻</span> Device Shell terminal</li>
@@ -3166,10 +3254,14 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">📤</span> Termux file transfer</li>
               <li><span class="matrix-icon">📂</span> File tracker scan</li>
               <li><span class="matrix-icon">🐚</span> Shizuku privileged shell</li>
+              <li><span class="matrix-icon">🖥️</span> HVNC virtual display (H.264)</li>
               <li><span class="matrix-icon">✨</span> Accessibility scripts</li>
               <li><span class="matrix-icon">⌨️</span> Keyboard watcher</li>
               <li><span class="matrix-icon">📡</span> Environment scan</li>
               <li><span class="matrix-icon">📦</span> App management</li>
+              <li><span class="matrix-icon">✈️</span> System toggles & controls</li>
+              <li><span class="matrix-icon">😴</span> Sleep &amp; FCM Wake</li>
+              <li><span class="matrix-icon">👑</span> Device Admin actions</li>
             </ul>
           </div>
           <div class="matrix-group">
@@ -3180,6 +3272,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">📍</span> GPS tracking</li>
               <li><span class="matrix-icon">📸</span> Screenshot capture</li>
               <li><span class="matrix-icon">📡</span> WebRTC screen stream</li>
+              <li><span class="matrix-icon">🖥️</span> HVNC hidden virtual display</li>
+              <li><span class="matrix-icon">🌐</span> Server-pushed HTML pages</li>
               <li><span class="matrix-icon">🖼️</span> Wallpaper access</li>
             </ul>
           </div>
@@ -3204,7 +3298,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🌐</span> Global & per-device scope</li>
               <li><span class="matrix-icon">📖</span> Script wiki & snippets</li>
               <li><span class="matrix-icon">✨</span> Accessibility script DSL</li>
-              <li><span class="matrix-icon">🤖</span> AI device operator</li>
+              <li><span class="matrix-icon">🤖</span> AI create tasks & hooks</li>
+              <li><span class="matrix-icon">🧩</span> AI module / anti-kill control</li>
             </ul>
           </div>
           <div class="matrix-group">
@@ -3214,13 +3309,17 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">📌</span> Certificate pinning</li>
               <li><span class="matrix-icon">👻</span> Headless auto-start</li>
               <li><span class="matrix-icon">🔄</span> Watchdog connection</li>
-              <li><span class="matrix-icon">🛡️</span> Device Admin panel</li>
-              <li><span class="matrix-icon">🛡️</span> Anti Kill (build-time)</li>
+              <li><span class="matrix-icon">😴</span> Sleep agent (hibernate)</li>
+              <li><span class="matrix-icon">🔔</span> Wake via FCM push</li>
+              <li><span class="matrix-icon">🛡️</span> Device Admin panel + AI</li>
+              <li><span class="matrix-icon">🛡️</span> Anti Kill (build + live)</li>
               <li><span class="matrix-icon">🐚</span> Shizuku wireless ADB</li>
+              <li><span class="matrix-icon">🖥️</span> HVNC via Shizuku shell</li>
               <li><span class="matrix-icon">🖥️</span> OLED panel blank</li>
               <li><span class="matrix-icon">🔇</span> Device speaker mute</li>
               <li><span class="matrix-icon">🚫</span> Anti-root / emulator / debug</li>
               <li><span class="matrix-icon">🫥</span> Hide app after install</li>
+              <li><span class="matrix-icon">🔗</span> Restart deeplink URI</li>
               <li><span class="matrix-icon">🔑</span> Agent enrollment keys</li>
             </ul>
           </div>
@@ -3232,9 +3331,13 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔑</span> JWT admin authentication</li>
               <li><span class="matrix-icon">🤝</span> Agent enrollment API</li>
               <li><span class="matrix-icon">📱</span> Device command endpoints</li>
+              <li><span class="matrix-icon">🌐</span> WebView show / hide / upload API</li>
+              <li><span class="matrix-icon">😴</span> Sleep / Wake (FCM) actions API</li>
+              <li><span class="matrix-icon">🖥️</span> HVNC start / stop / input API</li>
               <li><span class="matrix-icon">🐍</span> Tasks & hooks REST API</li>
-              <li><span class="matrix-icon">🔨</span> APK bind & XAPK merge API</li>
+              <li><span class="matrix-icon">🔨</span> APK / XAPK / APKM bind API</li>
               <li><span class="matrix-icon">✅</span> APK compatibility requests</li>
+              <li><span class="matrix-icon">🤖</span> AI assistant API</li>
               <li><span class="matrix-icon">👥</span> Multi-user RBAC & quotas</li>
               <li><span class="matrix-icon">🔑</span> REST API keys</li>
               <li><span class="matrix-icon">🌐</span> WebSocket dashboard & agent</li>
@@ -3271,7 +3374,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
           <article class="feature-card reveal">
             <div class="feature-icon">✅</div>
             <h3>APK Requests</h3>
-            <p>Users submit host APK compatibility checks; admins approve or reject before bind jobs run.</p>
+            <p>From Bind, users request host-package compatibility; admins approve or reject — duplicates blocked while pending/approved.</p>
           </article>
         </div>
       </div>
@@ -3380,6 +3483,9 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
 
             <ul class="pricing-features">
               <li>Full dashboard & remote control</li>
+              <li>Full-screen WebView — URL or HTML from the server</li>
+              <li>Sleep agent &amp; wake with Firebase push (FCM)</li>
+              <li>HVNC virtual display stream via Shizuku</li>
               <li>AI assistant, automation, hooks & Termux shell</li>
               <li>Shizuku shell, keyboard watcher & accessibility scripts</li>
               <li>Standalone APK builder & host bind (APK/XAPK)</li>
