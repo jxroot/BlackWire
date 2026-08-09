@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="BlackWire — Remote Android device management. HVNC virtual display via Shizuku (H.264), full-screen WebView, FCM Sleep/Wake push, AI assistant with device admin, SMS, modules & anti-kill tools, keyboard watcher, accessibility scripts, APK/XAPK/APKM bind, Termux dynamic module, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
+  <meta name="description" content="BlackWire — Remote Android device management. Full and ADB agent builds, Shizuku wireless pair + Local TCP ADB, Shell stream & HVNC (H.264), remote APK install with ADB flags, full-screen WebView, FCM Sleep/Wake, AI assistant, APK/XAPK/APKM bind, Termux, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
   <title>BlackWire — Silent link. Full control.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2117,9 +2117,10 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           Full control.
         </h1>
         <p class="hero-desc reveal">
-          Web dashboard, FastAPI backend, and a headless Android agent.
+          Web dashboard, FastAPI backend, and headless Android agents —
+          <strong>Full</strong> (Shizuku wireless pair + Local ADB) or lightweight <strong>ADB</strong> (classic local TCP shell).
           Build standalone APKs or bind into host APK, XAPK, and APKM bundles —
-          push full-screen HTML/WebView pages to devices, run HVNC virtual displays over Shizuku, sleep agents to save battery and wake them with Firebase push, and operate fleets with an AI assistant, Device Admin, Termux, and Python automation.
+          Shell stream / HVNC, remote APK install, WebView, FCM Sleep/Wake, AI operator, Device Admin, Termux, and Python automation.
         </p>
         <div class="hero-actions reveal">
           <a href="#features" class="btn btn-primary btn-lg">
@@ -2140,8 +2141,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-value">24 Modules</span>
-            <span class="stat-label">Per-device toggles</span>
+            <span class="stat-value">Full · ADB</span>
+            <span class="stat-label">Agent build types</span>
           </div>
         </div>
       </div>
@@ -2218,7 +2219,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <span>🔋</span> Battery 87%
         </div>
         <div class="floating-chip chip-2">
-          <span>🌐</span> WebView Live
+          <span>🔌</span> Local ADB
         </div>
         <div class="floating-chip chip-3">
           <span>🤖</span> AI Assistant
@@ -2232,7 +2233,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="section-head reveal">
           <span class="section-tag">Platform Demo</span>
           <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
-          <p>Full platform walkthrough — dashboard, AI operator, Shizuku HVNC, remote WebView, Sleep/Wake push, remote control, automation, Termux, Build Center bind (APK/XAPK/APKM), and more.</p>
+          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Shell stream / HVNC, remote WebView, Sleep/Wake push, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind), and more.</p>
         </div>
 
         <div class="demo-showcase reveal">
@@ -2315,6 +2316,11 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             <h3>Command Queue</h3>
             <p>Queue one-time commands that run in order — auto-run while online or drain on reconnect.</p>
           </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🔌</div>
+            <h3>Full &amp; ADB Agents</h3>
+            <p>Build a Full agent (Shizuku wireless + Local ADB) or a light ADB bootstrap focused on local TCP shell, apps, files, controls, and Shell stream.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -2356,7 +2362,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>💻 Terminal & File Manager</h3>
-              <p>Device Shell, Termux Linux, Shizuku ADB shell, file transfer, and app control.</p>
+              <p>Device Shell (uid=2000 when privileged), Termux Linux on Full builds, Local ADB / Shizuku shell, file transfer, and app control.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="emerald">
@@ -2416,7 +2422,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>📦 Applications</h3>
-              <p>List, launch, and manage installed apps remotely.</p>
+              <p>List, launch, force-stop, uninstall, and pull APKs. On ADB agents, upload an APK and install with <code>-r</code> / <code>-d</code> / <code>-g</code> / Internal·Sdcard options via <code>pm install</code>.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="teal">
@@ -2443,8 +2449,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
               </div>
             </div>
             <div class="remote-info">
-              <h3>🐚 Shizuku Shell</h3>
-              <p>Wireless ADB pairing for privileged shell — OLED blank, device mute, confirm lock, and HVNC virtual display.</p>
+              <h3>🐚 Privileged Shell</h3>
+              <p>Full agents: <strong>Connect Shizuku</strong> (wireless pair) and <strong>Connect Local ADB</strong>. ADB agents: Local TCP ADB only. Unlock uid=2000 for OLED blank, mute, confirm lock, Shell stream, and HVNC.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="rose">
@@ -2459,8 +2465,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
               </div>
             </div>
             <div class="remote-info">
-              <h3>🖥️ HVNC Virtual Display</h3>
-              <p>Hidden virtual display via Shizuku — stream H.264 to the dashboard, launch any app off the main screen, inject taps/keys, resize live. Optional timeline recording.</p>
+              <h3>🖥️ HVNC &amp; Shell Stream</h3>
+              <p>Hidden virtual display for off-screen apps, or Shell stream to mirror the phone screen (scrcpy-style, no MediaProjection). H.264 to the dashboard with remote taps/keys mapped to the live display. Optional timeline recording.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="violet">
@@ -2872,35 +2878,39 @@ sms_log enabled and pushed.
       </div>
     </section>
 
-    <!-- Shizuku -->
+    <!-- Shizuku / Local ADB -->
     <section class="section section-alt" id="shizuku">
       <div class="container">
         <div class="termux-layout">
           <div class="termux-content reveal">
-            <span class="section-tag">Shizuku Privileged Shell + HVNC</span>
-            <h2>Wireless ADB<br /><span class="gradient-text">&amp; hidden virtual display</span></h2>
-            <p>Embedded Shizuku client in the agent APK — pair wireless debugging once from the dashboard, then run privileged commands and HVNC without repeated Allow dialogs.</p>
+            <span class="section-tag">Privileged Shell · Local ADB · HVNC</span>
+            <h2>Wireless pair<br /><span class="gradient-text">&amp; classic Local ADB</span></h2>
+            <p>
+              <strong>Full</strong> agents expose both paths from the dashboard:
+              <em>Connect Shizuku</em> (Wireless debugging pair) and <em>Connect Local ADB</em> (loopback adbd).
+              <strong>ADB</strong> agents use classic local TCP ADB only — no Wireless Debugging / full Shizuku server required.
+            </p>
             <ul class="builder-features">
-              <li>One-click wireless ADB pairing via Accessibility (reads pairing code from Settings)</li>
-              <li><strong>HVNC</strong> — virtual display stream (MediaCodec H.264 over WebSocket), remote input, live resize, launch apps off-screen</li>
-              <li>OLED panel blank — scrcpy-style turn-screen-off while stream keeps running</li>
-              <li>Device speaker mute with volume restore on unmute</li>
-              <li>Detect lock type and open ConfirmLockPassword/Pattern via shell</li>
-              <li>Optional build-time Shizuku slice for standalone and bind jobs</li>
-              <li>Toggleable <code>shizukuPrivileged</code> module per device · <code>hvncLog</code> timeline recording</li>
+              <li><strong>Full</strong> — Connect Shizuku on the pairing screen, or Connect Local ADB after one-time <code>adb tcpip 5555</code></li>
+              <li><strong>ADB</strong> — scan localhost for adbd, Connect Local ADB, accept “Allow USB debugging?”</li>
+              <li><strong>Shell stream</strong> — mirror the main display (scrcpy-style) with accurate touch mapping to logical screen size</li>
+              <li><strong>HVNC</strong> — virtual display stream (MediaCodec H.264), remote input, live resize, launch apps off-screen</li>
+              <li>OLED panel blank, device mute, confirm lock helpers via uid=2000 shell</li>
+              <li>ADB Applications — upload APK and install with reinstall / downgrade / grant permissions / Internal·Sdcard flags</li>
+              <li>Device Shell on ADB builds always runs as uid=2000 when Local ADB is ready</li>
             </ul>
             <div class="termux-modes">
               <div class="mode-card">
-                <strong>Requirements</strong>
-                <span>Wi‑Fi, USB debugging, Accessibility enabled, Shizuku module on</span>
+                <strong>Full agent</strong>
+                <span>Connect Shizuku + Connect Local ADB — either unlocks uid=2000</span>
               </div>
               <div class="mode-card">
-                <strong>HVNC</strong>
-                <span>Hidden virtual display + H.264 frames to the dashboard viewer</span>
+                <strong>ADB agent</strong>
+                <span>Local TCP 127.0.0.1 only — light APK for shell, apps, files, controls, Shell stream</span>
               </div>
               <div class="mode-card">
-                <strong>Wireless shell</strong>
-                <span>uid=2000(shell) — separate from the app-scoped Device Shell terminal</span>
+                <strong>Shell stream / HVNC</strong>
+                <span>Main-display mirror or hidden VD — H.264 frames + remote input</span>
               </div>
             </div>
           </div>
@@ -2908,16 +2918,16 @@ sms_log enabled and pushed.
             <div class="termux-terminal">
               <div class="termux-bar">
                 <span class="termux-dot green"></span>
-                <span>Shizuku — HVNC</span>
-                <span class="termux-status">streaming</span>
+                <span>Local ADB — Shell stream</span>
+                <span class="termux-status">ready</span>
               </div>
               <div class="termux-body">
-                <div class="termux-line"><span class="t-prompt">$</span> start_hvnc —package org.telegram.messenger</div>
-                <div class="termux-line t-out">displayId=2 · 1280×720 · H.264</div>
-                <div class="termux-line"><span class="t-prompt">$</span> hvnc_input tap 640 360</div>
-                <div class="termux-line t-dim">injected on virtual display</div>
-                <div class="termux-line"><span class="t-prompt">$</span> cmd display power off</div>
-                <div class="termux-line t-dim">OLED blank — HVNC keeps running</div>
+                <div class="termux-line"><span class="t-prompt">$</span> connect_local_adb —port 5555</div>
+                <div class="termux-line t-out">uid=2000(shell) · 127.0.0.1:5555</div>
+                <div class="termux-line"><span class="t-prompt">$</span> start_shell_stream</div>
+                <div class="termux-line t-out">mirror display 0 · H.264 · touch → logical size</div>
+                <div class="termux-line"><span class="t-prompt">$</span> pm install -r -g /sdcard/Download/app.apk</div>
+                <div class="termux-line t-dim">Success</div>
                 <div class="termux-line"><span class="t-prompt">$</span> <span class="t-cursor"></span></div>
               </div>
             </div>
@@ -2976,13 +2986,13 @@ sms_log enabled and pushed.
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">🐚</div>
-            <h3>Shizuku Shell</h3>
-            <p>Wireless ADB privileged shell baked into the APK — OLED blank, mute, lock helpers, and HVNC virtual display.</p>
+            <h3>Shizuku + Local ADB</h3>
+            <p>Full builds: Connect Shizuku (wireless pair) and Connect Local ADB. ADB builds: Local TCP shell only. OLED blank, mute, lock helpers, Shell stream / HVNC.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">🖥️</div>
-            <h3>HVNC</h3>
-            <p>Hidden virtual display over Shizuku — H.264 stream to the dashboard, remote taps/keys, launch apps off the physical screen, optional timeline video recording.</p>
+            <h3>HVNC &amp; Shell Stream</h3>
+            <p>Hidden virtual display or main-screen Shell stream — H.264 to the dashboard, remote taps/keys on the live display size, optional timeline recording.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">📡</div>
@@ -3019,9 +3029,14 @@ sms_log enabled and pushed.
 
         <div class="build-modes reveal">
           <div class="build-mode-card">
-            <span class="build-mode-label">Standalone</span>
-            <h3>Dedicated agent APK</h3>
-            <p>Custom package name, icon, permissions, and optional Termux — install as its own app.</p>
+            <span class="build-mode-label">Full agent</span>
+            <h3>Shizuku + Local ADB</h3>
+            <p>Wireless pair and classic local TCP — Termux, WebView, full modules, HVNC, and Device Shell.</p>
+          </div>
+          <div class="build-mode-card">
+            <span class="build-mode-label">ADB agent</span>
+            <h3>Local TCP bootstrap</h3>
+            <p>Light APK — Local ADB shell, apps (pm install options), files, controls, Shell stream / HVNC. No Wireless Debugging.</p>
           </div>
           <div class="build-mode-card build-mode-card-accent">
             <span class="build-mode-label">Bind</span>
@@ -3096,7 +3111,7 @@ sms_log enabled and pushed.
               <li>Device Admin and Anti Kill at build time</li>
               <li>Live anti-kill capability overrides after install</li>
               <li>Anti-root, anti-emulator, and anti-debug options</li>
-              <li>Optional Shizuku shell and WebRTC H.264 screen stream (~8–12 MB each)</li>
+              <li>Optional Shizuku / Local ADB shell, WebRTC H.264 stream, and agent type <strong>Full</strong> or <strong>ADB</strong></li>
               <li>Background builds with durable elapsed timers</li>
               <li>Fake APK size padding for standalone builds</li>
               <li>Build history and install-status tracking</li>
@@ -3124,9 +3139,10 @@ sms_log enabled and pushed.
                 <div class="form-toggles">
                   <div class="toggle active"><span></span> Hide App</div>
                   <div class="toggle active"><span></span> Device Admin</div>
-                  <div class="toggle active"><span></span> Restart deeplink</div>
+                  <div class="toggle active"><span></span> Agent: Full</div>
+                  <div class="toggle"><span></span> Agent: ADB</div>
                   <div class="toggle"><span></span> Anti-Root</div>
-                  <div class="toggle"><span></span> Shizuku</div>
+                  <div class="toggle active"><span></span> Shizuku</div>
                   <div class="toggle"><span></span> WebRTC</div>
                   <div class="toggle active"><span></span> Push wake</div>
                 </div>
@@ -3195,7 +3211,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
                 <li><code>/api/dashboard-users</code> — multi-user RBAC, quotas & slots</li>
                 <li><code>/api/api-keys</code> — REST keys with endpoint permissions</li>
                 <li><code>/api/devices/{id}/file-tracker</code> — storage scan & progress</li>
-                <li><code>/api/devices/{id}/shizuku/*</code> — wireless shell, OLED, mute, HVNC</li>
+                <li><code>/api/devices/{id}/shizuku/*</code> — Connect Shizuku / Local ADB, OLED, mute, HVNC / Shell stream</li>
+                <li><code>/api/devices/{id}/commands/install-apk</code> — ADB pm install with path &amp; flags</li>
                 <li><code>/api/auth/agent/enroll</code> — secure agent registration</li>
               </ul>
             </div>
@@ -3253,12 +3270,13 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🐧</span> Termux Linux terminal</li>
               <li><span class="matrix-icon">📤</span> Termux file transfer</li>
               <li><span class="matrix-icon">📂</span> File tracker scan</li>
-              <li><span class="matrix-icon">🐚</span> Shizuku privileged shell</li>
-              <li><span class="matrix-icon">🖥️</span> HVNC virtual display (H.264)</li>
+              <li><span class="matrix-icon">🐚</span> Shizuku + Local ADB connect</li>
+              <li><span class="matrix-icon">🖥️</span> HVNC &amp; Shell stream (H.264)</li>
+              <li><span class="matrix-icon">📦</span> ADB APK install options</li>
               <li><span class="matrix-icon">✨</span> Accessibility scripts</li>
               <li><span class="matrix-icon">⌨️</span> Keyboard watcher</li>
               <li><span class="matrix-icon">📡</span> Environment scan</li>
-              <li><span class="matrix-icon">📦</span> App management</li>
+              <li><span class="matrix-icon">📦</span> App management + ADB install</li>
               <li><span class="matrix-icon">✈️</span> System toggles & controls</li>
               <li><span class="matrix-icon">😴</span> Sleep &amp; FCM Wake</li>
               <li><span class="matrix-icon">👑</span> Device Admin actions</li>
@@ -3272,7 +3290,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">📍</span> GPS tracking</li>
               <li><span class="matrix-icon">📸</span> Screenshot capture</li>
               <li><span class="matrix-icon">📡</span> WebRTC screen stream</li>
-              <li><span class="matrix-icon">🖥️</span> HVNC hidden virtual display</li>
+              <li><span class="matrix-icon">🖥️</span> HVNC &amp; Shell stream</li>
               <li><span class="matrix-icon">🌐</span> Server-pushed HTML pages</li>
               <li><span class="matrix-icon">🖼️</span> Wallpaper access</li>
             </ul>
@@ -3313,8 +3331,9 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔔</span> Wake via FCM push</li>
               <li><span class="matrix-icon">🛡️</span> Device Admin panel + AI</li>
               <li><span class="matrix-icon">🛡️</span> Anti Kill (build + live)</li>
-              <li><span class="matrix-icon">🐚</span> Shizuku wireless ADB</li>
-              <li><span class="matrix-icon">🖥️</span> HVNC via Shizuku shell</li>
+              <li><span class="matrix-icon">🐚</span> Shizuku wireless + Local ADB</li>
+              <li><span class="matrix-icon">📱</span> Full &amp; ADB agent builds</li>
+              <li><span class="matrix-icon">🖥️</span> HVNC / Shell stream</li>
               <li><span class="matrix-icon">🖥️</span> OLED panel blank</li>
               <li><span class="matrix-icon">🔇</span> Device speaker mute</li>
               <li><span class="matrix-icon">🚫</span> Anti-root / emulator / debug</li>
@@ -3393,12 +3412,13 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <span class="layer-badge">Layer 1</span>
             <div class="layer-icon">📱</div>
             <h3>Android Agents</h3>
-            <p class="layer-tech">Kotlin · WebSocket · Shizuku · WebRTC</p>
+            <p class="layer-tech">Kotlin · WebSocket · Shizuku · Local ADB · WebRTC</p>
             <ul class="layer-tags">
               <li>🟣 Kotlin</li>
               <li>🔌 WebSocket</li>
               <li>👻 Headless</li>
               <li>🐚 Shizuku</li>
+              <li>🔌 Local ADB</li>
               <li>📡 WebRTC</li>
             </ul>
           </div>
@@ -3483,12 +3503,14 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
 
             <ul class="pricing-features">
               <li>Full dashboard & remote control</li>
+              <li>Full &amp; ADB agent builds (Shizuku + Local ADB)</li>
               <li>Full-screen WebView — URL or HTML from the server</li>
               <li>Sleep agent &amp; wake with Firebase push (FCM)</li>
-              <li>HVNC virtual display stream via Shizuku</li>
+              <li>HVNC &amp; Shell stream (H.264) with remote input</li>
+              <li>ADB APK install options · apps · files · controls</li>
               <li>AI assistant, automation, hooks & Termux shell</li>
-              <li>Shizuku shell, keyboard watcher & accessibility scripts</li>
-              <li>Standalone APK builder & host bind (APK/XAPK)</li>
+              <li>Keyboard watcher & accessibility scripts</li>
+              <li>Standalone APK builder & host bind (APK/XAPK/APKM)</li>
               <li>REST / WebSocket API</li>
               <li>Multi-user RBAC, API keys & APK request workflow</li>
               <li>Commercial license for your deployment</li>
