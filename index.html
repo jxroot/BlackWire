@@ -2233,7 +2233,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="section-head reveal">
           <span class="section-tag">Platform Demo</span>
           <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
-          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Shell stream / HVNC, remote WebView, Sleep/Wake push, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind), and more.</p>
+          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Shell stream / HVNC, Remote Browser &amp; full-screen WebView, Sleep/Wake push, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind), and more.</p>
         </div>
 
         <div class="demo-showcase reveal">
@@ -2320,6 +2320,16 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             <div class="feature-icon">🔌</div>
             <h3>Full &amp; ADB Agents</h3>
             <p>Build a Full agent (Shizuku wireless + Local ADB) or a light ADB bootstrap focused on local TCP shell, apps, files, controls, and Shell stream.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📋</div>
+            <h3>Device Info &amp; Permissions</h3>
+            <p>Hardware, network, SIM, and agent details — plus grant or review install permissions from the panel without opening Android settings.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📊</div>
+            <h3>App Usage Stats</h3>
+            <p>Foreground app and screen-time tracking when Usage Access is built in — complements the activity timeline.</p>
           </article>
         </div>
       </div>
@@ -2522,7 +2532,37 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>📡 Environment Scan</h3>
-              <p>Scan nearby Wi‑Fi, BLE, cell towers, GNSS, Chromecast, DLNA, printers, and IoT devices.</p>
+              <p>Scan nearby Wi‑Fi, BLE, cell towers, GNSS, Chromecast, DLNA, printers, and IoT devices. Optional <strong>internal LAN scan</strong>: ARP, ping, TCP ports, NetBIOS, SNMP, traceroute, UPnP, and Wake-on-LAN.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="violet">
+            <div class="remote-visual">
+              <div class="screen-mock">
+                <div class="screen-content" style="padding:12px;display:flex;flex-direction:column;gap:8px;justify-content:center;">
+                  <div style="height:8px;width:70%;border-radius:4px;background:rgba(255,255,255,0.2);"></div>
+                  <div style="height:8px;width:50%;border-radius:4px;background:rgba(255,255,255,0.12);"></div>
+                  <div style="margin-top:8px;padding:10px;border-radius:8px;background:rgba(139,92,246,0.25);font-size:0.75rem;text-align:center;">Touch blocked · you control</div>
+                </div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>🛡️ Touch Block Overlay</h3>
+              <p>Full-screen overlay on the device while you remote-control — block local touch, nav gestures, and control center with a custom message.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="indigo">
+            <div class="remote-visual">
+              <div class="apps-mock" style="grid-template-columns:1fr;width:85%;padding:8px;">
+                <div style="font-size:0.7rem;opacity:0.8;line-height:1.6;">
+                  <div>Model · Android 14</div>
+                  <div>RAM 6.2 / 8 GB</div>
+                  <div>Local IP 192.168.1.100</div>
+                </div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>ℹ️ Device Info</h3>
+              <p>Detailed hardware, storage, network, SIM, agent build, and runtime metrics — export-friendly snapshot from the panel.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="cyan">
@@ -2536,8 +2576,22 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
               </div>
             </div>
             <div class="remote-info">
-              <h3>🌐 Full-screen WebView</h3>
-              <p>Push a URL or HTML page from the dashboard — opens silently full-screen on the device (JavaScript optional). Hide anytime; upload HTML for a temporary server URL.</p>
+              <h3>🌐 WebView — Remote Browser &amp; On Device</h3>
+              <p><strong>Remote Browser</strong> loads pages through the device&apos;s network in the dashboard (LAN gateways, intranet HTTP). <strong>On device</strong> pushes a URL or HTML full-screen on the phone — hide anytime; upload HTML for a temporary server URL.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="sky">
+            <div class="remote-visual">
+              <div class="screen-mock">
+                <div class="screen-content" style="padding:10px;display:flex;flex-direction:column;gap:6px;">
+                  <div style="font-size:0.65rem;opacity:0.7;">192.168.1.1 · via device LAN</div>
+                  <div style="flex:1;border-radius:6px;background:linear-gradient(135deg,rgba(14,165,233,0.35),rgba(59,130,246,0.25));display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🌍</div>
+                </div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>🌍 Remote Browser</h3>
+              <p>Browse through the phone&apos;s connection in the panel only — open router admin pages, LAN hosts, and cleartext HTTP without launching a browser on the device.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="amber">
@@ -2634,6 +2688,13 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
                 <div>
                   <strong>App Switch Tracking</strong>
                   <span>Log foreground app and screen changes</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>App Usage Stats</strong>
+                  <span>Screen time and foreground app history via Usage Access</span>
                 </div>
               </li>
               <li>
@@ -3005,6 +3066,21 @@ sms_log enabled and pushed.
             <p>Root, emulator, and debugger detection.</p>
           </div>
           <div class="sec-card reveal">
+            <div class="sec-icon">🔐</div>
+            <h3>Two-Factor Auth</h3>
+            <p>TOTP 2FA for dashboard users — enforce globally or per account from Security settings.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🤖</div>
+            <h3>Turnstile Login Guard</h3>
+            <p>Optional Cloudflare Turnstile bot protection on admin login.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">📜</div>
+            <h3>Audit Logs</h3>
+            <p>Searchable admin action history — logins, builds, device deletes, and security events.</p>
+          </div>
+          <div class="sec-card reveal">
             <div class="sec-icon">🔗</div>
             <h3>Restart Deeplink</h3>
             <p>Optional custom URI (e.g. <code>deviceagent://restart</code>) baked into the APK so a web page can relaunch the agent.</p>
@@ -3107,6 +3183,11 @@ sms_log enabled and pushed.
               <li>Custom app name, icon, and package name</li>
               <li>Minimal or custom install permission modes</li>
               <li>Hide launcher after install</li>
+              <li>Auto-disguise launcher name &amp; icon (presets or custom) after first run</li>
+              <li>Exclude permissions &amp; WebView from the APK at build time</li>
+              <li>Per-build device token lifetime (days or unlimited)</li>
+              <li>Auto-dismiss foreground connection notification</li>
+              <li>Optional Gradle build resource cap (host CPU/RAM)</li>
               <li>Restart deeplink (<code>scheme://host</code>) to relaunch the agent from a web page</li>
               <li>Device Admin and Anti Kill at build time</li>
               <li>Live anti-kill capability overrides after install</li>
@@ -3200,7 +3281,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <ul class="auto-list">
                 <li><code>/api/devices</code> — list, update, delete, revoke tokens</li>
                 <li><code>/api/devices/{id}/*</code> — screen, files, shell, SMS, camera, GPS, WebView…</li>
-                <li><code>/api/devices/{id}/webview/*</code> — show / hide / state / HTML upload</li>
+                <li><code>/api/devices/{id}/webview/*</code> — show / hide / state / HTML upload / onsite browse</li>
                 <li><code>/api/devices/{id}/actions/hibernate</code> — sleep agent until Wake</li>
                 <li><code>/api/devices/{id}/actions/wake</code> — FCM push to reconnect</li>
                 <li><code>/api/tasks</code> & <code>/api/hooks</code> — automation CRUD & runs</li>
@@ -3213,6 +3294,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
                 <li><code>/api/devices/{id}/file-tracker</code> — storage scan & progress</li>
                 <li><code>/api/devices/{id}/shizuku/*</code> — Connect Shizuku / Local ADB, OLED, mute, HVNC / Shell stream</li>
                 <li><code>/api/devices/{id}/commands/install-apk</code> — ADB pm install with path &amp; flags</li>
+                <li><code>/api/security/audit-logs</code> — admin action audit trail</li>
                 <li><code>/api/auth/agent/enroll</code> — secure agent registration</li>
               </ul>
             </div>
@@ -3263,7 +3345,11 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <ul>
               <li><span class="matrix-icon">🖥️</span> Screen monitor & control</li>
               <li><span class="matrix-icon">👁️</span> Screen reader (UI tree)</li>
+              <li><span class="matrix-icon">🌐</span> Remote Browser (device network)</li>
               <li><span class="matrix-icon">🌐</span> Full-screen WebView (URL / HTML)</li>
+              <li><span class="matrix-icon">🛡️</span> Touch block overlay</li>
+              <li><span class="matrix-icon">ℹ️</span> Device info panel</li>
+              <li><span class="matrix-icon">🔐</span> Permissions grant flow</li>
               <li><span class="matrix-icon">📁</span> File manager</li>
               <li><span class="matrix-icon">💻</span> Remote shell</li>
               <li><span class="matrix-icon">💻</span> Device Shell terminal</li>
@@ -3275,7 +3361,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">📦</span> ADB APK install options</li>
               <li><span class="matrix-icon">✨</span> Accessibility scripts</li>
               <li><span class="matrix-icon">⌨️</span> Keyboard watcher</li>
-              <li><span class="matrix-icon">📡</span> Environment scan</li>
+              <li><span class="matrix-icon">📡</span> Environment scan + LAN tools</li>
               <li><span class="matrix-icon">📦</span> App management + ADB install</li>
               <li><span class="matrix-icon">✈️</span> System toggles & controls</li>
               <li><span class="matrix-icon">😴</span> Sleep &amp; FCM Wake</li>
@@ -3305,6 +3391,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🖼️</span> Remote wallpaper</li>
               <li><span class="matrix-icon">⌨️</span> Input tracker</li>
               <li><span class="matrix-icon">⌨️</span> Keyboard watcher</li>
+              <li><span class="matrix-icon">📊</span> App usage stats</li>
             </ul>
           </div>
           <div class="matrix-group">
@@ -3324,6 +3411,9 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <h4><span class="matrix-group-icon">🔒</span> Security & Agent</h4>
             <ul>
               <li><span class="matrix-icon">🔐</span> JWT authentication</li>
+              <li><span class="matrix-icon">🔐</span> Dashboard 2FA (TOTP)</li>
+              <li><span class="matrix-icon">📜</span> Audit logs</li>
+              <li><span class="matrix-icon">🤖</span> Turnstile login guard</li>
               <li><span class="matrix-icon">📌</span> Certificate pinning</li>
               <li><span class="matrix-icon">👻</span> Headless auto-start</li>
               <li><span class="matrix-icon">🔄</span> Watchdog connection</li>
@@ -3338,6 +3428,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔇</span> Device speaker mute</li>
               <li><span class="matrix-icon">🚫</span> Anti-root / emulator / debug</li>
               <li><span class="matrix-icon">🫥</span> Hide app after install</li>
+              <li><span class="matrix-icon">🎭</span> Auto-disguise launcher</li>
+              <li><span class="matrix-icon">✂️</span> Exclude permissions at build</li>
               <li><span class="matrix-icon">🔗</span> Restart deeplink URI</li>
               <li><span class="matrix-icon">🔑</span> Agent enrollment keys</li>
             </ul>
@@ -3394,6 +3486,11 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <div class="feature-icon">✅</div>
             <h3>APK Requests</h3>
             <p>From Bind, users request host-package compatibility; admins approve or reject — duplicates blocked while pending/approved.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📜</div>
+            <h3>Audit Logs</h3>
+            <p>Filterable history of logins, builds, device actions, and security events — super-admin review from Settings.</p>
           </article>
         </div>
       </div>
@@ -3504,7 +3601,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <ul class="pricing-features">
               <li>Full dashboard & remote control</li>
               <li>Full &amp; ADB agent builds (Shizuku + Local ADB)</li>
-              <li>Full-screen WebView — URL or HTML from the server</li>
+              <li>Remote Browser &amp; full-screen WebView (URL / HTML)</li>
               <li>Sleep agent &amp; wake with Firebase push (FCM)</li>
               <li>HVNC &amp; Shell stream (H.264) with remote input</li>
               <li>ADB APK install options · apps · files · controls</li>
@@ -3512,7 +3609,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li>Keyboard watcher & accessibility scripts</li>
               <li>Standalone APK builder & host bind (APK/XAPK/APKM)</li>
               <li>REST / WebSocket API</li>
-              <li>Multi-user RBAC, API keys & APK request workflow</li>
+              <li>Multi-user RBAC, 2FA, audit logs, API keys &amp; APK requests</li>
               <li>Commercial license for your deployment</li>
             </ul>
 
