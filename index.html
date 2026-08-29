@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="BlackWire — Remote Android device management. Full and ADB agent builds, Shizuku wireless pair + Local TCP ADB, Shell stream & HVNC (H.264), remote APK install with ADB flags, full-screen WebView, FCM Sleep/Wake, AI assistant, APK/XAPK/APKM bind, Termux, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
+  <meta name="description" content="BlackWire — Remote Android device management. Full and ADB agent builds, Shizuku wireless pair + Local TCP ADB, Internal & USB ADB, Shell stream & HVNC (H.264), IR remote, remote APK install with ADB flags, full-screen WebView, FCM Sleep/Wake, AI assistant, Telegram bot, APK/XAPK/APKM bind, Termux, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
   <title>BlackWire — Silent link. Full control.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2120,7 +2120,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           Web dashboard, FastAPI backend, and headless Android agents —
           <strong>Full</strong> (Shizuku wireless pair + Local ADB) or lightweight <strong>ADB</strong> (classic local TCP shell).
           Build standalone APKs or bind into host APK, XAPK, and APKM bundles —
-          Shell stream / HVNC, remote APK install, WebView, FCM Sleep/Wake, AI operator, Device Admin, Termux, and Python automation.
+          Shell stream / HVNC, Internal &amp; USB ADB, IR remote, remote APK install, WebView, FCM Sleep/Wake, AI operator, Telegram bot, Device Admin, Termux, and Python automation.
         </p>
         <div class="hero-actions reveal">
           <a href="#features" class="btn btn-primary btn-lg">
@@ -2136,8 +2136,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-value">AI Operator</span>
-            <span class="stat-label">Device + Admin tools</span>
+            <span class="stat-value">25 Modules</span>
+            <span class="stat-label">Toggle per device</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
@@ -2219,10 +2219,10 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <span>🔋</span> Battery 87%
         </div>
         <div class="floating-chip chip-2">
-          <span>🔌</span> Local ADB
+          <span>📡</span> Internal ADB
         </div>
         <div class="floating-chip chip-3">
-          <span>🤖</span> AI Assistant
+          <span>📺</span> IR Remote
         </div>
       </div>
     </section>
@@ -2233,7 +2233,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="section-head reveal">
           <span class="section-tag">Platform Demo</span>
           <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
-          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Shell stream / HVNC, Remote Browser &amp; full-screen WebView, Sleep/Wake push, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind), and more.</p>
+          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind), and more.</p>
         </div>
 
         <div class="demo-showcase reveal">
@@ -2268,8 +2268,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="feature-grid">
           <article class="feature-card reveal">
             <div class="feature-icon">📊</div>
-            <h3>Online / Offline Status</h3>
-            <p>Live connection status for every device via WebSocket updates.</p>
+            <h3>Online / Offline / Idle</h3>
+            <p>Live connection status with idle indicators for every device via WebSocket updates.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🔍</div>
@@ -2289,7 +2289,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">🧩</div>
             <h3>Toggleable Modules</h3>
-            <p>Enable or disable 24 data-collection modules globally or per device — from the panel or AI chat.</p>
+            <p>Enable or disable 25 data-collection modules globally or per device — from the panel or AI chat.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🏷️</div>
@@ -2309,7 +2309,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">🤖</div>
             <h3>AI Assistant</h3>
-            <p>Device + admin LLM operator — screenshots, SMS, WebView, Device Admin, modules, anti-kill, system toggles, shell, and task creation.</p>
+            <p>Device + admin LLM operator — screenshots, SMS, WebView, Device Admin, IR remote, modules, anti-kill, system toggles, shell, and task creation.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">📋</div>
@@ -2330,6 +2330,16 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             <div class="feature-icon">📊</div>
             <h3>App Usage Stats</h3>
             <p>Foreground app and screen-time tracking when Usage Access is built in — complements the activity timeline.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🪟</div>
+            <h3>Pop-out Device Panels</h3>
+            <p>Float any device module — screen, shell, files, camera — in a separate browser window while keeping the main dashboard open.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📺</div>
+            <h3>IR Remote</h3>
+            <p>Send TV, AC, and set-top IR codes from the phone&apos;s IR blaster — Flipper IRDB catalog with brand profiles and test mode.</p>
           </article>
         </div>
       </div>
@@ -2608,6 +2618,33 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
               <p>Hibernate the agent while online to cut battery and network use. Wake later with a silent FCM push — even when the process is fully stopped.</p>
             </div>
           </div>
+          <div class="remote-card reveal" data-accent="orange">
+            <div class="remote-visual">
+              <div class="controls-mock">
+                <div class="ctrl-toggle on"><span></span> IR LED</div>
+                <div class="ctrl-slider"><span>Samsung TV · Power</span><div class="slider-track"><div class="slider-fill" style="width:85%"></div></div></div>
+                <div class="ctrl-slider"><span>LG AC · Cool 22°C</span><div class="slider-track"><div class="slider-fill" style="width:60%"></div></div></div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>📺 IR Remote</h3>
+              <p>Control TVs, ACs, and set-top boxes via the phone IR blaster. Browse 1,200+ Flipper IRDB profiles by brand, send keys, and run test candidates from the panel.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="slate">
+            <div class="remote-visual">
+              <div class="terminal-mock">
+                <div class="term-line"><span class="prompt">$</span> connect_internal_adb</div>
+                <div class="term-line t-dim">192.168.1.50:5555 · Android TV</div>
+                <div class="term-line"><span class="prompt">$</span> connect_usb_adb</div>
+                <div class="term-line t-dim">USB serial R58M · shell ready</div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>📡 Internal &amp; USB ADB</h3>
+              <p>Reach LAN devices (TV boxes, tablets) over TCP ADB from the agent, or shell into USB-attached targets — connect, disconnect, and run commands from the dashboard.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2773,7 +2810,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
               <span class="hook-chip">device_online</span>
               <span class="hook-chip">battery_low</span>
               <span class="hook-chip">file_tracker_complete</span>
-              <span class="hook-chip">+24 more</span>
+              <span class="hook-chip">+29 more</span>
             </div>
           </div>
           <div class="automation-content reveal">
@@ -2790,13 +2827,13 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="auto-block">
               <h3>🔗 Event Hooks</h3>
-              <p>React instantly when something happens on a device — 34 event types.</p>
+              <p>React instantly when something happens on a device — 35 event types with server, device, or both execution modes.</p>
               <ul class="auto-list">
                 <li>Notifications, input taps, screen changes, and file tracker events</li>
                 <li>SMS, calls, app install/uninstall, and boot events</li>
                 <li>Device lifecycle: online, offline, register</li>
                 <li>Filter by package, text, activity class, and more</li>
-                <li>Per-device or global scope with hook run history</li>
+                <li>Run on server, on device, or both — with hook run history</li>
               </ul>
             </div>
             <div class="auto-block">
@@ -2833,14 +2870,14 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
                 <span class="check-icon">✓</span>
                 <div>
                   <strong>Admin fleet assistant</strong>
-                  <span>List devices, run nested device turns, create tasks & hooks, manage global module/anti-kill defaults</span>
+                  <span>List devices, run nested device turns, create tasks &amp; hooks, manage global module/anti-kill defaults, and Telegram bot alerts</span>
                 </div>
               </li>
               <li>
                 <span class="check-icon">✓</span>
                 <div>
                   <strong>Live device actions</strong>
-                  <span>Screenshots, SMS send/read, full-screen WebView, Device Admin lock/wipe, system toggles, shell, camera, mic, GPS</span>
+                  <span>Screenshots, SMS send/read, full-screen WebView, Device Admin lock/wipe, system toggles, shell, IR remote, camera, mic, GPS</span>
                 </div>
               </li>
               <li>
@@ -3086,6 +3123,11 @@ sms_log enabled and pushed.
             <p>Optional custom URI (e.g. <code>deviceagent://restart</code>) baked into the APK so a web page can relaunch the agent.</p>
           </div>
           <div class="sec-card reveal">
+            <div class="sec-icon">🔍</div>
+            <h3>Session Smart Signals</h3>
+            <p>VPN, incognito, and WebRTC IP-mismatch hints on admin login sessions — enrich security review from Settings.</p>
+          </div>
+          <div class="sec-card reveal">
             <div class="sec-icon">✅</div>
             <h3>APK Compatibility</h3>
             <p>Submit host package requests from Bind — admins approve or reject before merge jobs run on that package.</p>
@@ -3148,6 +3190,7 @@ sms_log enabled and pushed.
                   <div class="toggle"><span></span> Restart deeplink</div>
                   <div class="toggle"><span></span> Shizuku</div>
                   <div class="toggle"><span></span> WebRTC</div>
+                  <div class="toggle"><span></span> IR Remote</div>
                   <div class="toggle active"><span></span> Push wake</div>
                 </div>
                 <div class="builder-btn">Download bound APK / XAPK / APKM</div>
@@ -3169,7 +3212,7 @@ sms_log enabled and pushed.
               <li>Concurrent bootstrap build + bind jobs</li>
               <li>Output as .apk, .xapk, or .apkm matching the host bundle format</li>
               <li>APK compatibility requests — submit for admin approve/reject before bind</li>
-              <li>Optional Device Admin, Anti Kill, Restart deeplink, Shizuku, and WebRTC in bind output</li>
+              <li>Optional Device Admin, Anti Kill, Restart deeplink, Shizuku, WebRTC, and IR Remote in bind output</li>
               <li>Optional Firebase Push wake (FCM) for Sleep / Wake from the dashboard</li>
             </ul>
           </div>
@@ -3192,7 +3235,8 @@ sms_log enabled and pushed.
               <li>Device Admin and Anti Kill at build time</li>
               <li>Live anti-kill capability overrides after install</li>
               <li>Anti-root, anti-emulator, and anti-debug options</li>
-              <li>Optional Shizuku / Local ADB shell, WebRTC H.264 stream, and agent type <strong>Full</strong> or <strong>ADB</strong></li>
+              <li>Optional Shizuku / Local ADB shell, WebRTC H.264 stream, IR Remote, and agent type <strong>Full</strong> or <strong>ADB</strong></li>
+              <li>Public tokenized APK download page per build (<code>/d/{token}</code>)</li>
               <li>Background builds with durable elapsed timers</li>
               <li>Fake APK size padding for standalone builds</li>
               <li>Build history and install-status tracking</li>
@@ -3225,6 +3269,7 @@ sms_log enabled and pushed.
                   <div class="toggle"><span></span> Anti-Root</div>
                   <div class="toggle active"><span></span> Shizuku</div>
                   <div class="toggle"><span></span> WebRTC</div>
+                  <div class="toggle"><span></span> IR Remote</div>
                   <div class="toggle active"><span></span> Push wake</div>
                 </div>
                 <div class="builder-btn">Build APK</div>
@@ -3241,7 +3286,7 @@ sms_log enabled and pushed.
         <div class="section-head reveal">
           <span class="section-tag">REST & WebSocket API</span>
           <h2>Full programmatic<br /><span class="gradient-text">access to everything</span></h2>
-          <p>FastAPI backend with JWT auth, OpenAPI docs, 45+ REST route modules, and dual WebSocket channels — integrate BlackWire into your own tools.</p>
+          <p>FastAPI backend with JWT auth, OpenAPI docs, 55+ REST route modules, and dual WebSocket channels — integrate BlackWire into your own tools.</p>
         </div>
         <div class="automation-layout">
           <div class="automation-visual reveal">
@@ -3293,8 +3338,12 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
                 <li><code>/api/api-keys</code> — REST keys with endpoint permissions</li>
                 <li><code>/api/devices/{id}/file-tracker</code> — storage scan & progress</li>
                 <li><code>/api/devices/{id}/shizuku/*</code> — Connect Shizuku / Local ADB, OLED, mute, HVNC / Shell stream</li>
+                <li><code>/api/devices/{id}/internal-adb/*</code> &amp; <code>/usb-adb/*</code> — LAN and USB ADB shell</li>
+                <li><code>/api/devices/{id}/ir-remote/*</code> &amp; <code>/api/ir-catalog/*</code> — IR profiles and send keys</li>
                 <li><code>/api/devices/{id}/commands/install-apk</code> — ADB pm install with path &amp; flags</li>
                 <li><code>/api/security/audit-logs</code> — admin action audit trail</li>
+                <li><code>/api/telegram-bot</code> — bot settings and inline device alerts</li>
+                <li><code>/d/{token}</code> — public tokenized APK download pages</li>
                 <li><code>/api/auth/agent/enroll</code> — secure agent registration</li>
               </ul>
             </div>
@@ -3326,7 +3375,9 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
           <div class="matrix-group">
             <h4><span class="matrix-group-icon">📊</span> Dashboard</h4>
             <ul>
-              <li><span class="matrix-icon">🟢</span> Live device status</li>
+              <li><span class="matrix-icon">🟢</span> Live status &amp; idle state</li>
+              <li><span class="matrix-icon">🪟</span> Pop-out device panels</li>
+              <li><span class="matrix-icon">📱</span> PWA installable dashboard</li>
               <li><span class="matrix-icon">🗺️</span> World map by country</li>
               <li><span class="matrix-icon">🏷️</span> Tags & groups</li>
               <li><span class="matrix-icon">🔍</span> Search & filtering</li>
@@ -3356,6 +3407,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🐧</span> Termux Linux terminal</li>
               <li><span class="matrix-icon">📤</span> Termux file transfer</li>
               <li><span class="matrix-icon">📂</span> File tracker scan</li>
+              <li><span class="matrix-icon">📡</span> Internal &amp; USB ADB shell</li>
+              <li><span class="matrix-icon">📺</span> IR remote (Flipper IRDB)</li>
               <li><span class="matrix-icon">🐚</span> Shizuku + Local ADB connect</li>
               <li><span class="matrix-icon">🖥️</span> HVNC &amp; Shell stream (H.264)</li>
               <li><span class="matrix-icon">📦</span> ADB APK install options</li>
@@ -3398,7 +3451,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <h4><span class="matrix-group-icon">⚙️</span> Automation</h4>
             <ul>
               <li><span class="matrix-icon">🐍</span> Python task scripts</li>
-              <li><span class="matrix-icon">🔗</span> 30+ event hooks</li>
+              <li><span class="matrix-icon">🔗</span> 35+ event hooks</li>
               <li><span class="matrix-icon">🧪</span> Sandboxed device SDK</li>
               <li><span class="matrix-icon">🌐</span> Global & per-device scope</li>
               <li><span class="matrix-icon">📖</span> Script wiki & snippets</li>
@@ -3422,6 +3475,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🛡️</span> Device Admin panel + AI</li>
               <li><span class="matrix-icon">🛡️</span> Anti Kill (build + live)</li>
               <li><span class="matrix-icon">🐚</span> Shizuku wireless + Local ADB</li>
+              <li><span class="matrix-icon">🔍</span> Session smart signals</li>
+              <li><span class="matrix-icon">🔗</span> Public APK download pages</li>
               <li><span class="matrix-icon">📱</span> Full &amp; ADB agent builds</li>
               <li><span class="matrix-icon">🖥️</span> HVNC / Shell stream</li>
               <li><span class="matrix-icon">🖥️</span> OLED panel blank</li>
@@ -3451,6 +3506,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🤖</span> AI assistant API</li>
               <li><span class="matrix-icon">👥</span> Multi-user RBAC & quotas</li>
               <li><span class="matrix-icon">🔑</span> REST API keys</li>
+              <li><span class="matrix-icon">🤖</span> Telegram bot &amp; alerts</li>
               <li><span class="matrix-icon">🌐</span> WebSocket dashboard & agent</li>
             </ul>
           </div>
@@ -3470,7 +3526,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
           <article class="feature-card reveal">
             <div class="feature-icon">👥</div>
             <h3>Dashboard Users</h3>
-            <p>Create operators with per-feature access levels for devices, build, tasks, hooks, and assistant.</p>
+            <p>Create operators with per-feature access for devices, builds, tasks, hooks, assistant, settings, and Termux bootstrap.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">📊</div>
@@ -3492,6 +3548,16 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <h3>Audit Logs</h3>
             <p>Filterable history of logins, builds, device actions, and security events — super-admin review from Settings.</p>
           </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🤖</div>
+            <h3>Telegram Bot</h3>
+            <p>Inline-keyboard bot for fleet summary, device list, and online/offline alerts — configurable allowed chat IDs and notification types.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🔗</div>
+            <h3>Public APK Pages</h3>
+            <p>Publish tokenized download links per build — share agent APKs without giving dashboard access.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -3509,14 +3575,16 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <span class="layer-badge">Layer 1</span>
             <div class="layer-icon">📱</div>
             <h3>Android Agents</h3>
-            <p class="layer-tech">Kotlin · WebSocket · Shizuku · Local ADB · WebRTC</p>
+            <p class="layer-tech">Kotlin · WebSocket · Shizuku · Local ADB · WebRTC · IR</p>
             <ul class="layer-tags">
               <li>🟣 Kotlin</li>
               <li>🔌 WebSocket</li>
               <li>👻 Headless</li>
               <li>🐚 Shizuku</li>
               <li>🔌 Local ADB</li>
+              <li>📡 Internal/USB ADB</li>
               <li>📡 WebRTC</li>
+              <li>📺 IR Remote</li>
             </ul>
           </div>
           <div class="layer-arrow" aria-hidden="true">
@@ -3527,11 +3595,13 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <span class="layer-badge">Layer 2</span>
             <div class="layer-icon">⚡</div>
             <h3>FastAPI Server</h3>
-            <p class="layer-tech">REST · WS · PostgreSQL · Python SDK</p>
+            <p class="layer-tech">REST · WS · PostgreSQL · Redis · Python SDK</p>
             <ul class="layer-tags">
               <li>⚡ FastAPI</li>
               <li>🐘 PostgreSQL</li>
+              <li>🔴 Redis</li>
               <li>🐳 Docker</li>
+              <li>🤖 Telegram API</li>
             </ul>
           </div>
           <div class="layer-arrow" aria-hidden="true">
@@ -3542,11 +3612,15 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <span class="layer-badge">Layer 3</span>
             <div class="layer-icon">⚛️</div>
             <h3>React Dashboard</h3>
-            <p class="layer-tech">React 19 · Real-time · Vite</p>
+            <p class="layer-tech">React 19 · TypeScript · Tailwind · Real-time · Vite</p>
             <ul class="layer-tags">
               <li>⚛️ React 19</li>
+              <li>📘 TypeScript</li>
+              <li>🎨 Tailwind CSS</li>
               <li>⚡ Real-time</li>
               <li>▲ Vite</li>
+              <li>🖥️ xterm.js</li>
+              <li>📝 Monaco</li>
             </ul>
           </div>
         </div>
@@ -3601,6 +3675,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <ul class="pricing-features">
               <li>Full dashboard & remote control</li>
               <li>Full &amp; ADB agent builds (Shizuku + Local ADB)</li>
+              <li>Internal &amp; USB ADB · IR remote · pop-out device panels</li>
               <li>Remote Browser &amp; full-screen WebView (URL / HTML)</li>
               <li>Sleep agent &amp; wake with Firebase push (FCM)</li>
               <li>HVNC &amp; Shell stream (H.264) with remote input</li>
@@ -3608,7 +3683,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li>AI assistant, automation, hooks & Termux shell</li>
               <li>Keyboard watcher & accessibility scripts</li>
               <li>Standalone APK builder & host bind (APK/XAPK/APKM)</li>
-              <li>REST / WebSocket API</li>
+              <li>REST / WebSocket API · Telegram bot · public APK pages</li>
               <li>Multi-user RBAC, 2FA, audit logs, API keys &amp; APK requests</li>
               <li>Commercial license for your deployment</li>
             </ul>
