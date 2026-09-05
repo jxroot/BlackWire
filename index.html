@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="BlackWire — Remote Android device management. Full and ADB agent builds, Shizuku wireless pair + Local TCP ADB, Internal & USB ADB, Shell stream & HVNC (H.264), IR remote, remote APK install with ADB flags, full-screen WebView, FCM Sleep/Wake, AI assistant, Telegram bot, APK/XAPK/APKM bind, Termux, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
+  <meta name="description" content="BlackWire — Remote Android device management. Full and ADB agent builds, Shizuku wireless pair + Local TCP ADB, Internal & USB ADB, Shell stream & HVNC (H.264), IR remote, Now Playing, Data Usage, remote APK install, on-device OCR (optional Tesseract), File Tracker, SOCKS5 proxy, Wi-Fi Direct share, full-screen WebView, FCM Sleep/Wake, AI assistant, Telegram bot, APK/XAPK/APKM bind with ABI strip and host icon, Termux, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
   <title>BlackWire — Silent link. Full control.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2120,7 +2120,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           Web dashboard, FastAPI backend, and headless Android agents —
           <strong>Full</strong> (Shizuku wireless pair + Local ADB) or lightweight <strong>ADB</strong> (classic local TCP shell).
           Build standalone APKs or bind into host APK, XAPK, and APKM bundles —
-          Shell stream / HVNC, Internal &amp; USB ADB, IR remote, remote APK install, WebView, FCM Sleep/Wake, AI operator, Telegram bot, Device Admin, Termux, and Python automation.
+          Shell stream / HVNC, Internal &amp; USB ADB, IR remote, Now Playing, Data Usage, remote APK install, optional on-device OCR, SOCKS5 proxy, Wi-Fi Direct share, WebView, FCM Sleep/Wake, AI operator, Telegram bot, Device Admin, Termux, and Python automation.
         </p>
         <div class="hero-actions reveal">
           <a href="#features" class="btn btn-primary btn-lg">
@@ -2136,7 +2136,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-value">25 Modules</span>
+            <span class="stat-value">30+ Modules</span>
             <span class="stat-label">Toggle per device</span>
           </div>
           <div class="stat-divider"></div>
@@ -2233,7 +2233,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="section-head reveal">
           <span class="section-tag">Platform Demo</span>
           <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
-          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind), and more.</p>
+          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Now Playing, Data Usage, File Tracker + optional OCR, SOCKS5 proxy, Wi-Fi Direct share, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind with ABI strip), and more.</p>
         </div>
 
         <div class="demo-showcase reveal">
@@ -2289,7 +2289,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">🧩</div>
             <h3>Toggleable Modules</h3>
-            <p>Enable or disable 25 data-collection modules globally or per device — from the panel or AI chat.</p>
+            <p>Enable or disable 30+ data-collection modules globally or per device — from the panel or AI chat.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🏷️</div>
@@ -2304,12 +2304,12 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">📜</div>
             <h3>Activity Timeline</h3>
-            <p>Unified log of SMS, calls, input, files, shell, tasks, hooks, and more.</p>
+            <p>Unified log of SMS, calls, input, files, OCR scans, shell, tasks, hooks, and more.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🤖</div>
             <h3>AI Assistant</h3>
-            <p>Device + admin LLM operator — screenshots, SMS, WebView, Device Admin, IR remote, modules, anti-kill, system toggles, shell, and task creation.</p>
+            <p>Device + admin LLM operator — screenshots, SMS, WebView, SOCKS5, Wi-Fi Direct, Now Playing, Data Usage, Device Admin, IR remote, optional OCR, modules, anti-kill, system toggles, shell, and task creation.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">📋</div>
@@ -2328,8 +2328,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">📊</div>
-            <h3>App Usage Stats</h3>
-            <p>Foreground app and screen-time tracking when Usage Access is built in — complements the activity timeline.</p>
+            <h3>App Usage &amp; Data Usage</h3>
+            <p>Screen time and foreground history, plus per-app Wi-Fi and mobile traffic — both via Usage Access.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🪟</div>
@@ -2382,7 +2382,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>💻 Terminal & File Manager</h3>
-              <p>Device Shell (uid=2000 when privileged), Termux Linux on Full builds, Local ADB / Shizuku shell, file transfer, and app control.</p>
+              <p>Device Shell (uid=2000 when privileged), Termux Linux on Full builds, Local ADB / Shizuku shell, file transfer, image preview with zoom and rotate, and app install on Full or ADB agents.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="emerald">
@@ -2400,6 +2400,22 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             <div class="remote-info">
               <h3>📷 Camera & Microphone</h3>
               <p>Record and stream audio and video in real time.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="violet">
+            <div class="remote-visual">
+              <div class="screen-mock">
+                <div class="screen-content" style="padding:10px;display:flex;flex-direction:column;gap:6px;justify-content:center;">
+                  <div style="font-size:0.65rem;opacity:0.75;letter-spacing:0.04em;">Now Playing</div>
+                  <div style="font-size:0.78rem;font-weight:600;">Track · Artist</div>
+                  <div style="font-size:0.65rem;opacity:0.7;">◀  ▶  ■  · seek</div>
+                  <div style="margin-top:4px;padding:8px;border-radius:8px;background:rgba(139,92,246,0.22);font-size:0.7rem;text-align:center;">Control the active media session</div>
+                </div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>🎵 Now Playing</h3>
+              <p>See the active music or media session and remote play, pause, skip, and seek. Works from the panel and AI tools (<code>get_now_playing</code> / <code>run_media_control</code>).</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="amber">
@@ -2456,7 +2472,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>🎛️ Quick Controls</h3>
-              <p>Toggle airplane, Wi-Fi, Bluetooth, mobile data, location, torch, hotspot — plus brightness, volume, and screen on/off. Available from the panel and AI tools.</p>
+              <p>Toggle airplane, Wi-Fi, Bluetooth, mobile data, location, torch, hotspot — plus brightness, volume, screen on/off, clipboard, dialer, vibrate, TTS, ringtone, and alarm. Available from the panel and AI tools.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="teal">
@@ -2470,7 +2486,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>🐚 Privileged Shell</h3>
-              <p>Full agents: <strong>Connect Shizuku</strong> (wireless pair) and <strong>Connect Local ADB</strong>. ADB agents: Local TCP ADB only. Unlock uid=2000 for OLED blank, mute, confirm lock, Shell stream, and HVNC.</p>
+              <p>Full agents: <strong>Connect Shizuku</strong> (wireless pair) and <strong>Connect Local ADB</strong>. ADB agents: Local TCP ADB only. Unlock uid=2000 for OLED blank, mute, confirm lock, saved Wi-Fi passwords, shared ADB key import/export, Shell stream, and HVNC.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="rose">
@@ -2500,7 +2516,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>✨ Accessibility Script</h3>
-              <p>Write, sync, and run on-device automation scripts with a DSL editor and live parse.</p>
+              <p>Write, sync, and run on-device automation scripts with a DSL editor, live parse, and an AI chat that drafts or patches the script.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="lime">
@@ -2528,7 +2544,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>📂 File Tracker</h3>
-              <p>Scan device storage and media with live progress, grid/list view, preview, and download.</p>
+              <p>Scan device storage and media with live progress, grid/list view, zoom/rotate preview, and download. Optional <strong>on-device OCR</strong> (Tesseract, Persian + English) walks gallery and file images and returns text with source path — off by default, enable in Optional modules at build time.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="fuchsia">
@@ -2602,6 +2618,38 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             <div class="remote-info">
               <h3>🌍 Remote Browser</h3>
               <p>Browse through the phone&apos;s connection in the panel only — open router admin pages, LAN hosts, and cleartext HTTP without launching a browser on the device.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="emerald">
+            <div class="remote-visual">
+              <div class="screen-mock">
+                <div class="screen-content" style="padding:10px;display:flex;flex-direction:column;gap:6px;justify-content:center;">
+                  <div style="font-size:0.65rem;opacity:0.75;letter-spacing:0.04em;">Wi-Fi Direct · Sharing</div>
+                  <div style="font-size:0.78rem;font-weight:600;">DIRECT-7F-BlackWire</div>
+                  <div style="font-size:0.65rem;opacity:0.7;font-family:ui-monospace,monospace;">HTTP proxy 192.168.49.1:8080</div>
+                  <div style="margin-top:4px;padding:8px;border-radius:8px;background:rgba(16,185,129,0.22);font-size:0.7rem;text-align:center;">Nearby clients join · not the carrier hotspot</div>
+                </div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>📶 Wi-Fi Direct Share</h3>
+              <p>Share the phone&apos;s internet over <strong>Wi-Fi Direct</strong> (NetShare-style). Nearby phones, tablets, or laptops join the <code>DIRECT-xx</code> SSID, then set a manual HTTP proxy. Needs Nearby Wi-Fi — not the carrier hotspot, and no extra dialog on the host after permission.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="violet">
+            <div class="remote-visual">
+              <div class="screen-mock">
+                <div class="screen-content" style="padding:10px;display:flex;flex-direction:column;gap:6px;justify-content:center;">
+                  <div style="font-size:0.65rem;opacity:0.75;letter-spacing:0.04em;">SOCKS5 · Active</div>
+                  <div style="font-size:0.72rem;font-weight:600;font-family:ui-monospace,monospace;">socks5://user:••••@host:1080</div>
+                  <div style="font-size:0.65rem;opacity:0.7;">curl -x socks5h://… api.ipify.org</div>
+                  <div style="margin-top:4px;padding:8px;border-radius:8px;background:rgba(139,92,246,0.22);font-size:0.7rem;text-align:center;">TCP through the device network</div>
+                </div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>🧦 SOCKS5 Proxy</h3>
+              <p>Open an authenticated <strong>SOCKS5</strong> endpoint on the server and route TCP through the phone&apos;s network. Copy <code>proxyUrl</code> / <code>curlProxyUrl</code> for browsers or <code>curl -x socks5h://…</code>. Stays up across panel reloads until you stop it or the device disconnects.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="amber">
@@ -2717,7 +2765,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
                 <span class="check-icon">✓</span>
                 <div>
                   <strong>File Tracker</strong>
-                  <span>Scan storage and media with live progress, preview, and download</span>
+                  <span>Scan storage and media; zoom/rotate preview; optional on-device OCR scan</span>
                 </div>
               </li>
               <li>
@@ -2732,6 +2780,20 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
                 <div>
                   <strong>App Usage Stats</strong>
                   <span>Screen time and foreground app history via Usage Access</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Data Usage</strong>
+                  <span>Per-app Wi-Fi and mobile traffic over 1h / 6h / 24h / 7d windows</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Now Playing</strong>
+                  <span>Live media session — play, pause, skip, and seek from the panel</span>
                 </div>
               </li>
               <li>
@@ -2877,7 +2939,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
                 <span class="check-icon">✓</span>
                 <div>
                   <strong>Live device actions</strong>
-                  <span>Screenshots, SMS send/read, full-screen WebView, Device Admin lock/wipe, system toggles, shell, IR remote, camera, mic, GPS</span>
+                  <span>Screenshots, SMS, WebView, SOCKS5, Wi-Fi Direct, Now Playing, Data Usage, Device Admin, toggles, shell, IR, camera, mic, GPS</span>
                 </div>
               </li>
               <li>
@@ -2926,7 +2988,7 @@ sms_log enabled and pushed.
           <div class="termux-content reveal">
             <span class="section-tag">Termux Agent</span>
             <h2>Full Linux shell<br /><span class="gradient-text">on every device</span></h2>
-            <p>Embedded Termux environment inside the agent — or skip Termux for a lightweight Device Shell-only APK (~8–15 MB).</p>
+            <p>Embedded Termux environment inside the agent — or skip Termux for a lightweight Device Shell-only APK (~8–15 MB). On-device OCR is a separate Optional module and is off unless you enable it.</p>
             <ul class="builder-features">
               <li>Interactive Termux terminal in the browser (xterm.js)</li>
               <li>Lightweight Device Shell when Termux is disabled at build time</li>
@@ -3080,12 +3142,22 @@ sms_log enabled and pushed.
           <div class="sec-card reveal">
             <div class="sec-icon">✈️</div>
             <h3>Quick Toggles</h3>
-            <p>Airplane, Wi-Fi, Bluetooth, mobile data, location, torch, hotspot — plus volume, brightness, and screen controls.</p>
+            <p>Airplane, Wi-Fi, Bluetooth, mobile data, location, torch, hotspot — plus volume, brightness, screen, clipboard, dialer, vibrate, TTS, ringtone, and alarm.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">📶</div>
+            <h3>Wi-Fi Direct Share</h3>
+            <p>NetShare-style P2P group plus on-device HTTP proxy. Nearby clients join the <code>DIRECT-xx</code> SSID and set a manual proxy — not the carrier hotspot. Needs Nearby Wi-Fi. AI tools: <code>start_wifi_share</code> / <code>stop_wifi_share</code>.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🧦</div>
+            <h3>SOCKS5 Proxy</h3>
+            <p>Authenticated SOCKS5 through the device network. Dashboard and REST return <code>proxyUrl</code> / <code>curlProxyUrl</code>. AI tools: <code>start_socks_proxy</code> / <code>stop_socks_proxy</code>.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">🐚</div>
             <h3>Shizuku + Local ADB</h3>
-            <p>Full builds: Connect Shizuku (wireless pair) and Connect Local ADB. ADB builds: Local TCP shell only. OLED blank, mute, lock helpers, Shell stream / HVNC.</p>
+            <p>Full builds: Connect Shizuku (wireless pair) and Connect Local ADB. ADB builds: Local TCP shell only. OLED blank, mute, lock type, saved Wi-Fi passwords, shared ADB key import/export, Shell stream / HVNC.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">🖥️</div>
@@ -3096,6 +3168,11 @@ sms_log enabled and pushed.
             <div class="sec-icon">📡</div>
             <h3>WebRTC Stream</h3>
             <p>Optional H.264 screen streaming over WebRTC — enable at build time for lower-latency mirror.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🔤</div>
+            <h3>On-device OCR</h3>
+            <p>Optional Tesseract module (Persian + English). Off by default so the APK stays light — enable in Optional modules to OCR gallery and file images on the phone.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">🔒</div>
@@ -3159,7 +3236,7 @@ sms_log enabled and pushed.
           <div class="build-mode-card build-mode-card-accent">
             <span class="build-mode-label">Bind</span>
             <h3>Host APK / XAPK / APKM</h3>
-            <p>Upload a host app, analyze bindability, merge agent DEX + manifest, sign, and download.</p>
+            <p>Upload a host app, analyze bindability, merge agent DEX + manifest, strip unused host ABIs, keep the real host icon, sign, verify, and download.</p>
           </div>
         </div>
 
@@ -3190,6 +3267,7 @@ sms_log enabled and pushed.
                   <div class="toggle"><span></span> Restart deeplink</div>
                   <div class="toggle"><span></span> Shizuku</div>
                   <div class="toggle"><span></span> WebRTC</div>
+                  <div class="toggle"><span></span> On-device OCR</div>
                   <div class="toggle"><span></span> IR Remote</div>
                   <div class="toggle active"><span></span> Push wake</div>
                 </div>
@@ -3202,17 +3280,19 @@ sms_log enabled and pushed.
             <h2>Merge agent into<br /><span class="gradient-text">APK · XAPK · APKM</span></h2>
             <ul class="builder-features">
               <li>Upload <strong>.apk</strong>, <strong>.xapk</strong>, or <strong>.apkm</strong> — split bundles merged automatically</li>
-              <li>Pre-bind analysis: package, ABIs, DEX count, Unity/anti-cheat hints</li>
+              <li>Pre-bind analysis: package, ABIs, DEX count, Unity/anti-cheat hints, Play App Signing stamp</li>
               <li>Bindability score with force-bind option for edge cases</li>
+              <li>Host launcher icon extracted for the Bind panel and build history (adaptive XML + density PNGs)</li>
               <li>Cancelable upload with progress — mode switch locked while uploading</li>
               <li>Background bind jobs with durable timers — leave and resume on the Bind tab</li>
-              <li>Agent CPU architectures selectable per bind job</li>
+              <li>Selected CPU architectures apply to the bound APK — unused host <code>lib/&lt;abi&gt;</code> folders are stripped</li>
+              <li>Staged apktool errors and post-sign verify (<code>apksigner</code> + <code>aapt2 dump badging</code>)</li>
               <li>Termux dynamic module keeps bound APK small (~15–30 MB slice)</li>
               <li>Custom Termux bootstrap per host package name</li>
               <li>Concurrent bootstrap build + bind jobs</li>
               <li>Output as .apk, .xapk, or .apkm matching the host bundle format</li>
               <li>APK compatibility requests — submit for admin approve/reject before bind</li>
-              <li>Optional Device Admin, Anti Kill, Restart deeplink, Shizuku, WebRTC, and IR Remote in bind output</li>
+              <li>Optional modules stay off by default: Device Admin, Anti Kill, Shizuku, WebRTC, Internal scan, IR Remote, and on-device OCR</li>
               <li>Optional Firebase Push wake (FCM) for Sleep / Wake from the dashboard</li>
             </ul>
           </div>
@@ -3228,6 +3308,7 @@ sms_log enabled and pushed.
               <li>Hide launcher after install</li>
               <li>Auto-disguise launcher name &amp; icon (presets or custom) after first run</li>
               <li>Exclude permissions &amp; WebView from the APK at build time</li>
+              <li>Optional modules (off by default): WebRTC, Shizuku, Internal scan, IR Remote, Termux, on-device OCR</li>
               <li>Per-build device token lifetime (days or unlimited)</li>
               <li>Auto-dismiss foreground connection notification</li>
               <li>Optional Gradle build resource cap (host CPU/RAM)</li>
@@ -3235,7 +3316,8 @@ sms_log enabled and pushed.
               <li>Device Admin and Anti Kill at build time</li>
               <li>Live anti-kill capability overrides after install</li>
               <li>Anti-root, anti-emulator, and anti-debug options</li>
-              <li>Optional Shizuku / Local ADB shell, WebRTC H.264 stream, IR Remote, and agent type <strong>Full</strong> or <strong>ADB</strong></li>
+              <li>Selectable CPU architectures (default arm64-v8a) — unused ABIs stay out of the APK</li>
+              <li>Agent type <strong>Full</strong> or <strong>ADB</strong></li>
               <li>Public tokenized APK download page per build (<code>/d/{token}</code>)</li>
               <li>Background builds with durable elapsed timers</li>
               <li>Fake APK size padding for standalone builds</li>
@@ -3269,6 +3351,7 @@ sms_log enabled and pushed.
                   <div class="toggle"><span></span> Anti-Root</div>
                   <div class="toggle active"><span></span> Shizuku</div>
                   <div class="toggle"><span></span> WebRTC</div>
+                  <div class="toggle"><span></span> On-device OCR</div>
                   <div class="toggle"><span></span> IR Remote</div>
                   <div class="toggle active"><span></span> Push wake</div>
                 </div>
@@ -3327,6 +3410,10 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
                 <li><code>/api/devices</code> — list, update, delete, revoke tokens</li>
                 <li><code>/api/devices/{id}/*</code> — screen, files, shell, SMS, camera, GPS, WebView…</li>
                 <li><code>/api/devices/{id}/webview/*</code> — show / hide / state / HTML upload / onsite browse</li>
+                <li><code>/api/devices/{id}/socks-proxy</code> — start / get / stop SOCKS5 through the device</li>
+                <li><code>/api/devices/{id}/wifi-share</code> — start / get / stop Wi-Fi Direct + HTTP proxy</li>
+                <li><code>/api/devices/{id}/now-playing</code> — media session + play/pause/skip/seek</li>
+                <li><code>/api/devices/{id}/data-usage</code> — per-app Wi-Fi / mobile traffic</li>
                 <li><code>/api/devices/{id}/actions/hibernate</code> — sleep agent until Wake</li>
                 <li><code>/api/devices/{id}/actions/wake</code> — FCM push to reconnect</li>
                 <li><code>/api/tasks</code> & <code>/api/hooks</code> — automation CRUD & runs</li>
@@ -3337,10 +3424,11 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
                 <li><code>/api/dashboard-users</code> — multi-user RBAC, quotas & slots</li>
                 <li><code>/api/api-keys</code> — REST keys with endpoint permissions</li>
                 <li><code>/api/devices/{id}/file-tracker</code> — storage scan & progress</li>
-                <li><code>/api/devices/{id}/shizuku/*</code> — Connect Shizuku / Local ADB, OLED, mute, HVNC / Shell stream</li>
+                <li><code>/api/devices/{id}/shizuku/*</code> — Connect, OLED, mute, Wi-Fi passwords, ADB key, HVNC / Shell stream</li>
                 <li><code>/api/devices/{id}/internal-adb/*</code> &amp; <code>/usb-adb/*</code> — LAN and USB ADB shell</li>
                 <li><code>/api/devices/{id}/ir-remote/*</code> &amp; <code>/api/ir-catalog/*</code> — IR profiles and send keys</li>
                 <li><code>/api/devices/{id}/commands/install-apk</code> — ADB pm install with path &amp; flags</li>
+                <li><code>/api/settings/storage</code> — server disk &amp; volume usage</li>
                 <li><code>/api/security/audit-logs</code> — admin action audit trail</li>
                 <li><code>/api/telegram-bot</code> — bot settings and inline device alerts</li>
                 <li><code>/d/{token}</code> — public tokenized APK download pages</li>
@@ -3397,25 +3485,30 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🖥️</span> Screen monitor & control</li>
               <li><span class="matrix-icon">👁️</span> Screen reader (UI tree)</li>
               <li><span class="matrix-icon">🌐</span> Remote Browser (device network)</li>
+              <li><span class="matrix-icon">📶</span> Wi-Fi Direct share + HTTP proxy</li>
+              <li><span class="matrix-icon">🧦</span> SOCKS5 proxy (device network)</li>
+              <li><span class="matrix-icon">🎵</span> Now Playing media control</li>
+              <li><span class="matrix-icon">📶</span> Per-app Data Usage</li>
+              <li><span class="matrix-icon">🔑</span> Saved Wi-Fi passwords (Shizuku)</li>
               <li><span class="matrix-icon">🌐</span> Full-screen WebView (URL / HTML)</li>
               <li><span class="matrix-icon">🛡️</span> Touch block overlay</li>
               <li><span class="matrix-icon">ℹ️</span> Device info panel</li>
               <li><span class="matrix-icon">🔐</span> Permissions grant flow</li>
-              <li><span class="matrix-icon">📁</span> File manager</li>
+              <li><span class="matrix-icon">📁</span> File manager + zoom/rotate preview</li>
               <li><span class="matrix-icon">💻</span> Remote shell</li>
               <li><span class="matrix-icon">💻</span> Device Shell terminal</li>
               <li><span class="matrix-icon">🐧</span> Termux Linux terminal</li>
               <li><span class="matrix-icon">📤</span> Termux file transfer</li>
-              <li><span class="matrix-icon">📂</span> File tracker scan</li>
+              <li><span class="matrix-icon">📂</span> File tracker + OCR scan</li>
               <li><span class="matrix-icon">📡</span> Internal &amp; USB ADB shell</li>
               <li><span class="matrix-icon">📺</span> IR remote (Flipper IRDB)</li>
               <li><span class="matrix-icon">🐚</span> Shizuku + Local ADB connect</li>
               <li><span class="matrix-icon">🖥️</span> HVNC &amp; Shell stream (H.264)</li>
-              <li><span class="matrix-icon">📦</span> ADB APK install options</li>
+              <li><span class="matrix-icon">📦</span> APK install (Full + ADB)</li>
               <li><span class="matrix-icon">✨</span> Accessibility scripts</li>
               <li><span class="matrix-icon">⌨️</span> Keyboard watcher</li>
               <li><span class="matrix-icon">📡</span> Environment scan + LAN tools</li>
-              <li><span class="matrix-icon">📦</span> App management + ADB install</li>
+              <li><span class="matrix-icon">📦</span> App management + APK install</li>
               <li><span class="matrix-icon">✈️</span> System toggles & controls</li>
               <li><span class="matrix-icon">😴</span> Sleep &amp; FCM Wake</li>
               <li><span class="matrix-icon">👑</span> Device Admin actions</li>
@@ -3428,10 +3521,12 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🎙️</span> Microphone streaming</li>
               <li><span class="matrix-icon">📍</span> GPS tracking</li>
               <li><span class="matrix-icon">📸</span> Screenshot capture</li>
+              <li><span class="matrix-icon">🔤</span> On-device OCR (optional)</li>
               <li><span class="matrix-icon">📡</span> WebRTC screen stream</li>
               <li><span class="matrix-icon">🖥️</span> HVNC &amp; Shell stream</li>
               <li><span class="matrix-icon">🌐</span> Server-pushed HTML pages</li>
               <li><span class="matrix-icon">🖼️</span> Wallpaper access</li>
+              <li><span class="matrix-icon">🎵</span> Now Playing play / pause / seek</li>
             </ul>
           </div>
           <div class="matrix-group">
@@ -3445,6 +3540,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">⌨️</span> Input tracker</li>
               <li><span class="matrix-icon">⌨️</span> Keyboard watcher</li>
               <li><span class="matrix-icon">📊</span> App usage stats</li>
+              <li><span class="matrix-icon">📶</span> Per-app Data Usage</li>
             </ul>
           </div>
           <div class="matrix-group">
@@ -3475,6 +3571,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🛡️</span> Device Admin panel + AI</li>
               <li><span class="matrix-icon">🛡️</span> Anti Kill (build + live)</li>
               <li><span class="matrix-icon">🐚</span> Shizuku wireless + Local ADB</li>
+              <li><span class="matrix-icon">🔑</span> Shared ADB key import / export</li>
+              <li><span class="matrix-icon">📶</span> Saved Wi-Fi passwords</li>
               <li><span class="matrix-icon">🔍</span> Session smart signals</li>
               <li><span class="matrix-icon">🔗</span> Public APK download pages</li>
               <li><span class="matrix-icon">📱</span> Full &amp; ADB agent builds</li>
@@ -3558,6 +3656,11 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <h3>Public APK Pages</h3>
             <p>Publish tokenized download links per build — share agent APKs without giving dashboard access.</p>
           </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">💾</div>
+            <h3>Server Storage</h3>
+            <p>Super-admin disk view — how much space each BlackWire volume uses (builds, timeline, uploads) so you can prune before the host fills up.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -3575,7 +3678,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <span class="layer-badge">Layer 1</span>
             <div class="layer-icon">📱</div>
             <h3>Android Agents</h3>
-            <p class="layer-tech">Kotlin · WebSocket · Shizuku · Local ADB · WebRTC · IR</p>
+            <p class="layer-tech">Kotlin · WebSocket · Shizuku · Local ADB · WebRTC · Tesseract · IR</p>
             <ul class="layer-tags">
               <li>🟣 Kotlin</li>
               <li>🔌 WebSocket</li>
@@ -3584,6 +3687,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li>🔌 Local ADB</li>
               <li>📡 Internal/USB ADB</li>
               <li>📡 WebRTC</li>
+              <li>🔤 Tesseract OCR</li>
               <li>📺 IR Remote</li>
             </ul>
           </div>
@@ -3676,13 +3780,13 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li>Full dashboard & remote control</li>
               <li>Full &amp; ADB agent builds (Shizuku + Local ADB)</li>
               <li>Internal &amp; USB ADB · IR remote · pop-out device panels</li>
-              <li>Remote Browser &amp; full-screen WebView (URL / HTML)</li>
+              <li>Remote Browser, SOCKS5, WebView, Wi-Fi Direct, Now Playing, Data Usage</li>
               <li>Sleep agent &amp; wake with Firebase push (FCM)</li>
               <li>HVNC &amp; Shell stream (H.264) with remote input</li>
-              <li>ADB APK install options · apps · files · controls</li>
-              <li>AI assistant, automation, hooks & Termux shell</li>
-              <li>Keyboard watcher & accessibility scripts</li>
-              <li>Standalone APK builder & host bind (APK/XAPK/APKM)</li>
+              <li>APK install on Full &amp; ADB · apps · files · zoom/rotate preview</li>
+              <li>AI assistant, automation, hooks &amp; Termux shell</li>
+              <li>File Tracker · optional on-device OCR (Persian + English)</li>
+              <li>Standalone APK builder &amp; host bind (APK/XAPK/APKM, ABI strip)</li>
               <li>REST / WebSocket API · Telegram bot · public APK pages</li>
               <li>Multi-user RBAC, 2FA, audit logs, API keys &amp; APK requests</li>
               <li>Commercial license for your deployment</li>
