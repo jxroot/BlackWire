@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="BlackWire — Remote Android device management. Full and ADB agent builds, Shizuku wireless pair + Local TCP ADB, Internal & USB ADB, Shell stream & HVNC (H.264), IR remote, Now Playing, Data Usage, remote APK install, on-device OCR (optional Tesseract), File Tracker, SOCKS5 proxy, Wi-Fi Direct share, full-screen WebView, FCM Sleep/Wake, AI assistant, Telegram bot, APK/XAPK/APKM bind with ABI strip and host icon, Termux, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
+  <meta name="description" content="BlackWire — Remote Android device management. Full and ADB agent builds, Shizuku wireless pair + Local TCP ADB, call recording & one-time pm grant, Internal & USB ADB, Shell stream & HVNC (H.264), IR remote, Now Playing, Data Usage, remote APK install, on-device OCR (optional Tesseract), File Tracker, SOCKS5 proxy, Wi-Fi Direct share, full-screen WebView, FCM Sleep/Wake, AI assistant, Telegram bot, APK/XAPK/APKM bind with ABI strip and host icon, Termux, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
   <title>BlackWire — Silent link. Full control.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2120,7 +2120,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           Web dashboard, FastAPI backend, and headless Android agents —
           <strong>Full</strong> (Shizuku wireless pair + Local ADB) or lightweight <strong>ADB</strong> (classic local TCP shell).
           Build standalone APKs or bind into host APK, XAPK, and APKM bundles —
-          Shell stream / HVNC, Internal &amp; USB ADB, IR remote, Now Playing, Data Usage, remote APK install, optional on-device OCR, SOCKS5 proxy, Wi-Fi Direct share, WebView, FCM Sleep/Wake, AI operator, Telegram bot, Device Admin, Termux, and Python automation.
+          Shell stream / HVNC, call recording (both sides → timeline), one-time <code>pm grant</code> for all permissions, Internal &amp; USB ADB, IR remote, Now Playing, Data Usage, remote APK install, optional on-device OCR, SOCKS5 proxy, Wi-Fi Direct share, WebView, FCM Sleep/Wake, AI operator, Telegram bot, Device Admin, Termux, and Python automation.
         </p>
         <div class="hero-actions reveal">
           <a href="#features" class="btn btn-primary btn-lg">
@@ -2233,7 +2233,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="section-head reveal">
           <span class="section-tag">Platform Demo</span>
           <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
-          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Now Playing, Data Usage, File Tracker + optional OCR, SOCKS5 proxy, Wi-Fi Direct share, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind with ABI strip), and more.</p>
+          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, call recording &amp; one-time permission grant, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Now Playing, Data Usage, File Tracker + optional OCR, SOCKS5 proxy, Wi-Fi Direct share, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind with ABI strip), and more.</p>
         </div>
 
         <div class="demo-showcase reveal">
@@ -2304,7 +2304,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">📜</div>
             <h3>Activity Timeline</h3>
-            <p>Unified log of SMS, calls, input, files, OCR scans, shell, tasks, hooks, and more.</p>
+            <p>Unified log of SMS, calls, call recordings, input, files, OCR scans, shell, tasks, hooks, and more.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🤖</div>
@@ -2486,7 +2486,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>🐚 Privileged Shell</h3>
-              <p>Full agents: <strong>Connect Shizuku</strong> (wireless pair) and <strong>Connect Local ADB</strong>. ADB agents: Local TCP ADB only. Unlock uid=2000 for OLED blank, mute, confirm lock, saved Wi-Fi passwords, shared ADB key import/export, Shell stream, and HVNC.</p>
+              <p>Full agents: <strong>Connect Shizuku</strong> (wireless pair) and <strong>Connect Local ADB</strong>. ADB agents: Local TCP ADB only. Unlock uid=2000 for OLED blank, mute, confirm lock, call recording, one-time <code>pm grant</code> for all permissions, saved Wi-Fi passwords, shared ADB key import/export, Shell stream, and HVNC.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="rose">
@@ -2503,6 +2503,20 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             <div class="remote-info">
               <h3>🖥️ HVNC &amp; Shell Stream</h3>
               <p>Hidden virtual display for off-screen apps, or Shell stream to mirror the phone screen (scrcpy-style, no MediaProjection). H.264 to the dashboard with remote taps/keys mapped to the live display. Optional timeline recording.</p>
+            </div>
+          </div>
+          <div class="remote-card reveal" data-accent="cyan">
+            <div class="remote-visual">
+              <div class="terminal-mock">
+                <div class="term-line"><span class="prompt">$</span> pm grant … READ_PHONE_STATE</div>
+                <div class="term-line">call recording · both sides</div>
+                <div class="term-line"><span class="prompt">$</span> grant_all_permissions</div>
+                <div class="term-line typing">one time · uid=2000</div>
+              </div>
+            </div>
+            <div class="remote-info">
+              <h3>📞 Call Recording &amp; Grants</h3>
+              <p>Auto-record both sides of carrier calls over privileged shell (VOICE_CALL → timeline WAV with number/contact). Grant Phone state from the Call recording card, or use Tools → <strong>One time</strong> to <code>pm grant</code> every declared runtime permission (+ appops) in one shot.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="violet">
@@ -2869,10 +2883,11 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
               <span class="hook-chip">notification_posted</span>
               <span class="hook-chip">app_switch</span>
               <span class="hook-chip">sms_received</span>
+              <span class="hook-chip">call_recording_saved</span>
               <span class="hook-chip">device_online</span>
               <span class="hook-chip">battery_low</span>
               <span class="hook-chip">file_tracker_complete</span>
-              <span class="hook-chip">+29 more</span>
+              <span class="hook-chip">+30 more</span>
             </div>
           </div>
           <div class="automation-content reveal">
@@ -2889,10 +2904,10 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="auto-block">
               <h3>🔗 Event Hooks</h3>
-              <p>React instantly when something happens on a device — 35 event types with server, device, or both execution modes.</p>
+              <p>React instantly when something happens on a device — 36+ event types with server, device, or both execution modes.</p>
               <ul class="auto-list">
                 <li>Notifications, input taps, screen changes, and file tracker events</li>
-                <li>SMS, calls, app install/uninstall, and boot events</li>
+                <li>SMS, calls, <code>call_recording_saved</code> (WAV → Telegram via <code>send_to_telegram</code>), app install/uninstall, and boot events</li>
                 <li>Device lifecycle: online, offline, register</li>
                 <li>Filter by package, text, activity class, and more</li>
                 <li>Run on server, on device, or both — with hook run history</li>
@@ -3043,7 +3058,7 @@ sms_log enabled and pushed.
       <div class="container">
         <div class="termux-layout">
           <div class="termux-content reveal">
-            <span class="section-tag">Privileged Shell · Local ADB · HVNC</span>
+            <span class="section-tag">Privileged Shell · Local ADB · HVNC · Grants</span>
             <h2>Wireless pair<br /><span class="gradient-text">&amp; classic Local ADB</span></h2>
             <p>
               <strong>Full</strong> agents expose both paths from the dashboard:
@@ -3055,6 +3070,8 @@ sms_log enabled and pushed.
               <li><strong>ADB</strong> — scan localhost for adbd, Connect Local ADB, accept “Allow USB debugging?”</li>
               <li><strong>Shell stream</strong> — mirror the main display (scrcpy-style) with accurate touch mapping to logical screen size</li>
               <li><strong>HVNC</strong> — virtual display stream (MediaCodec H.264), remote input, live resize, launch apps off-screen</li>
+              <li><strong>Call recording</strong> — both-sides WAV to the timeline; Grant via ADB for <code>READ_PHONE_STATE</code> / call log</li>
+              <li><strong>One time</strong> — Tools → Grant all once (<code>pm grant</code> + appops for declared runtime permissions)</li>
               <li>OLED panel blank, device mute, confirm lock helpers via uid=2000 shell</li>
               <li>ADB Applications — upload APK and install with reinstall / downgrade / grant permissions / Internal·Sdcard flags</li>
               <li>Device Shell on ADB builds always runs as uid=2000 when Local ADB is ready</li>
@@ -3072,6 +3089,10 @@ sms_log enabled and pushed.
                 <strong>Shell stream / HVNC</strong>
                 <span>Main-display mirror or hidden VD — H.264 frames + remote input</span>
               </div>
+              <div class="mode-card">
+                <strong>One time grants</strong>
+                <span>pm grant all declared permissions + call-record Phone state in one tap</span>
+              </div>
             </div>
           </div>
           <div class="termux-visual reveal">
@@ -3084,10 +3105,12 @@ sms_log enabled and pushed.
               <div class="termux-body">
                 <div class="termux-line"><span class="t-prompt">$</span> connect_local_adb —port 5555</div>
                 <div class="termux-line t-out">uid=2000(shell) · 127.0.0.1:5555</div>
+                <div class="termux-line"><span class="t-prompt">$</span> grant_all_permissions</div>
+                <div class="termux-line t-out">pm grant · appops · one time</div>
+                <div class="termux-line"><span class="t-prompt">$</span> set_call_record —enabled</div>
+                <div class="termux-line t-out">recording both sides → timeline WAV</div>
                 <div class="termux-line"><span class="t-prompt">$</span> start_shell_stream</div>
                 <div class="termux-line t-out">mirror display 0 · H.264 · touch → logical size</div>
-                <div class="termux-line"><span class="t-prompt">$</span> pm install -r -g /sdcard/Download/app.apk</div>
-                <div class="termux-line t-dim">Success</div>
                 <div class="termux-line"><span class="t-prompt">$</span> <span class="t-cursor"></span></div>
               </div>
             </div>
@@ -3157,7 +3180,17 @@ sms_log enabled and pushed.
           <div class="sec-card reveal">
             <div class="sec-icon">🐚</div>
             <h3>Shizuku + Local ADB</h3>
-            <p>Full builds: Connect Shizuku (wireless pair) and Connect Local ADB. ADB builds: Local TCP shell only. OLED blank, mute, lock type, saved Wi-Fi passwords, shared ADB key import/export, Shell stream / HVNC.</p>
+            <p>Full builds: Connect Shizuku (wireless pair) and Connect Local ADB. ADB builds: Local TCP shell only. OLED blank, mute, lock type, call recording, one-time permission grant, saved Wi-Fi passwords, shared ADB key import/export, Shell stream / HVNC.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">📞</div>
+            <h3>Call Recording</h3>
+            <p>Both-sides carrier call WAV via uid=2000 shell — auto-start on off-hook, upload to timeline with number/contact. Grant Phone state / call log with <code>pm grant</code> from the panel.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🔑</div>
+            <h3>One-time Grants</h3>
+            <p>Tools → Grant all once runs <code>pm grant</code> (+ appops) for every declared runtime permission when Local ADB / Shizuku shell is ready — no per-permission dialogs.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">🖥️</div>
@@ -3424,7 +3457,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
                 <li><code>/api/dashboard-users</code> — multi-user RBAC, quotas & slots</li>
                 <li><code>/api/api-keys</code> — REST keys with endpoint permissions</li>
                 <li><code>/api/devices/{id}/file-tracker</code> — storage scan & progress</li>
-                <li><code>/api/devices/{id}/shizuku/*</code> — Connect, OLED, mute, Wi-Fi passwords, ADB key, HVNC / Shell stream</li>
+                <li><code>/api/devices/{id}/shizuku/*</code> — Connect, OLED, mute, call-record / grant, grant-all-permissions, Wi-Fi passwords, ADB key, HVNC / Shell stream</li>
                 <li><code>/api/devices/{id}/internal-adb/*</code> &amp; <code>/usb-adb/*</code> — LAN and USB ADB shell</li>
                 <li><code>/api/devices/{id}/ir-remote/*</code> &amp; <code>/api/ir-catalog/*</code> — IR profiles and send keys</li>
                 <li><code>/api/devices/{id}/commands/install-apk</code> — ADB pm install with path &amp; flags</li>
@@ -3494,6 +3527,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🛡️</span> Touch block overlay</li>
               <li><span class="matrix-icon">ℹ️</span> Device info panel</li>
               <li><span class="matrix-icon">🔐</span> Permissions grant flow</li>
+              <li><span class="matrix-icon">🔑</span> One-time grant all (<code>pm grant</code>)</li>
+              <li><span class="matrix-icon">📞</span> Call recording (both sides → timeline)</li>
               <li><span class="matrix-icon">📁</span> File manager + zoom/rotate preview</li>
               <li><span class="matrix-icon">💻</span> Remote shell</li>
               <li><span class="matrix-icon">💻</span> Device Shell terminal</li>
@@ -3534,6 +3569,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <ul>
               <li><span class="matrix-icon">✉️</span> SMS read & send</li>
               <li><span class="matrix-icon">👥</span> Contacts & call logs</li>
+              <li><span class="matrix-icon">📞</span> Call recording + <code>call_recording_saved</code> hook</li>
               <li><span class="matrix-icon">🔔</span> Notification logging</li>
               <li><span class="matrix-icon">📋</span> Remote clipboard write</li>
               <li><span class="matrix-icon">🖼️</span> Remote wallpaper</li>
@@ -3547,7 +3583,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <h4><span class="matrix-group-icon">⚙️</span> Automation</h4>
             <ul>
               <li><span class="matrix-icon">🐍</span> Python task scripts</li>
-              <li><span class="matrix-icon">🔗</span> 35+ event hooks</li>
+              <li><span class="matrix-icon">🔗</span> 36+ event hooks</li>
               <li><span class="matrix-icon">🧪</span> Sandboxed device SDK</li>
               <li><span class="matrix-icon">🌐</span> Global & per-device scope</li>
               <li><span class="matrix-icon">📖</span> Script wiki & snippets</li>
@@ -3579,6 +3615,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🖥️</span> HVNC / Shell stream</li>
               <li><span class="matrix-icon">🖥️</span> OLED panel blank</li>
               <li><span class="matrix-icon">🔇</span> Device speaker mute</li>
+              <li><span class="matrix-icon">📞</span> Call recording (Shizuku / Local ADB)</li>
+              <li><span class="matrix-icon">🔑</span> One-time <code>pm grant</code> all permissions</li>
               <li><span class="matrix-icon">🚫</span> Anti-root / emulator / debug</li>
               <li><span class="matrix-icon">🫥</span> Hide app after install</li>
               <li><span class="matrix-icon">🎭</span> Auto-disguise launcher</li>
@@ -3783,6 +3821,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li>Remote Browser, SOCKS5, WebView, Wi-Fi Direct, Now Playing, Data Usage</li>
               <li>Sleep agent &amp; wake with Firebase push (FCM)</li>
               <li>HVNC &amp; Shell stream (H.264) with remote input</li>
+              <li>Call recording (both sides) · one-time ADB permission grants</li>
               <li>APK install on Full &amp; ADB · apps · files · zoom/rotate preview</li>
               <li>AI assistant, automation, hooks &amp; Termux shell</li>
               <li>File Tracker · optional on-device OCR (Persian + English)</li>
