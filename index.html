@@ -1591,6 +1591,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
 
 .builder-content > p { color: var(--text-muted); margin-bottom: 20px; }
 
+.builder-content .termux-modes { margin-top: 4px; margin-bottom: 16px; }
+
 .builder-features {
   list-style: none;
 }
@@ -2324,7 +2326,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">📋</div>
             <h3>Device Info &amp; Permissions</h3>
-            <p>Hardware, network, SIM, and agent details — plus grant or review install permissions from the panel without opening Android settings.</p>
+            <p>Hardware, network, SIM, and agent details — plus grant or review install permissions from the panel. On standalone builds, first-launch prompts follow remaining features from the APK stepper.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">📊</div>
@@ -2344,17 +2346,17 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <article class="feature-card reveal">
             <div class="feature-icon">🐧</div>
             <h3>PRoot Runtime</h3>
-            <p>Lightweight Linux environments on Android via PRoot — Alpine, Ubuntu, or Debian rootfs with full package management.</p>
+            <p>Include the PRoot capability at APK build. Distro and rootfs (Alpine, Ubuntu, Debian, or custom) are chosen later from the device panel — not at build time.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🖥️</div>
             <h3>QEMU VM</h3>
-            <p>Full Kali Linux virtual machine running QEMU on the device — install, start, stop, and execute commands in the guest OS.</p>
+            <p>Include the QEMU VM capability at APK build. Profile, VM defaults, and payload (system binary + kernel) are configured after install from the device panel.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🛡️</div>
             <h3>Firewall Control</h3>
-            <p>Per-app network blocking and Chain 3 firewall control via Shizuku — enable/disable firewall and manage blocked apps per device.</p>
+            <p>Per-app network blocking and Chain 3 firewall — a Shizuku sub-capability under Include <em>Shizuku privileged shell</em>. Keep or strip Firewall independently; parent off removes the entire Shizuku stack.</p>
           </article>
         </div>
       </div>
@@ -2501,7 +2503,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>🐚 Privileged Shell</h3>
-              <p>Full agents: <strong>Connect Shizuku</strong> (wireless pair) and <strong>Connect Local ADB</strong>. ADB agents: Local TCP ADB only. Unlock uid=2000 for OLED blank, mute, confirm lock, call recording, one-time <code>pm grant</code> for all permissions, saved Wi-Fi passwords, shared ADB key import/export, Shell stream, and HVNC.</p>
+              <p>Full agents: include <strong>Shizuku privileged shell</strong> at build — nested HVNC, Internal/USB ADB, Chrome CDP, Firewall, Process Control, Wireless ADB, Privileged settings sit under that toggle; parent off = entire stack gone — then <strong>Connect Shizuku</strong> (wireless pair) and <strong>Connect Local ADB</strong>. Either path unlocks uid=2000 for OLED blank, mute, confirm lock, call recording, one-time <code>pm grant</code>, saved Wi-Fi passwords, shared ADB key, Shell stream, and HVNC. ADB agents: Local TCP ADB only.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="rose">
@@ -3078,9 +3080,12 @@ sms_log enabled and pushed.
             <p>
               <strong>Full</strong> agents expose both paths from the dashboard:
               <em>Connect Shizuku</em> (Wireless debugging pair) and <em>Connect Local ADB</em> (loopback adbd).
+              At build time, nested Shizuku operations sit under the Include <em>Shizuku privileged shell</em> toggle — not a thin two-item Exclude card. Parent off strips the entire Shizuku stack.
               <strong>ADB</strong> agents use classic local TCP ADB only — no Wireless Debugging / full Shizuku server required.
             </p>
             <ul class="builder-features">
+              <li><strong>Include</strong> — Full builds: toggle <em>Shizuku privileged shell</em>. Parent off = HVNC, Internal ADB, USB ADB, Chrome CDP, Firewall, Process Control, Wireless ADB, and Privileged settings all gone</li>
+              <li><strong>Sub-capabilities</strong> — appear under that Include toggle; exclude a child to hide that operation while privileged shell stays compiled</li>
               <li><strong>Full</strong> — Connect Shizuku on the pairing screen, or Connect Local ADB after one-time <code>adb tcpip 5555</code></li>
               <li><strong>ADB</strong> — scan localhost for adbd, Connect Local ADB, accept “Allow USB debugging?”</li>
               <li><strong>Shell stream</strong> — mirror the main display (scrcpy-style) with accurate touch mapping to logical screen size</li>
@@ -3094,7 +3099,7 @@ sms_log enabled and pushed.
             <div class="termux-modes">
               <div class="mode-card">
                 <strong>Full agent</strong>
-                <span>Connect Shizuku + Connect Local ADB — either unlocks uid=2000</span>
+                <span>Include Shizuku privileged shell — nested HVNC, Internal/USB ADB, Chrome CDP, Firewall, Process Control, Wireless ADB, Privileged settings. Parent off = entire stack gone</span>
               </div>
               <div class="mode-card">
                 <strong>ADB agent</strong>
@@ -3195,7 +3200,7 @@ sms_log enabled and pushed.
           <div class="sec-card reveal">
             <div class="sec-icon">🐚</div>
             <h3>Shizuku + Local ADB</h3>
-            <p>Full builds: Connect Shizuku (wireless pair) and Connect Local ADB. ADB builds: Local TCP shell only. OLED blank, mute, lock type, call recording, one-time permission grant, saved Wi-Fi passwords, shared ADB key import/export, Shell stream / HVNC.</p>
+            <p>Full builds: Include <em>Shizuku privileged shell</em> — nested HVNC, Internal/USB ADB, Chrome CDP, Firewall, Process Control, Wireless ADB, Privileged settings (parent off strips the entire stack). Then Connect Shizuku (wireless pair) and Connect Local ADB. OLED blank, mute, lock type, call recording, one-time permission grant, saved Wi-Fi passwords, shared ADB key, Shell stream / HVNC. ADB builds: Local TCP shell only.</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">📞</div>
@@ -3274,7 +3279,7 @@ sms_log enabled and pushed.
           <div class="build-mode-card">
             <span class="build-mode-label">Full agent</span>
             <h3>Shizuku + Local ADB</h3>
-            <p>Wireless pair and classic local TCP — Termux, WebView, full modules, HVNC, and Device Shell.</p>
+            <p>Wireless pair and classic local TCP — Termux, WebView, full modules, HVNC, Device Shell, and optional PRoot / QEMU.</p>
           </div>
           <div class="build-mode-card">
             <span class="build-mode-label">ADB agent</span>
@@ -3340,7 +3345,9 @@ sms_log enabled and pushed.
               <li>Concurrent bootstrap build + bind jobs</li>
               <li>Output as .apk, .xapk, or .apkm matching the host bundle format</li>
               <li>APK compatibility requests — submit for admin approve/reject before bind</li>
-              <li>Optional modules stay off by default: Device Admin, Anti Kill, Shizuku, WebRTC, Internal scan, IR Remote, and on-device OCR</li>
+              <li>Optional modules stay off by default: Device Admin, Anti Kill, Shizuku privileged shell (nested sub-capabilities under the Include toggle), WebRTC, Internal scan, IR Remote, Termux, on-device OCR, PRoot, and QEMU VM</li>
+              <li>Modular Exclude: parent groups with nested sub-capabilities — Accessibility, Notification Access, Usage Access, and Browse &amp; Proxy (Remote Browser, SOCKS proxy, Wi-Fi Share). Permission IDs match Custom install permissions except Notifications and Battery</li>
+              <li>PRoot / QEMU: include the capability at bind time only — distro, rootfs, QEMU profile, VM defaults, and payload (binary + kernel) are set from the device panel after install</li>
               <li>Optional Firebase Push wake (FCM) for Sleep / Wake from the dashboard</li>
             </ul>
           </div>
@@ -3350,13 +3357,28 @@ sms_log enabled and pushed.
           <div class="builder-content">
             <span class="section-tag">Standalone builder</span>
             <h2>Custom agent APKs<br /><span class="gradient-text">from the panel</span></h2>
+            <p>One section, three steps — CPU architectures, what stays in the APK, then Permissions at install derived from remaining features.</p>
+            <div class="termux-modes">
+              <div class="mode-card">
+                <strong>1. CPU architectures (ABI)</strong>
+                <span>Pick which ABIs the APK is built for (default arm64-v8a). Unused ABIs stay out of the APK.</span>
+              </div>
+              <div class="mode-card">
+                <strong>2. What&apos;s in the APK</strong>
+                <span>Modular Exclude (parent groups with nested sub-capabilities) plus optional Include modules. Shizuku children sit under Include <em>Shizuku privileged shell</em>. PRoot / QEMU are include/exclude only — distro, rootfs, profile, VM defaults, and QEMU payload are configured later from the device panel.</span>
+              </div>
+              <div class="mode-card">
+                <strong>3. Permissions at install</strong>
+                <span>Minimal or Custom. First-launch prompts follow remaining capabilities from step 2. Excluded modules are not offered. Notifications and Battery stay for the agent service.</span>
+              </div>
+            </div>
             <ul class="builder-features">
               <li>Custom app name, icon, and package name</li>
-              <li>Minimal or custom install permission modes</li>
+              <li>Modular Exclude: parent groups with nested sub-capabilities — Accessibility, Notification Access, Usage Access, and Browse &amp; Proxy (Remote Browser, SOCKS proxy, Wi-Fi Share). Permission IDs match Custom install permissions except Notifications and Battery</li>
+              <li>Shizuku sub-capabilities (HVNC, Internal ADB, USB ADB, Chrome CDP, Firewall, Process Control, Wireless ADB, Privileged settings) appear under Include <em>Shizuku privileged shell</em> — not a thin Exclude card. Parent off = entire Shizuku stack gone</li>
+              <li>Optional modules (off by default): WebRTC, Shizuku, Internal scan, IR Remote, Termux, on-device OCR, PRoot, QEMU VM</li>
               <li>Hide launcher after install</li>
               <li>Auto-disguise launcher name &amp; icon (presets or custom) after first run</li>
-              <li>Exclude permissions &amp; WebView from the APK at build time</li>
-              <li>Optional modules (off by default): WebRTC, Shizuku, Internal scan, IR Remote, Termux, on-device OCR</li>
               <li>Per-build device token lifetime (days or unlimited)</li>
               <li>Auto-dismiss foreground connection notification</li>
               <li>Optional Gradle build resource cap (host CPU/RAM)</li>
@@ -3364,7 +3386,6 @@ sms_log enabled and pushed.
               <li>Device Admin and Anti Kill at build time</li>
               <li>Live anti-kill capability overrides after install</li>
               <li>Anti-root, anti-emulator, and anti-debug options</li>
-              <li>Selectable CPU architectures (default arm64-v8a) — unused ABIs stay out of the APK</li>
               <li>Agent type <strong>Full</strong> or <strong>ADB</strong></li>
               <li>Public tokenized APK download page per build (<code>/d/{token}</code>)</li>
               <li>Background builds with durable elapsed timers</li>
@@ -3380,28 +3401,24 @@ sms_log enabled and pushed.
               </div>
               <div class="builder-form">
                 <div class="form-field">
-                  <label>App Name</label>
-                  <div class="form-input">Device Agent</div>
+                  <label>1 · CPU architectures (ABI)</label>
+                  <div class="form-input">arm64-v8a</div>
                 </div>
                 <div class="form-field">
-                  <label>Package Name</label>
-                  <div class="form-input">com.devicemanager.agent</div>
-                </div>
-                <div class="form-field">
-                  <label>Server URL</label>
-                  <div class="form-input">https://your-server.com</div>
+                  <label>2 · What&apos;s in the APK</label>
+                  <div class="form-input">Exclude + optional modules</div>
                 </div>
                 <div class="form-toggles">
-                  <div class="toggle active"><span></span> Hide App</div>
-                  <div class="toggle active"><span></span> Device Admin</div>
-                  <div class="toggle active"><span></span> Agent: Full</div>
-                  <div class="toggle"><span></span> Agent: ADB</div>
-                  <div class="toggle"><span></span> Anti-Root</div>
-                  <div class="toggle active"><span></span> Shizuku</div>
-                  <div class="toggle"><span></span> WebRTC</div>
-                  <div class="toggle"><span></span> On-device OCR</div>
-                  <div class="toggle"><span></span> IR Remote</div>
-                  <div class="toggle active"><span></span> Push wake</div>
+                  <div class="toggle"><span></span> Exclude Accessibility</div>
+                  <div class="toggle"><span></span> Browse &amp; Proxy</div>
+                  <div class="toggle active"><span></span> Shizuku privileged shell</div>
+                  <div class="toggle"><span></span> HVNC Stream</div>
+                  <div class="toggle"><span></span> PRoot</div>
+                  <div class="toggle"><span></span> QEMU VM</div>
+                </div>
+                <div class="form-field">
+                  <label>3 · Permissions at install</label>
+                  <div class="form-input">Derived from remaining features</div>
                 </div>
                 <div class="builder-btn">Build APK</div>
               </div>
@@ -3519,7 +3536,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔍</span> Search & filtering</li>
               <li><span class="matrix-icon">⚡</span> WebSocket updates</li>
               <li><span class="matrix-icon">🔋</span> Battery / RAM / storage</li>
-              <li><span class="matrix-icon">🔨</span> Standalone APK builder</li>
+              <li><span class="matrix-icon">🔨</span> Standalone APK builder (3-step: ABI, contents, permissions)</li>
               <li><span class="matrix-icon">📦</span> Bind APK / XAPK / APKM</li>
               <li><span class="matrix-icon">✅</span> APK compatibility requests</li>
               <li><span class="matrix-icon">📋</span> Build history & tracking</li>
@@ -3548,6 +3565,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">💻</span> Remote shell</li>
               <li><span class="matrix-icon">💻</span> Device Shell terminal</li>
               <li><span class="matrix-icon">🐧</span> Termux Linux terminal</li>
+              <li><span class="matrix-icon">🐧</span> PRoot (include at build, distro on device)</li>
+              <li><span class="matrix-icon">🖥️</span> QEMU VM (include at build, payload on device)</li>
               <li><span class="matrix-icon">📤</span> Termux file transfer</li>
               <li><span class="matrix-icon">📂</span> File tracker + OCR scan</li>
               <li><span class="matrix-icon">📡</span> Internal &amp; USB ADB shell</li>
@@ -3635,7 +3654,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🚫</span> Anti-root / emulator / debug</li>
               <li><span class="matrix-icon">🫥</span> Hide app after install</li>
               <li><span class="matrix-icon">🎭</span> Auto-disguise launcher</li>
-              <li><span class="matrix-icon">✂️</span> Exclude permissions at build</li>
+              <li><span class="matrix-icon">✂️</span> Modular Exclude (nested parent groups)</li>
+              <li><span class="matrix-icon">🐚</span> Shizuku sub-capabilities under Include</li>
               <li><span class="matrix-icon">🔗</span> Restart deeplink URI</li>
               <li><span class="matrix-icon">🔑</span> Agent enrollment keys</li>
             </ul>
@@ -3840,7 +3860,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li>APK install on Full &amp; ADB · apps · files · zoom/rotate preview</li>
               <li>AI assistant, automation, hooks &amp; Termux shell</li>
               <li>File Tracker · optional on-device OCR (Persian + English)</li>
-              <li>Standalone APK builder &amp; host bind (APK/XAPK/APKM, ABI strip)</li>
+              <li>Standalone APK builder (3-step: ABI, contents, permissions) &amp; host bind (APK/XAPK/APKM, ABI strip)</li>
               <li>REST / WebSocket API · Telegram bot · public APK pages</li>
               <li>Multi-user RBAC, 2FA, audit logs, API keys &amp; APK requests</li>
               <li>Commercial license for your deployment</li>
