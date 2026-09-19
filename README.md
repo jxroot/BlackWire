@@ -96,26 +96,302 @@ A headless agent runs on each phone and stays connected automatically — you co
 ## 🏗️ Architecture
 
 ```mermaid
-flowchart LR
-    subgraph Devices["📱 Android Devices"]
-        A1[Agent App]
-        A2[Agent App]
-        A3[Agent App]
+flowchart TB
+
+    %% =========================================================
+    %% CLIENT / ACCESS
+    %% =========================================================
+    subgraph CLIENT["CLIENT & ACCESS TIER"]
+        SPA["Web Dashboard
+        React 19 · Vite · TypeScript
+        Tailwind · Zustand · TanStack Query · Monaco"]
+
+        NGX["Edge Gateway
+        nginx :80
+        SPA · /api · /ws proxy"]
+
+        PUBAPK["Public APK Distribution
+        GET /d/{token}"]
+
+        TGBOT["Telegram Operator Bot"]
+
+        AUTH["Access & Authentication
+        JWT · 2FA · Scoped API Keys"]
     end
 
-    subgraph Server["🖥️ Server"]
-        BE[FastAPI Backend]
-        DB[(PostgreSQL)]
-        FE[React Dashboard]
+
+    %% =========================================================
+    %% CONTROL PLANE
+    %% =========================================================
+    subgraph CORE["CONTROL PLANE · FastAPI :8000"]
+
+        HTTP["HTTP API
+        381 endpoints · 71 route modules"]
+
+        WSD["Dashboard WebSocket
+        /ws/dashboard"]
+
+        WSA["Device WebSocket
+        /ws/device"]
+
+        WSCDP["CDP Live
+        /ws/cdp-live/{session_id}"]
+
+        WSRB["Remote Browser
+        /ws/remote-browser/{session_id}"]
+
+        DISP["Command Dispatcher
+        requestId · waiter · queue runner"]
+
+        BUS["Event Broadcaster
+        fan-out / subscriptions"]
+
+        ENROLL["Agent Enrollment
+        enroll · challenge · token"]
+
+        HOOKS["Hook Runner
+        35 trigger events"]
+
+        TASKS["Task Runner / SDK
+        on_register · on_online
+        first_connection"]
+
+        TL["Timeline / Event Recorder"]
     end
 
-    A1 & A2 & A3 -->|WebSocket| BE
-    BE <--> DB
-    FE <-->|REST + WebSocket| BE
 
-    style FE fill:#61DAFB22,stroke:#61DAFB
-    style BE fill:#00968822,stroke:#009688
-    style DB fill:#4169E122,stroke:#4169E1
+    %% =========================================================
+    %% API DOMAINS
+    %% =========================================================
+    subgraph DOMAINS["API DOMAIN LAYER"]
+
+        D1["Auth & Access
+        auth · accounts · security
+        dashboard-users · api-keys"]
+
+        D2["Fleet & Device Core
+        devices · capabilities · modules
+        tags · groups · permissions
+        actions · queue · realtime
+        timeline · telemetry"]
+
+        D3["Screen / Control / CDP
+        screen · cdp"]
+
+        D4["Media & Sensors
+        camera · microphone · location
+        now-playing · IR"]
+
+        D5["Communications
+        SMS · contacts · call logs
+        notifications · device commands"]
+
+        D6["Files & Transfer
+        files · bulk transfer
+        file tracking · storage"]
+
+        D7["Shell & Runtime
+        terminal · Termux · Shizuku
+        ADB · WebView · SOCKS
+        PRoot · QEMU"]
+
+        D8["Automation & AI
+        tasks · assignments · runs
+        hooks · scripts · OCR · assistant"]
+
+        D9["Build & Distribution
+        builds · APK requests
+        public APK"]
+
+        D10["Platform Services
+        settings · Telegram bot"]
+    end
+
+
+    %% =========================================================
+    %% INFRASTRUCTURE
+    %% =========================================================
+    subgraph INFRA["INFRASTRUCTURE"]
+
+        PG[("PostgreSQL 16
+        SQLAlchemy · Alembic")]
+
+        REDIS[("Redis
+        Pub/Sub · Rate Limits
+        Waiters / transient state")]
+
+        SERVICES["Background Workers
+        queue runner
+        Telegram runner
+        stale-device sweeper
+        retention sweeper
+        CDP keepalive"]
+
+        SECRETS["Runtime Configuration
+        secrets volume
+        trusted proxy CIDRs
+        DNS proxy"]
+    end
+
+
+    %% =========================================================
+    %% BUILD PIPELINE
+    %% =========================================================
+    subgraph BUILD["BUILD & DISTRIBUTION PIPELINE"]
+
+        GRADLE["APK Builder
+        Gradle · Docker · per-flavor"]
+
+        BINDER["APK Binder
+        apktool merge
+        XAPK split merge
+        DEX / ABI merge · re-sign"]
+
+        TBOOT["Termux Bootstrap Builder
+        per-host package"]
+
+        ART["Artifact Manager
+        build history
+        install status
+        public distribution
+        enrollment lifecycle"]
+    end
+
+
+    %% =========================================================
+    %% ANDROID FLEET
+    %% =========================================================
+    subgraph FLEET["ANDROID FLEET · KOTLIN AGENT"]
+
+        AG["Android Agent
+        Kotlin · OkHttp WebSocket
+        foreground execution
+        watchdog · FCM wake"]
+
+        PRIV["Execution / Privilege Paths
+        Accessibility
+        Device Admin
+        Shizuku / ADB
+        Local / USB / LAN transports"]
+
+        RUNTIME["On-Device Runtime
+        Termux · PRoot · QEMU
+        Python Task SDK · OCR"]
+
+        CONTROL["Device Control
+        screen · input
+        camera · microphone
+        location · IR
+        WebRTC / HVNC"]
+
+        MODULES["Telemetry & Optional Modules
+        input tracking
+        keyboard watcher
+        notifications
+        screen reader
+        timeline · logs
+        shell / privileged modules"]
+    end
+
+
+    %% =========================================================
+    %% CLIENT → SERVER
+    %% =========================================================
+
+    SPA --> NGX
+
+    NGX -->|"HTTPS /api/*"| HTTP
+    NGX <-->|"WSS"| WSD
+
+    PUBAPK -->|"HTTPS"| HTTP
+    TGBOT -->|"API / internal integration"| HTTP
+    AUTH --> HTTP
+
+
+    %% =========================================================
+    %% CONTROL PLANE
+    %% =========================================================
+
+    HTTP --> DOMAINS
+
+    WSD --> BUS
+
+    WSA --> DISP
+    DISP --> WSA
+    WSA --> BUS
+
+    ENROLL --> WSA
+
+    HOOKS --> DISP
+    TASKS --> DISP
+
+    WSCDP --> D3
+    WSRB --> D7
+
+    DISP --> TL
+    BUS --> TL
+
+
+    %% =========================================================
+    %% DATA
+    %% =========================================================
+
+    DOMAINS --> PG
+    TL --> PG
+
+    DISP <--> REDIS
+    BUS <--> REDIS
+
+    SERVICES --> PG
+    SERVICES <--> REDIS
+
+    HTTP --> SECRETS
+
+
+    %% =========================================================
+    %% SERVER ↔ AGENT
+    %% =========================================================
+
+    WSA <-->|"Persistent WSS
+    registration · heartbeat
+    commands · results · events"| AG
+
+    ENROLL -.->|"enrollment flow"| AG
+
+    AG --> PRIV
+    AG --> RUNTIME
+    AG --> CONTROL
+    AG --> MODULES
+
+
+    %% =========================================================
+    %% BUILD
+    %% =========================================================
+
+    SPA -.->|"build request"| GRADLE
+
+    GRADLE --> BINDER
+    TBOOT --> BINDER
+    BINDER --> ART
+
+    ART -.->|"install / enrollment"| AG
+
+
+    %% =========================================================
+    %% STYLES
+    %% =========================================================
+
+    classDef client fill:#61DAFB22,stroke:#61DAFB
+    classDef core fill:#00968822,stroke:#009688
+    classDef data fill:#4169E122,stroke:#4169E1
+    classDef fleet fill:#7F52FF22,stroke:#7F52FF
+    classDef build fill:#FF980022,stroke:#FF9800
+
+    class SPA,NGX,PUBAPK,TGBOT,AUTH client
+    class HTTP,WSD,WSA,WSCDP,WSRB,DISP,BUS,ENROLL,HOOKS,TASKS,TL,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10 core
+    class PG,REDIS,SERVICES,SECRETS data
+    class AG,PRIV,RUNTIME,CONTROL,MODULES fleet
+    class GRADLE,BINDER,TBOOT,ART build
 ```
 
 ---
