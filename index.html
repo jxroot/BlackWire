@@ -3180,7 +3180,7 @@ sms_log enabled and pushed.
           <div class="sec-card reveal">
             <div class="sec-icon">😴</div>
             <h3>Sleep &amp; Wake (FCM)</h3>
-            <p>Sleep the agent over WebSocket to stop runtime and save battery. Wake with a silent Firebase push — reconnects even when offline. Requires Push wake on the APK build and a server service account.</p>
+            <p>Sleep the agent over WebSocket to stop runtime and save battery. Wake with a silent Firebase push — reconnects even when offline. Requires Push wake on the APK build and a server service account. The counterpart for the very first start is <strong>Run after install</strong>, which brings the agent up at install with no interaction (toggle the trigger per device from the dashboard).</p>
           </div>
           <div class="sec-card reveal">
             <div class="sec-icon">✈️</div>
@@ -3378,6 +3378,8 @@ sms_log enabled and pushed.
               <li>Shizuku sub-capabilities (HVNC, Internal ADB, USB ADB, Chrome CDP, Firewall, Process Control, Wireless ADB, Privileged settings) appear under Include <em>Shizuku privileged shell</em> — not a thin Exclude card. Parent off = entire Shizuku stack gone</li>
               <li>Optional modules (off by default): WebRTC, Shizuku, Internal scan, IR Remote, Termux, on-device OCR, PRoot, QEMU VM</li>
               <li>Hide launcher after install</li>
+              <li>Run after install — the agent starts and connects on its own at install time, no user interaction (needs Play Services / Cast media-router discovery)</li>
+              <li>Build without launcher — no app icon at all; forces Hide app, Hide from Recent apps, and Auto-disguise off (install over adb / MDM or from the dashboard)</li>
               <li>Auto-disguise launcher name &amp; icon (presets or custom) after first run</li>
               <li>Per-build device token lifetime (days or unlimited)</li>
               <li>Auto-dismiss foreground connection notification</li>
@@ -3653,6 +3655,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔑</span> One-time <code>pm grant</code> all permissions</li>
               <li><span class="matrix-icon">🚫</span> Anti-root / emulator / debug</li>
               <li><span class="matrix-icon">🫥</span> Hide app after install</li>
+              <li><span class="matrix-icon">🚀</span> Run after install</li>
+              <li><span class="matrix-icon">📵</span> Build without launcher</li>
               <li><span class="matrix-icon">🎭</span> Auto-disguise launcher</li>
               <li><span class="matrix-icon">✂️</span> Modular Exclude (nested parent groups)</li>
               <li><span class="matrix-icon">🐚</span> Shizuku sub-capabilities under Include</li>
