@@ -1263,6 +1263,11 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
   border-color: rgba(59,130,246,0.2);
 }
 
+.matrix-group:nth-child(8) .matrix-group-icon {
+  background: rgba(6,182,212,0.12);
+  border-color: rgba(6,182,212,0.2);
+}
+
 .matrix-group ul {
   list-style: none;
 }
@@ -2143,7 +2148,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-value">Full · ADB</span>
+            <span class="stat-value">Full · ADB · Dropper</span>
             <span class="stat-label">Agent build types</span>
           </div>
         </div>
@@ -2224,7 +2229,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <span>📡</span> Internal ADB
         </div>
         <div class="floating-chip chip-3">
-          <span>📺</span> IR Remote
+          <span>🪶</span> Dropper ready
         </div>
       </div>
     </section>
@@ -2235,7 +2240,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="section-head reveal">
           <span class="section-tag">Platform Demo</span>
           <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
-          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, call recording &amp; one-time permission grant, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Now Playing, Data Usage, File Tracker + optional OCR, SOCKS5 proxy, Wi-Fi Direct share, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind with ABI strip), and more.</p>
+          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, call recording &amp; one-time permission grant, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Now Playing, Data Usage, File Tracker + optional OCR, SOCKS5 proxy, Wi-Fi Direct share, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind with ABI strip), Dropper bootstrap, and more.</p>
         </div>
 
         <div class="demo-showcase reveal">
@@ -2320,8 +2325,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🔌</div>
-            <h3>Full &amp; ADB Agents</h3>
-            <p>Build a Full agent (Shizuku wireless + Local ADB) or a light ADB bootstrap focused on local TCP shell, apps, files, controls, and Shell stream.</p>
+            <h3>Full · ADB · Dropper</h3>
+            <p>Three delivery paths — Full agent (Shizuku + Local ADB), light ADB bootstrap (local TCP shell), or a featherweight Dropper that fetches the real payload on install.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">📋</div>
@@ -3430,6 +3435,141 @@ sms_log enabled and pushed.
       </div>
     </section>
 
+    <!-- Dropper -->
+    <section class="section section-alt" id="dropper">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Dropper · Bootstrap</span>
+          <h2>Ship a tiny dropper<br /><span class="gradient-text">not the whole payload</span></h2>
+          <p>A brandable HTML/CSS/JS installer WebView that hands every sensitive action — VPN permission, download, ZIP extraction, APK install — to a native Kotlin layer. Deploy as <strong>UI mode</strong> with a custom wizard, or fully <strong>Headless</strong> with no UI at all. <code>minSdk 24</code> · <code>targetSdk 37</code> · Kotlin · Local VPN.</p>
+        </div>
+
+        <div class="split-layout reveal" style="margin-bottom:56px;">
+          <div class="split-content">
+            <ul class="check-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Controlled download</strong>
+                  <span>APK fetched only from a whitelisted host — Base64-encoded URL in <code>device-agent-config.json</code>.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Offline install from ZIP</strong>
+                  <span>Encrypted (password-protected) ZIP bundled inside <code>assets/</code> — no network needed at install time.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Local VPN quarantine</strong>
+                  <span>Device traffic locked to the whitelisted host during install; every other destination is dropped.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Custom WebView UI</strong>
+                  <span>Replace <code>wizard.html</code> / <code>index.html</code> in <code>assets/www/</code> — or point <code>entry_page</code> at a full remote URL.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>JS ↔ Android bridge</strong>
+                  <span><code>window.AndroidAgent</code> exposes install flow, config, haptics, toasts, clipboard, device info, and package checks.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Post-install routes</strong>
+                  <span>Success, error, cancel, relaunch — page, toast, JS callback, or open the target app directly.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Headless mode</strong>
+                  <span>Silent install with no dedicated background or webpage — <code>install_source</code> set to <code>download</code> or <code>local</code>.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Cache install</strong>
+                  <span><code>use_cache=true</code> reuses the previously downloaded APK — no re-download on repeat installs.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>CI/CD build script</strong>
+                  <span><code>build.ps1</code> injects config, strips unused assets in headless mode, and outputs <code>dist/bootstrap-installer.apk</code>.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Relaunch handling</strong>
+                  <span>When the target app is already installed and the user reopens the dropper, route via <code>relaunch_action</code> — toast, close, open target, or callback.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="split-visual">
+            <div class="feature-grid" style="grid-template-columns:1fr;">
+              <article class="feature-card reveal">
+                <div class="feature-icon">🪶</div>
+                <h3>Featherweight APK</h3>
+                <p>Kotlin + WebView, minSdk 24, targetSdk 37. Build script strips unused assets in headless mode so the dropper stays tiny.</p>
+              </article>
+              <article class="feature-card reveal">
+                <div class="feature-icon">🎨</div>
+                <h3>Brandable UI</h3>
+                <p>Every page lives in <code>assets/www/</code>. Ship a custom wizard, a branded remote UI, or nothing at all in headless mode.</p>
+              </article>
+              <article class="feature-card reveal">
+                <div class="feature-icon">🛡️</div>
+                <h3>Network Quarantine</h3>
+                <p>Local VPN drops traffic outside <code>allowed_host</code> during install — no side-channel leaks while the payload lands on the device.</p>
+              </article>
+              <article class="feature-card reveal">
+                <div class="feature-icon">📦</div>
+                <h3>Two Install Paths</h3>
+                <p><code>install_source = download</code> (fetch from server) or <code>local</code> (extract encrypted ZIP bundled in <code>assets/</code>).</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon">⚙️</div>
+            <h3>JSON Config</h3>
+            <p>One file — <code>installer</code>, <code>ui</code>, and <code>headless</code> sections. <code>build.ps1</code> populates it from CLI args at build time.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🔗</div>
+            <h3>AndroidAgent API</h3>
+            <p><code>onDownloadClicked</code>, <code>onLocalInstallClicked</code>, <code>promptVpnPermission</code>, <code>getDeviceInfo</code>, <code>vibrate</code>, <code>showToast</code>, and more.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📴</div>
+            <h3>Headless Install</h3>
+            <p>Zero UI when <code>headless.enabled=true</code>. Drive the whole flow silently with action config — perfect for MDM-delivered installs.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🚀</div>
+            <h3>CI/CD Ready</h3>
+            <p><code>build.ps1 -Headless -InstallSource local -ZipFilename … -TargetPackage … -RelaunchAction open_target_app</code> → optimized APK in <code>dist/</code>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- API -->
     <section class="section section-alt" id="api">
       <div class="container">
@@ -3540,6 +3680,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔋</span> Battery / RAM / storage</li>
               <li><span class="matrix-icon">🔨</span> Standalone APK builder (3-step: ABI, contents, permissions)</li>
               <li><span class="matrix-icon">📦</span> Bind APK / XAPK / APKM</li>
+              <li><span class="matrix-icon">🪶</span> Dropper bootstrap builder</li>
               <li><span class="matrix-icon">✅</span> APK compatibility requests</li>
               <li><span class="matrix-icon">📋</span> Build history & tracking</li>
               <li><span class="matrix-icon">📋</span> Command queue</li>
@@ -3583,6 +3724,27 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">✈️</span> System toggles & controls</li>
               <li><span class="matrix-icon">😴</span> Sleep &amp; FCM Wake</li>
               <li><span class="matrix-icon">👑</span> Device Admin actions</li>
+            </ul>
+          </div>
+          <div class="matrix-group">
+            <h4><span class="matrix-group-icon">🪶</span> Dropper</h4>
+            <ul>
+              <li><span class="matrix-icon">🪶</span> Featherweight Kotlin APK</li>
+              <li><span class="matrix-icon">🎨</span> Brandable WebView UI</li>
+              <li><span class="matrix-icon">🛡️</span> Local VPN network quarantine</li>
+              <li><span class="matrix-icon">📥</span> Controlled download (whitelisted host)</li>
+              <li><span class="matrix-icon">📦</span> Offline install from encrypted ZIP</li>
+              <li><span class="matrix-icon">🔐</span> Password-protected ZIP in assets/</li>
+              <li><span class="matrix-icon">🪄</span> wizard.html / index.html / remote URL entry</li>
+              <li><span class="matrix-icon">🔗</span> window.AndroidAgent JS bridge</li>
+              <li><span class="matrix-icon">⚙️</span> device-agent-config.json (installer · ui · headless)</li>
+              <li><span class="matrix-icon">📴</span> Headless silent install</li>
+              <li><span class="matrix-icon">🚀</span> build.ps1 CI/CD pipeline</li>
+              <li><span class="matrix-icon">🔀</span> post_action_type / cancel_action_type routes</li>
+              <li><span class="matrix-icon">🔁</span> relaunch_action handling</li>
+              <li><span class="matrix-icon">💾</span> use_cache reinstall without re-download</li>
+              <li><span class="matrix-icon">🧩</span> isPackageInstalled / isUpdateCached checks</li>
+              <li><span class="matrix-icon">📳</span> vibrate · showToast · copyToClipboard</li>
             </ul>
           </div>
           <div class="matrix-group">
@@ -3648,6 +3810,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔍</span> Session smart signals</li>
               <li><span class="matrix-icon">🔗</span> Public APK download pages</li>
               <li><span class="matrix-icon">📱</span> Full &amp; ADB agent builds</li>
+              <li><span class="matrix-icon">🪶</span> Dropper / bootstrap builds</li>
               <li><span class="matrix-icon">🖥️</span> HVNC / Shell stream</li>
               <li><span class="matrix-icon">🖥️</span> OLED panel blank</li>
               <li><span class="matrix-icon">🔇</span> Device speaker mute</li>
@@ -3748,9 +3911,27 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
         <div class="section-head reveal">
           <span class="section-tag">Tech Stack</span>
           <h2>Built with <span class="gradient-text">modern tech</span></h2>
-          <p>Three layers. One connection. From headless agents to your command dashboard.</p>
+          <p>Three layers. One connection. From headless agents to your command dashboard — plus a featherweight dropper in front.</p>
         </div>
         <div class="layer-strip reveal">
+          <div class="layer-card">
+            <span class="layer-badge">Layer 0</span>
+            <div class="layer-icon">🪶</div>
+            <h3>Dropper (Optional)</h3>
+            <p class="layer-tech">Kotlin · WebView · Local VPN · JSON config · build.ps1</p>
+            <ul class="layer-tags">
+              <li>🪶 Kotlin</li>
+              <li>🖼️ WebView</li>
+              <li>🛡️ Local VPN</li>
+              <li>📥 Controlled download</li>
+              <li>📦 ZIP install</li>
+              <li>📴 Headless mode</li>
+            </ul>
+          </div>
+          <div class="layer-arrow" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Drops payload</span>
+          </div>
           <div class="layer-card">
             <span class="layer-badge">Layer 1</span>
             <div class="layer-icon">📱</div>
@@ -3856,6 +4037,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <ul class="pricing-features">
               <li>Full dashboard & remote control</li>
               <li>Full &amp; ADB agent builds (Shizuku + Local ADB)</li>
+              <li>Dropper / Bootstrap builder (UI + Headless modes)</li>
               <li>Internal &amp; USB ADB · IR remote · pop-out device panels</li>
               <li>Remote Browser, SOCKS5, WebView, Wi-Fi Direct, Now Playing, Data Usage</li>
               <li>Sleep agent &amp; wake with Firebase push (FCM)</li>
