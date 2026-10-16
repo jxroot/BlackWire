@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="BlackWire — Remote Android device management. Full and ADB agent builds, Shizuku wireless pair + Local TCP ADB, call recording & one-time pm grant, Internal & USB ADB, Shell stream & HVNC (H.264), IR remote, Now Playing, Data Usage, remote APK install, on-device OCR (optional Tesseract), File Tracker, SOCKS5 proxy, Wi-Fi Direct share, full-screen WebView, FCM Sleep/Wake, AI assistant, Telegram bot, APK/XAPK/APKM bind with ABI strip and host icon, Termux, Python tasks & hooks, multi-user RBAC, and a full web dashboard." />
+  <meta name="description" content="BlackWire — Remote Android device management. Full, ADB, and Orbit NDK (liborbit.so) builds; dashboard Dropper bootstrap with custom launcher name and icon; Shizuku wireless pair + Local TCP ADB; Orbit Shell over /ws/orbit; call recording & one-time pm grant; Internal & USB ADB; Shell stream & HVNC (H.264); IR remote; Now Playing; Data Usage; remote APK install; on-device OCR (optional Tesseract); File Tracker; SOCKS5 proxy; Wi-Fi Direct share; full-screen WebView; FCM Sleep/Wake; AI assistant; Telegram bot; APK/XAPK/APKM bind with ABI strip and host icon; Termux; Python tasks & hooks; multi-user RBAC; and a full web dashboard." />
   <title>BlackWire — Silent link. Full control.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2126,8 +2126,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <p class="hero-desc reveal">
           Web dashboard, FastAPI backend, and headless Android agents —
           <strong>Full</strong> (Shizuku wireless pair + Local ADB) or lightweight <strong>ADB</strong> (classic local TCP shell).
-          Build standalone APKs or bind into host APK, XAPK, and APKM bundles —
-          Shell stream / HVNC, call recording (both sides → timeline), one-time <code>pm grant</code> for all permissions, Internal &amp; USB ADB, IR remote, Now Playing, Data Usage, remote APK install, optional on-device OCR, SOCKS5 proxy, Wi-Fi Direct share, WebView, FCM Sleep/Wake, AI operator, Telegram bot, Device Admin, Termux, and Python automation.
+          Build standalone APKs, compile Orbit NDK workers (<code>liborbit.so</code>), brand Dropper launchers from the panel, or bind into host APK, XAPK, and APKM bundles —
+          Orbit Shell, Shell stream / HVNC, call recording (both sides → timeline), one-time <code>pm grant</code> for all permissions, Internal &amp; USB ADB, IR remote, Now Playing, Data Usage, remote APK install, optional on-device OCR, SOCKS5 proxy, Wi-Fi Direct share, WebView, FCM Sleep/Wake, AI operator, Telegram bot, Device Admin, Termux, and Python automation.
         </p>
         <div class="hero-actions reveal">
           <a href="#features" class="btn btn-primary btn-lg">
@@ -2148,8 +2148,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-value">Full · ADB · Dropper</span>
-            <span class="stat-label">Agent build types</span>
+            <span class="stat-value">Full · ADB · Orbit · Dropper</span>
+            <span class="stat-label">Delivery &amp; build paths</span>
           </div>
         </div>
       </div>
@@ -2226,10 +2226,10 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           <span>🔋</span> Battery 87%
         </div>
         <div class="floating-chip chip-2">
-          <span>📡</span> Internal ADB
+          <span>🛰️</span> Orbit Shell
         </div>
         <div class="floating-chip chip-3">
-          <span>🪶</span> Dropper ready
+          <span>🪶</span> Branded dropper
         </div>
       </div>
     </section>
@@ -2240,7 +2240,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
         <div class="section-head reveal">
           <span class="section-tag">Platform Demo</span>
           <h2>See BlackWire<br /><span class="gradient-text">in action</span></h2>
-          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, call recording &amp; one-time permission grant, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Now Playing, Data Usage, File Tracker + optional OCR, SOCKS5 proxy, Wi-Fi Direct share, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, APK/XAPK/APKM bind with ABI strip), Dropper bootstrap, and more.</p>
+          <p>Full platform walkthrough — dashboard, AI operator, Shizuku + Local ADB, Orbit Shell (<code>/ws/orbit</code>), call recording &amp; one-time permission grant, Internal &amp; USB ADB, Shell stream / HVNC, IR remote, Now Playing, Data Usage, File Tracker + optional OCR, SOCKS5 proxy, Wi-Fi Direct share, Remote Browser &amp; full-screen WebView, Sleep/Wake push, Telegram bot, automation, Termux, Build Center (Full &amp; ADB agents, Orbit NDK, branded Dropper, APK/XAPK/APKM bind with ABI strip), and more.</p>
         </div>
 
         <div class="demo-showcase reveal">
@@ -2325,8 +2325,13 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🔌</div>
-            <h3>Full · ADB · Dropper</h3>
-            <p>Three delivery paths — Full agent (Shizuku + Local ADB), light ADB bootstrap (local TCP shell), or a featherweight Dropper that fetches the real payload on install.</p>
+            <h3>Full · ADB · Orbit · Dropper</h3>
+            <p>Four delivery paths — Full agent (Shizuku + Local ADB), light ADB bootstrap, standalone Orbit NDK (<code>liborbit.so</code> with baked enroll config), or a featherweight Dropper that fetches the real payload on install.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🛰️</div>
+            <h3>Orbit Shell</h3>
+            <p>Privileged shell over <code>/ws/orbit</code> — xterm in the dashboard, Start/Stop from the device panel, deploy to <code>/data/local/tmp</code>, auto-reconnect, and attach credentials from a Full agent when needed.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">📋</div>
@@ -2404,7 +2409,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
             </div>
             <div class="remote-info">
               <h3>💻 Terminal & File Manager</h3>
-              <p>Device Shell (uid=2000 when privileged), Termux Linux on Full builds, Local ADB / Shizuku shell, file transfer, image preview with zoom and rotate, and app install on Full or ADB agents.</p>
+              <p>Device Shell (uid=2000 when privileged), Orbit Shell (native worker), Termux Linux on Full builds, Local ADB / Shizuku shell, file transfer, image preview with zoom and rotate, and app install on Full or ADB agents.</p>
             </div>
           </div>
           <div class="remote-card reveal" data-accent="emerald">
@@ -3277,7 +3282,7 @@ sms_log enabled and pushed.
         <div class="section-head reveal">
           <span class="section-tag">Build Center</span>
           <h2>Standalone APK or<br /><span class="gradient-text">bind into any host app</span></h2>
-          <p>Configure and build from the dashboard — no Android Studio. Merge the agent into games and apps via APK, XAPK, or APKM upload with cancelable uploads and background jobs.</p>
+          <p>Configure and build from the dashboard — no Android Studio. Standalone Full/ADB APKs, Orbit NDK workers, branded Dropper installers, or merge the agent into games and apps via APK, XAPK, or APKM upload with cancelable uploads and background jobs.</p>
         </div>
 
         <div class="build-modes reveal">
@@ -3290,6 +3295,11 @@ sms_log enabled and pushed.
             <span class="build-mode-label">ADB agent</span>
             <h3>Local TCP bootstrap</h3>
             <p>Light APK — Local ADB shell, apps (pm install options), files, controls, Shell stream / HVNC. No Wireless Debugging.</p>
+          </div>
+          <div class="build-mode-card">
+            <span class="build-mode-label">Orbit NDK</span>
+            <h3>liborbit.so worker</h3>
+            <p>Native-only build — AES-GCM baked server URL, build ID, enrollment key, and fingerprint. Download per ABI, push to <code>/data/local/tmp</code>, enroll and connect on <code>/ws/orbit</code> without a Full APK.</p>
           </div>
           <div class="build-mode-card build-mode-card-accent">
             <span class="build-mode-label">Bind</span>
@@ -3441,12 +3451,26 @@ sms_log enabled and pushed.
         <div class="section-head reveal">
           <span class="section-tag">Dropper · Bootstrap</span>
           <h2>Ship a tiny dropper<br /><span class="gradient-text">not the whole payload</span></h2>
-          <p>A brandable HTML/CSS/JS installer WebView that hands every sensitive action — VPN permission, download, ZIP extraction, APK install — to a native Kotlin layer. Deploy as <strong>UI mode</strong> with a custom wizard, or fully <strong>Headless</strong> with no UI at all. <code>minSdk 24</code> · <code>targetSdk 37</code> · Kotlin · Local VPN.</p>
+          <p>A brandable HTML/CSS/JS installer WebView that hands every sensitive action — VPN permission, download, ZIP extraction, APK install — to a native Kotlin layer. Build from the dashboard (launcher <strong>app name</strong> and <strong>icon</strong>, payload URL or offline ZIP, UI or headless) or via <code>build.ps1</code>. <code>minSdk 24</code> · <code>targetSdk 37</code> · Kotlin · Local VPN.</p>
         </div>
 
         <div class="split-layout reveal" style="margin-bottom:56px;">
           <div class="split-content">
             <ul class="check-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Dashboard dropper builder</strong>
+                  <span>Stepped Build Center flow — target package, remote or bundled payload, WebView entry URL, signing, build history, and APK download.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Launcher branding</strong>
+                  <span>Custom <code>appDisplayName</code> (up to 40 chars) and optional PNG launcher icon baked into the dropper APK — same idea as standalone agent builds.</span>
+                </div>
+              </li>
               <li>
                 <span class="check-icon">✓</span>
                 <div>
@@ -3529,7 +3553,7 @@ sms_log enabled and pushed.
               <article class="feature-card reveal">
                 <div class="feature-icon">🎨</div>
                 <h3>Brandable UI</h3>
-                <p>Every page lives in <code>assets/www/</code>. Ship a custom wizard, a branded remote UI, or nothing at all in headless mode.</p>
+                <p>Every page lives in <code>assets/www/</code>. Set launcher name and icon in the panel; ship a custom wizard, a branded remote UI, or nothing at all in headless mode.</p>
               </article>
               <article class="feature-card reveal">
                 <div class="feature-icon">🛡️</div>
@@ -3549,7 +3573,7 @@ sms_log enabled and pushed.
           <article class="feature-card reveal">
             <div class="feature-icon">⚙️</div>
             <h3>JSON Config</h3>
-            <p>One file — <code>installer</code>, <code>ui</code>, and <code>headless</code> sections. <code>build.ps1</code> populates it from CLI args at build time.</p>
+            <p>One file — <code>installer</code>, <code>ui</code>, and <code>headless</code> sections. The dashboard builder writes it for Gradle; <code>build.ps1</code> remains for CLI/CI.</p>
           </article>
           <article class="feature-card reveal">
             <div class="feature-icon">🔗</div>
@@ -3624,7 +3648,9 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
                 <li><code>/api/devices/{id}/actions/hibernate</code> — sleep agent until Wake</li>
                 <li><code>/api/devices/{id}/actions/wake</code> — FCM push to reconnect</li>
                 <li><code>/api/tasks</code> & <code>/api/hooks</code> — automation CRUD & runs</li>
-                <li><code>/api/builds</code> — standalone APK builds & bind jobs</li>
+                <li><code>/api/builds</code> — standalone APK, Orbit NDK, and bind jobs</li>
+                <li><code>/api/builds/dropper</code> — dashboard Dropper installer builds</li>
+                <li><code>/api/orbit/*</code> — status, start/stop worker, shell exec</li>
                 <li><code>/api/apk-requests</code> — host APK compatibility review workflow</li>
                 <li><code>/api/devices/{id}/command-queue</code> — queued one-time commands</li>
                 <li><code>/api/devices/{id}/accessibility-scripts</code> — on-device automation</li>
@@ -3648,6 +3674,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <ul class="auto-list">
                 <li><code>/ws/dashboard</code> — live device status, events, command results</li>
                 <li><code>/ws/device</code> — agent connection, heartbeat, remote commands</li>
+                <li><code>/ws/orbit</code> — Orbit worker shell session (privileged exec)</li>
                 <li>Termux output, module sync, and bootstrap progress streams</li>
                 <li>Keyboard watcher batches and accessibility script live events</li>
                 <li>WebRTC signaling for optional screen streaming</li>
@@ -3680,7 +3707,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔋</span> Battery / RAM / storage</li>
               <li><span class="matrix-icon">🔨</span> Standalone APK builder (3-step: ABI, contents, permissions)</li>
               <li><span class="matrix-icon">📦</span> Bind APK / XAPK / APKM</li>
-              <li><span class="matrix-icon">🪶</span> Dropper bootstrap builder</li>
+              <li><span class="matrix-icon">🪶</span> Dropper bootstrap builder (name + icon)</li>
+              <li><span class="matrix-icon">🛰️</span> Orbit NDK (<code>liborbit.so</code>) builds</li>
               <li><span class="matrix-icon">✅</span> APK compatibility requests</li>
               <li><span class="matrix-icon">📋</span> Build history & tracking</li>
               <li><span class="matrix-icon">📋</span> Command queue</li>
@@ -3706,6 +3734,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">📞</span> Call recording (both sides → timeline)</li>
               <li><span class="matrix-icon">📁</span> File manager + zoom/rotate preview</li>
               <li><span class="matrix-icon">💻</span> Remote shell</li>
+              <li><span class="matrix-icon">🛰️</span> Orbit Shell (xterm · <code>/ws/orbit</code>)</li>
               <li><span class="matrix-icon">💻</span> Device Shell terminal</li>
               <li><span class="matrix-icon">🐧</span> Termux Linux terminal</li>
               <li><span class="matrix-icon">🐧</span> PRoot (include at build, distro on device)</li>
@@ -3730,6 +3759,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <h4><span class="matrix-group-icon">🪶</span> Dropper</h4>
             <ul>
               <li><span class="matrix-icon">🪶</span> Featherweight Kotlin APK</li>
+              <li><span class="matrix-icon">🏷️</span> Custom launcher name &amp; icon</li>
               <li><span class="matrix-icon">🎨</span> Brandable WebView UI</li>
               <li><span class="matrix-icon">🛡️</span> Local VPN network quarantine</li>
               <li><span class="matrix-icon">📥</span> Controlled download (whitelisted host)</li>
@@ -3810,6 +3840,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
               <li><span class="matrix-icon">🔍</span> Session smart signals</li>
               <li><span class="matrix-icon">🔗</span> Public APK download pages</li>
               <li><span class="matrix-icon">📱</span> Full &amp; ADB agent builds</li>
+              <li><span class="matrix-icon">🛰️</span> Orbit NDK worker builds</li>
               <li><span class="matrix-icon">🪶</span> Dropper / bootstrap builds</li>
               <li><span class="matrix-icon">🖥️</span> HVNC / Shell stream</li>
               <li><span class="matrix-icon">🖥️</span> OLED panel blank</li>
@@ -3911,16 +3942,17 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
         <div class="section-head reveal">
           <span class="section-tag">Tech Stack</span>
           <h2>Built with <span class="gradient-text">modern tech</span></h2>
-          <p>Three layers. One connection. From headless agents to your command dashboard — plus a featherweight dropper in front.</p>
+          <p>Three layers. One connection. From headless agents and Orbit workers to your command dashboard — plus an optional branded dropper in front.</p>
         </div>
         <div class="layer-strip reveal">
           <div class="layer-card">
             <span class="layer-badge">Layer 0</span>
             <div class="layer-icon">🪶</div>
             <h3>Dropper (Optional)</h3>
-            <p class="layer-tech">Kotlin · WebView · Local VPN · JSON config · build.ps1</p>
+            <p class="layer-tech">Kotlin · WebView · Local VPN · Build Center · JSON config</p>
             <ul class="layer-tags">
               <li>🪶 Kotlin</li>
+              <li>🏷️ Launcher branding</li>
               <li>🖼️ WebView</li>
               <li>🛡️ Local VPN</li>
               <li>📥 Controlled download</li>
@@ -3936,9 +3968,10 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <span class="layer-badge">Layer 1</span>
             <div class="layer-icon">📱</div>
             <h3>Android Agents</h3>
-            <p class="layer-tech">Kotlin · WebSocket · Shizuku · Local ADB · WebRTC · Tesseract · IR</p>
+            <p class="layer-tech">Kotlin · C++ Orbit · WebSocket · Shizuku · Local ADB · WebRTC · Tesseract · IR</p>
             <ul class="layer-tags">
               <li>🟣 Kotlin</li>
+              <li>🛰️ Orbit NDK</li>
               <li>🔌 WebSocket</li>
               <li>👻 Headless</li>
               <li>🐚 Shizuku</li>
@@ -4037,7 +4070,8 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <ul class="pricing-features">
               <li>Full dashboard & remote control</li>
               <li>Full &amp; ADB agent builds (Shizuku + Local ADB)</li>
-              <li>Dropper / Bootstrap builder (UI + Headless modes)</li>
+              <li>Orbit NDK (<code>liborbit.so</code>) &amp; Orbit Shell</li>
+              <li>Dropper builder — UI + Headless, custom launcher name &amp; icon</li>
               <li>Internal &amp; USB ADB · IR remote · pop-out device panels</li>
               <li>Remote Browser, SOCKS5, WebView, Wi-Fi Direct, Now Playing, Data Usage</li>
               <li>Sleep agent &amp; wake with Firebase push (FCM)</li>
