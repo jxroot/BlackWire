@@ -3238,6 +3238,16 @@ sms_log enabled and pushed.
             <p>Optional Tesseract module (Persian + English). Off by default so the APK stays light — enable in Optional modules to OCR gallery and file images on the phone.</p>
           </div>
           <div class="sec-card reveal">
+            <div class="sec-icon">🔍</div>
+            <h3>Default App &amp; Handler Inspector</h3>
+            <p>Optional module that scans the device for default apps, Android role holders (Browser, Dialer, SMS, Home, Assistant…), intent handlers across 27+ probes, and system-settings navigation links — one JSON report, off by default.</p>
+          </div>
+          <div class="sec-card reveal">
+            <div class="sec-icon">🧩</div>
+            <h3>DEX Runner</h3>
+            <p>Optional module that compiles Kotlin server-side and runs it on the device in an isolated <code>:dexrunner</code> process. A crash, <code>System.exit</code>, native abort, or an infinite loop only kills that runner process — never the agent. Off by default.</p>
+          </div>
+          <div class="sec-card reveal">
             <div class="sec-icon">🔒</div>
             <h3>Anti-Detection</h3>
             <p>Root, emulator, and debugger detection.</p>
@@ -3337,6 +3347,8 @@ sms_log enabled and pushed.
                   <div class="toggle"><span></span> WebRTC</div>
                   <div class="toggle"><span></span> On-device OCR</div>
                   <div class="toggle"><span></span> IR Remote</div>
+                  <div class="toggle"><span></span> Default App &amp; Handler Inspector</div>
+                  <div class="toggle"><span></span> DEX Runner</div>
                   <div class="toggle active"><span></span> Push wake</div>
                 </div>
                 <div class="builder-btn">Download bound APK / XAPK / APKM</div>
@@ -3360,7 +3372,7 @@ sms_log enabled and pushed.
               <li>Concurrent bootstrap build + bind jobs</li>
               <li>Output as .apk, .xapk, or .apkm matching the host bundle format</li>
               <li>APK compatibility requests — submit for admin approve/reject before bind</li>
-              <li>Optional modules stay off by default: Device Admin, Anti Kill, Shizuku privileged shell (nested sub-capabilities under the Include toggle), WebRTC, Internal scan, IR Remote, Termux, on-device OCR, PRoot, and QEMU VM</li>
+              <li>Optional modules stay off by default: Device Admin, Anti Kill, Shizuku privileged shell (nested sub-capabilities under the Include toggle), WebRTC, Internal scan, IR Remote, Termux, on-device OCR, PRoot, QEMU VM, Default App &amp; Handler Inspector, and DEX Runner</li>
               <li>Modular Exclude: parent groups with nested sub-capabilities — Accessibility, Notification Access, Usage Access, and Browse &amp; Proxy (Remote Browser, SOCKS proxy, Wi-Fi Share). Permission IDs match Custom install permissions except Notifications and Battery</li>
               <li>PRoot / QEMU: include the capability at bind time only — distro, rootfs, QEMU profile, VM defaults, and payload (binary + kernel) are set from the device panel after install</li>
               <li>Optional Firebase Push wake (FCM) for Sleep / Wake from the dashboard</li>
@@ -3391,7 +3403,7 @@ sms_log enabled and pushed.
               <li>Custom app name, icon, and package name</li>
               <li>Modular Exclude: parent groups with nested sub-capabilities — Accessibility, Notification Access, Usage Access, and Browse &amp; Proxy (Remote Browser, SOCKS proxy, Wi-Fi Share). Permission IDs match Custom install permissions except Notifications and Battery</li>
               <li>Shizuku sub-capabilities (HVNC, Internal ADB, USB ADB, Chrome CDP, Firewall, Process Control, Wireless ADB, Privileged settings) appear under Include <em>Shizuku privileged shell</em> — not a thin Exclude card. Parent off = entire Shizuku stack gone</li>
-              <li>Optional modules (off by default): WebRTC, Shizuku, Internal scan, IR Remote, Termux, on-device OCR, PRoot, QEMU VM</li>
+              <li>Optional modules (off by default): WebRTC, Shizuku, Internal scan, IR Remote, Termux, on-device OCR, PRoot, QEMU VM, Default App &amp; Handler Inspector, DEX Runner</li>
               <li>Hide launcher after install</li>
               <li>Run after install — the agent starts and connects on its own at install time, no user interaction (needs Play Services / Cast media-router discovery)</li>
               <li>Build without launcher — no app icon at all; forces Hide app, Hide from Recent apps, and Auto-disguise off (install over adb / MDM or from the dashboard)</li>
@@ -3432,6 +3444,8 @@ sms_log enabled and pushed.
                   <div class="toggle"><span></span> HVNC Stream</div>
                   <div class="toggle"><span></span> PRoot</div>
                   <div class="toggle"><span></span> QEMU VM</div>
+                  <div class="toggle"><span></span> Default App &amp; Handler Inspector</div>
+                  <div class="toggle"><span></span> DEX Runner</div>
                 </div>
                 <div class="form-field">
                   <label>3 · Permissions at install</label>
