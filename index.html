@@ -2756,6 +2756,13 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
               <li>
                 <span class="check-icon">✓</span>
                 <div>
+                  <strong>Data SMS</strong>
+                  <span>Send and receive binary port-addressed SMS. Requires SMS to be included in the build.</span>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
                   <strong>Contacts & Calls</strong>
                   <span>Contact list and call history</span>
                 </div>
@@ -2910,6 +2917,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
               <span class="hook-chip">notification_posted</span>
               <span class="hook-chip">app_switch</span>
               <span class="hook-chip">sms_received</span>
+              <span class="hook-chip">data_sms_received</span>
               <span class="hook-chip">call_recording_saved</span>
               <span class="hook-chip">device_online</span>
               <span class="hook-chip">battery_low</span>
@@ -3810,6 +3818,7 @@ ws://host/ws/dashboard?token=$TOKEN</code></pre>
             <h4><span class="matrix-group-icon">💬</span> Communications</h4>
             <ul>
               <li><span class="matrix-icon">✉️</span> SMS read & send</li>
+              <li><span class="matrix-icon">📟</span> Data SMS (binary & port-addressed)</li>
               <li><span class="matrix-icon">👥</span> Contacts & call logs</li>
               <li><span class="matrix-icon">📞</span> Call recording + <code>call_recording_saved</code> hook</li>
               <li><span class="matrix-icon">🔔</span> Notification logging</li>
